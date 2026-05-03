@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUSWE SU800/900 — Configurador Modbus</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ══════════════════════ SIDEBAR ══════════════════════ -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="1" y="3" width="12" height="8" rx="1" stroke="#fff" stroke-width="1.2"/>
+            <path d="M4 3V2M7 3V2M10 3V2" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M4 7h6M4 9.5h4" stroke="#fff" stroke-width="1" stroke-linecap="round" opacity=".7"/>
+          </svg>
+        </div>
+        <span class="sidebar-title">SUSWE</span>
+      </div>
+      <div class="sidebar-model">SU800 / SU900 Series</div>
+    </div>
+
+    <div class="nav-section">Conexión</div>
+    <div class="nav-item active" onclick="showPanel('dashboard', this)">
+      <span class="nav-item-dot"></span>⬡ Dashboard
+    </div>
+    <div class="nav-item" onclick="showPanel('conn', this)">
+      <span class="nav-item-dot"></span>Configurar conexión
+    </div>
+
+    <div class="nav-section">Parámetros</div>
+    <div class="nav-item" onclick="showPanel('p0', this)">
+      <span class="nav-item-dot"></span>P0 — Operativos básicos
+    </div>
+    <div class="nav-item" onclick="showPanel('p1', this)">
+      <span class="nav-item-dot"></span>P1 — Motor
+    </div>
+    <div class="nav-item" onclick="showPanel('p2', this)">
+      <span class="nav-item-dot"></span>P2 — Control vectorial
+    </div>
+    <div class="nav-item" onclick="showPanel('p3', this)">
+      <span class="nav-item-dot"></span>P3 — Control V/F
+    </div>
+    <div class="nav-item" onclick="showPanel('p4', this)">
+      <span class="nav-item-dot"></span>P4 — Entradas digitales
+    </div>
+    <div class="nav-item" onclick="showPanel('p5', this)">
+      <span class="nav-item-dot"></span>P5 — Salidas digitales
+    </div>
+    <div class="nav-item" onclick="showPanel('p6', this)">
+      <span class="nav-item-dot"></span>P6 — Arranque / Parada
+    </div>
+    <div class="nav-item" onclick="showPanel('pd', this)">
+      <span class="nav-item-dot"></span>PD — Comunicación
+    </div>
+
+    <div class="nav-section">Operación</div>
+    <div class="nav-item" onclick="showPanel('control', this)">
+      <span class="nav-item-dot"></span>Control & Comando
+    </div>
+    <div class="nav-item" onclick="showPanel('monitor', this)">
+      <span class="nav-item-dot"></span>Monitor en tiempo real
+    </div>
+    <div class="nav-item" onclick="showPanel('faults', this)">
+      <span class="nav-item-dot"></span>Diagnóstico / Alarmas
+    </div>
+
+    <div class="nav-section">Perfiles</div>
+    <div class="nav-item" onclick="showPanel('profiles', this)">
+      <span class="nav-item-dot"></span>Perfiles de config.
+    </div>
+
+    <div class="nav-section">Info</div>
+    <div class="nav-item" onclick="showPanel('about', this)">
+      <span class="nav-item-dot"></span>Acerca del diseñador
+    </div>
+
+    <div class="conn-status">
+      <span class="status-dot" id="statusDot"></span>
+      <span class="status-text" id="statusText">Desconectado</span>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════ MAIN ══════════════════════ -->
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-title" id="panelTitle">Dashboard</div>
+      <span class="topbar-badge" id="transportBadge">—</span>
+      <button class="btn" onclick="readAll()">↓ Leer todo</button>
+      <button class="btn btn-primary" onclick="writeAll()">↑ Escribir todo</button>
+    </div>
+
+    <div class="content">
+
+      <!-- ─── PANEL: DASHBOARD ─── -->
+      <div class="section-panel active" id="panel-dashboard">
+
+        <!-- Barra de estado del variador -->
+        <div class="dash-status-bar" id="dashStatusBar">
+          <div class="dash-status-item">
+            <span class="dash-status-label">ESTADO</span>
+            <span class="dash-status-val" id="dashRunVal">—</span>
+          </div>
+          <div class="dash-status-sep"></div>
+          <div class="dash-status-item">
+            <span class="dash-status-label">DIRECCIÓN</span>
+            <span class="dash-status-val" id="dashDirVal">—</span>
+          </div>
+          <div class="dash-status-sep"></div>
+          <div class="dash-status-item">
+            <span class="dash-status-label">FALLA ACTIVA</span>
+            <span class="dash-status-val" id="dashFaultVal">—</span>
+          </div>
+          <div class="dash-status-sep"></div>
+          <div class="dash-status-item">
+            <span class="dash-status-label">ÚLTIMO POLL</span>
+            <span class="dash-status-val" id="dashPollVal">—</span>
+          </div>
+          <button class="btn btn-sm dash-refresh-btn" onclick="dashRefresh()">↺ Actualizar</button>
+        </div>
+
+        <!-- Grid principal -->
+        <div class="dash-grid">
+
+          <!-- COL 1: Controles rápidos -->
+          <div class="dash-col">
+
+            <!-- Tarjeta: Control de marcha -->
+            <div class="dash-card dash-card-control">
+              <div class="dash-card-title">
+                <span class="dash-card-icon">⚡</span>Control de marcha
+              </div>
+              <div class="dash-run-indicator">
+                <div class="dash-run-led" id="dashRunLed"></div>
+                <span id="dashRunLabel">Detenido</span>
+              </div>
+              <div class="dash-ctrl-btns">
+                <button class="dash-btn dash-btn-run" onclick="dashCmd('RUN_FORWARD')">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="3,2 12,7 3,12" fill="currentColor"/></svg>
+                  Marcha FWD
+                </button>
+                <button class="dash-btn dash-btn-run" onclick="dashCmd('RUN_REVERSE')">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="11,2 2,7 11,12" fill="currentColor"/></svg>
+                  Marcha REV
+                </button>
+                <button class="dash-btn dash-btn-stop" onclick="dashCmd('RAMP_STOP')">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="1" width="10" height="10" fill="currentColor" rx="1"/></svg>
+                  Paro rampa
+                </button>
+                <button class="dash-btn dash-btn-stop" onclick="dashCmd('FREE_STOP')">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="1" width="10" height="10" stroke="currentColor" stroke-width="1.5" rx="1"/></svg>
+                  Paro libre
+                </button>
+                <button class="dash-btn dash-btn-jog" onclick="dashCmd('JOG_FORWARD')">Jog FWD</button>
+                <button class="dash-btn dash-btn-jog" onclick="dashCmd('JOG_REVERSE')">Jog REV</button>
+                <button class="dash-btn dash-btn-fault" onclick="dashCmd('FAULT_RESET')">⚡ Reset falla</button>
+              </div>
+            </div>
+
+            <!-- Tarjeta: Consigna de frecuencia -->
+            <div class="dash-card">
+              <div class="dash-card-title">
+                <span class="dash-card-icon">〜</span>Consigna de frecuencia
+              </div>
+              <div class="dash-freq-display" id="dashFreqDisplay">0.0 <span class="dash-freq-unit">Hz</span></div>
+              <input type="range" class="dash-slider" id="dashFreqSlider" min="0" max="50" step="0.5" value="0"
+                oninput="dashUpdateFreq(this.value)">
+              <div class="dash-freq-meta">
+                <span class="dash-freq-hint">Máx:</span>
+                <input class="dash-freq-max-input" id="dashMaxFreq" type="number" value="50" min="5" max="320" step="1">
+                <span class="dash-freq-hint">Hz</span>
+              </div>
+              <div class="dash-freq-presets">
+                <button class="dash-preset-btn" onclick="dashSetPreset(10)">10Hz</button>
+                <button class="dash-preset-btn" onclick="dashSetPreset(25)">25Hz</button>
+                <button class="dash-preset-btn" onclick="dashSetPreset(30)">30Hz</button>
+                <button class="dash-preset-btn" onclick="dashSetPreset(50)">50Hz</button>
+                <button class="dash-preset-btn" onclick="dashSetPreset(0)">0Hz</button>
+              </div>
+              <button class="dash-btn-wide dash-btn-send" onclick="dashSendFreq()">Enviar frecuencia →</button>
+              <div class="dash-freq-note">Requiere P0-03 = 9 (fuente: comunicación)</div>
+            </div>
+
+            <!-- Tarjeta: Archivos de configuración -->
+            <div class="dash-card">
+              <div class="dash-card-title">
+                <span class="dash-card-icon">📁</span>Configuración
+              </div>
+              <div class="dash-file-btns">
+                <button class="dash-btn-wide dash-btn-file" onclick="dashReadAll()">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M3 6l3.5 3.5L10 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 11h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  Leer parámetros del variador
+                </button>
+                <button class="dash-btn-wide dash-btn-file" onclick="dashWriteAll()">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 9V1M3 4l3.5-3.5L10 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 11h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  Escribir parámetros al variador
+                </button>
+                <button class="dash-btn-wide dash-btn-save" onclick="dashSaveFile()">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="11" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/><rect x="3.5" y="1" width="6" height="3.5" rx=".5" stroke="currentColor" stroke-width="1.1"/><rect x="3" y="7" width="7" height="4" rx=".5" stroke="currentColor" stroke-width="1.1"/></svg>
+                  Guardar config. como JSON
+                </button>
+                <label class="dash-btn-wide dash-btn-load" style="cursor:pointer">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h3l1.5 1.5H11A1.5 1.5 0 0 1 12.5 5v5A1.5 1.5 0 0 1 11 11.5H2A1.5 1.5 0 0 1 .5 10V3.5Z" stroke="currentColor" stroke-width="1.2"/></svg>
+                  Abrir config. desde JSON
+                  <input type="file" accept=".json" style="display:none" onchange="dashLoadFile(this)">
+                </label>
+                <button class="dash-btn-wide dash-btn-save" onclick="dashSaveProfile()">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 4v3l2 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  Guardar perfil en memoria
+                </button>
+              </div>
+              <div id="dashFileStatus" class="dash-file-status"></div>
+            </div>
+
+          </div><!-- /col1 -->
+
+          <!-- COL 2: Monitor de parámetros clave -->
+          <div class="dash-col dash-col-wide">
+
+            <!-- Monitor en vivo -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div class="dash-card-title">
+                  <span class="dash-card-icon">◉</span>Monitor en tiempo real — U0
+                </div>
+                <div class="dash-card-actions">
+                  <button class="btn btn-sm btn-ok" id="dashMonStart" onclick="dashStartMonitor()">▶ Iniciar</button>
+                  <button class="btn btn-sm btn-danger" id="dashMonStop" onclick="dashStopMonitor()" disabled>■ Detener</button>
+                </div>
+              </div>
+              <div class="dash-monitor-grid" id="dashMonGrid"></div>
+            </div>
+
+            <!-- Parámetros clave configurados -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div class="dash-card-title">
+                  <span class="dash-card-icon">◈</span>Parámetros clave configurados
+                </div>
+                <button class="btn btn-sm" onclick="dashReadKeyParams()">↓ Leer</button>
+              </div>
+              <div class="dash-param-grid" id="dashParamGrid"></div>
+            </div>
+
+            <!-- Log del dashboard -->
+            <div class="dash-card dash-card-log">
+              <div class="dash-card-header">
+                <div class="dash-card-title">
+                  <span class="dash-card-icon">▸</span>Terminal
+                </div>
+                <button class="btn btn-sm" onclick="dashClearLog()">Limpiar</button>
+              </div>
+              <div class="log" id="dashLog" style="max-height:160px">
+                <div class="log-line"><span class="log-ts">[--:--:--]</span> Dashboard listo. Conectá el variador para comenzar.</div>
+              </div>
+            </div>
+
+          </div><!-- /col2 -->
+
+        </div><!-- /dash-grid -->
+      </div><!-- /panel-dashboard -->
+
+      <!-- ─── PANEL: CONEXIÓN ─── -->
+      <div class="section-panel" id="panel-conn">
+        <div class="alert alert-info">
+          <span class="alert-icon">ℹ</span>
+          <span>Configurá el tipo de conexión Modbus. El variador usa <strong>Modbus-RTU</strong> (RS485, por defecto 8-N-2, 9600 bps) o puede accederse vía pasarela RS485→TCP.</span>
+        </div>
+
+
+        <!-- ─── Panel ESP32 ─── -->
+        <div class="alert" style="background:var(--bg-elevated);border:1px solid #4ade80;color:var(--fg-primary);margin-bottom:14px">
+          <span class="alert-icon">📡</span>
+          <span>
+            <strong>Modo ESP32 WiFi activo.</strong>
+            El configurador se comunica directamente con el ESP32 via HTTP.
+          </span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:12px;background:var(--bg-elevated);border-radius:6px;border:1px solid var(--border-dim)">
+          <label style="font-size:12px;color:var(--fg-secondary);white-space:nowrap">IP del ESP32</label>
+          <input class="field-input" id="esp32IpInput" type="text" value="" placeholder="192.168.1.100" style="width:160px">
+          <span style="font-size:12px;color:var(--fg-secondary)">:80</span>
+          <button class="btn btn-sm btn-primary" onclick="saveESP32IP()">Guardar IP</button>
+          <span id="esp32IpStatus" style="font-size:11px;color:var(--fg-secondary)"></span>
+        </div>
+
+        <div class="tabs">
+          <div class="tab" onclick="switchConnTab('rtu', this)">Modbus RTU (RS485)</div>
+          <div class="tab active" onclick="switchConnTab('tcp', this)">Modbus TCP/IP</div>
+        </div>
+
+        <!-- RTU -->
+        <div id="tab-rtu">
+          <div class="conn-grid">
+            <div class="field-group">
+              <div class="field-label">Puerto serial</div>
+              <input class="field-input" id="rtuPort" value="COM3" placeholder="COM3 o /dev/ttyUSB0">
+            </div>
+            <div class="field-group">
+              <div class="field-label">Velocidad (bps)</div>
+              <select class="field-input" id="rtuBaud">
+                <option>300</option><option>600</option><option>1200</option>
+                <option>2400</option><option>4800</option><option selected>9600</option>
+                <option>19200</option><option>38400</option><option>57600</option><option>115200</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Formato datos</div>
+              <select class="field-input" id="rtuParity">
+                <option value="8N2" selected>8-N-2 (sin paridad, 2 stop)</option>
+                <option value="8E1">8-E-1 (paridad par)</option>
+                <option value="8O1">8-O-1 (paridad impar)</option>
+                <option value="8N1">8-N-1</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Dirección esclavo</div>
+              <input class="field-input" id="rtuAddr" type="number" min="1" max="247" value="1">
+            </div>
+            <div class="field-group">
+              <div class="field-label">Timeout (ms)</div>
+              <input class="field-input" id="rtuTimeout" type="number" value="1000">
+            </div>
+            <div class="field-group">
+              <div class="field-label">Reintentos</div>
+              <input class="field-input" id="rtuRetries" type="number" min="1" max="10" value="3">
+            </div>
+          </div>
+        </div>
+
+        <!-- TCP -->
+        <div id="tab-tcp" style="display:none">
+          <div class="conn-grid">
+            <div class="field-group">
+              <div class="field-label">IP / Host</div>
+              <input class="field-input" id="tcpHost" value="192.168.1.100">
+            </div>
+            <div class="field-group">
+              <div class="field-label">Puerto TCP</div>
+              <input class="field-input" id="tcpPort" type="number" value="502">
+            </div>
+            <div class="field-group">
+              <div class="field-label">ID unidad Modbus</div>
+              <input class="field-input" id="tcpUnit" type="number" value="1">
+            </div>
+            <div class="field-group">
+              <div class="field-label">Timeout (ms)</div>
+              <input class="field-input" id="tcpTimeout" type="number" value="1000">
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-8 mb-12">
+          <button class="btn btn-primary" onclick="connectDev()">
+            <span id="connectSpinner"></span> Conectar
+          </button>
+          <button class="btn btn-danger" onclick="disconnectDev()">Desconectar</button>
+        </div>
+
+        <div class="log-header">
+          <span class="log-title">▸ Terminal Modbus</span>
+          <button class="btn btn-sm" onclick="clearLog()">Limpiar</button>
+        </div>
+        <div class="log" id="logBox">
+          <div class="log-line"><span class="log-ts">[--:--:--]</span> Listo. Configurá la conexión y presioná Conectar.</div>
+        </div>
+      </div>
+
+      <!-- ─── PANELES DE PARÁMETROS (generados dinámicamente) ─── -->
+      <div class="section-panel" id="panel-p0">
+        <table class="param-table">
+          <thead><tr><th>Cód.</th><th>Addr.</th><th>Parámetro</th><th>Rango</th><th>Valor</th><th>Modo</th></tr></thead>
+          <tbody id="p0-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="section-panel" id="panel-p1">
+        <div class="alert alert-warn mb-12">
+          <span class="alert-icon">⚠</span>
+          <span>Modificar parámetros del motor requiere que el variador esté <strong>detenido</strong>. Verificar con la placa del motor.</span>
+        </div>
+        <table class="param-table">
+          <thead><tr><th>Cód.</th><th>Addr.</th><th>Parámetro</th><th>Rango</th><th>Valor</th><th>Modo</th></tr></thead>
+          <tbody id="p1-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="section-panel" id="panel-p2">
+        <table class="param-table">
+          <thead><tr><th>Cód.</th><th>Addr.</th><th>Parámetro</th><th>Rango</th><th>Valor</th><th>Modo</th></tr></thead>
+          <tbody id="p2-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="section-panel" id="panel-p3">
+        <table class="param-table">
+          <thead><tr><th>Cód.</th><th>Addr.</th><th>Parámetro</th><th>Rango</th><th>Valor</th><th>Modo</th></tr></thead>
+          <tbody id="p3-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="section-panel" id="panel-p4">
+        <table class="param-table">
+          <thead><tr><th>Cód.</th><th>Addr.</th><th>Parámetro</th><th>Rango</th><th>Valor</th><th>Modo</th></tr></thead>
+          <tbody id="p4-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="section-panel" id="panel-p5">
+        <table class="param-table">
+          <thead><tr><th>Cód.</th><th>Addr.</th><th>Parámetro</th><th>Rango</th><th>Valor</th><th>Modo</th></tr></thead>
+          <tbody id="p5-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="section-panel" id="panel-p6">
+        <table class="param-table">
+          <thead><tr><th>Cód.</th><th>Addr.</th><th>Parámetro</th><th>Rango</th><th>Valor</th><th>Modo</th></tr></thead>
+          <tbody id="p6-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="section-panel" id="panel-pd">
+        <div class="alert alert-info mb-12">
+          <span class="alert-icon">ℹ</span>
+          <span>Parámetros de comunicación Modbus del variador (grupo PD). <strong>Reiniciar el variador</strong> tras cambiar baudrate o formato.</span>
+        </div>
+        <table class="param-table">
+          <thead><tr><th>Cód.</th><th>Addr.</th><th>Parámetro</th><th>Rango</th><th>Valor</th><th>Modo</th></tr></thead>
+          <tbody id="pd-tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- ─── PANEL: CONTROL ─── -->
+      <div class="section-panel" id="panel-control">
+        <div class="run-status-bar" id="runStatusBar">
+          <div class="run-indicator">
+            <div class="run-led" id="runLed"></div>
+            <span>Estado:</span>
+            <span class="run-status-val" id="runStatusVal">—</span>
+          </div>
+          <div class="run-divider"></div>
+          <div class="run-indicator">
+            <span>Dirección:</span>
+            <span class="run-status-val" id="runDirVal">—</span>
+          </div>
+          <div class="run-divider"></div>
+          <div class="run-indicator">
+            <span>Cod. falla activa:</span>
+            <span class="run-status-val" id="runFaultVal">—</span>
+          </div>
+          <button class="btn btn-sm" style="margin-left:auto" onclick="refreshStatus()">↺ Actualizar</button>
+        </div>
+
+        <div class="ctrl-panel">
+          <!-- Comandos de marcha -->
+          <div class="ctrl-section">
+            <div class="ctrl-section-title">▸ Comandos de marcha (Reg. 0x2000)</div>
+            <div class="ctrl-btns">
+              <button class="cmd-btn run" onclick="sendCmd('RUN_FORWARD')">▶ Marcha adelante</button>
+              <button class="cmd-btn run" onclick="sendCmd('RUN_REVERSE')">◀ Marcha inversa</button>
+              <button class="cmd-btn warn" onclick="sendCmd('JOG_FORWARD')">↻ Jog adelante</button>
+              <button class="cmd-btn warn" onclick="sendCmd('JOG_REVERSE')">↺ Jog inverso</button>
+              <button class="cmd-btn stop" onclick="sendCmd('RAMP_STOP')">■ Paro con rampa</button>
+              <button class="cmd-btn stop" onclick="sendCmd('FREE_STOP')">◻ Paro libre</button>
+              <button class="cmd-btn warn" onclick="sendCmd('FAULT_RESET')">⚡ Reset de falla</button>
+            </div>
+          </div>
+
+          <!-- Consigna de frecuencia -->
+          <div class="ctrl-section">
+            <div class="ctrl-section-title">▸ Consigna frecuencia (Reg. 0x1000)</div>
+            <div class="alert alert-warn" style="font-size:11px; padding:7px 10px; margin-bottom:10px">
+              <span class="alert-icon">⚠</span>
+              <span>Requiere P0-03 = 9 (fuente = comunicación)</span>
+            </div>
+            <div class="field-group mb-12">
+              <div class="field-label">Frecuencia máxima (P0-10)</div>
+              <input class="field-input" id="maxFreqInput" type="number" value="50" min="5" max="320" step="1" style="width:120px">
+            </div>
+            <div class="field-label mb-12" style="margin-bottom:6px">Consigna</div>
+            <div class="freq-control">
+              <input type="range" class="freq-slider" id="freqSlider" min="0" max="50" step="0.5" value="0"
+                oninput="updateFreqDisplay(this.value)">
+              <span class="freq-val" id="freqValDisplay">0.0 Hz</span>
+            </div>
+            <div class="flex gap-8 mt-8">
+              <button class="btn btn-sm btn-primary" onclick="setFrequency()">Enviar frecuencia</button>
+              <button class="btn btn-sm" onclick="document.getElementById('freqSlider').value=0;updateFreqDisplay(0)">Reset a 0</button>
+            </div>
+
+            <div class="mt-12" style="border-top:1px solid var(--border-dim);padding-top:12px">
+              <div class="ctrl-section-title">▸ Salidas digitales DO (Reg. 0x2001)</div>
+              <div class="flex flex-wrap gap-8 mt-8" id="doGrid"></div>
+              <button class="btn btn-sm mt-8" onclick="setDO()">Aplicar DO</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="log-header">
+          <span class="log-title">▸ Terminal control</span>
+          <button class="btn btn-sm" onclick="clearMonLog()">Limpiar</button>
+        </div>
+        <div class="log" id="monLog">
+          <div class="log-line"><span class="log-ts">[--:--:--]</span> Listo para enviar comandos.</div>
+        </div>
+      </div>
+
+      <!-- ─── PANEL: MONITOR ─── -->
+      <div class="section-panel" id="panel-monitor">
+        <div class="section-header">
+          <h2>Monitor tiempo real — Grupo U0 (0x1001~0x1020)</h2>
+          <button class="btn btn-ok btn-sm" id="btnMonStart" onclick="startMonitor()">▶ Iniciar</button>
+          <button class="btn btn-danger btn-sm" id="btnMonStop" onclick="stopMonitor()" disabled>■ Detener</button>
+          <span class="text-mono text-muted text-sm" id="monPollInfo"></span>
+        </div>
+        <div class="monitor-grid" id="monGrid"></div>
+        <div class="log-header">
+          <span class="log-title">▸ Log de poll</span>
+        </div>
+        <div class="log" id="monPollLog">
+          <div class="log-line"><span class="log-ts">[--:--:--]</span> Presioná Iniciar para comenzar el monitoreo.</div>
+        </div>
+      </div>
+
+      <!-- ─── PANEL: FALLAS ─── -->
+      <div class="section-panel" id="panel-faults">
+        <div class="section-header">
+          <h2>Diagnóstico & historial de fallas</h2>
+          <button class="btn btn-sm" onclick="readFaults()">↓ Leer fallas</button>
+          <button class="btn btn-sm btn-danger" onclick="resetFaults()">⚡ Reset fallas</button>
+        </div>
+
+        <div id="faultActive" style="margin-bottom:14px">
+          <div class="ctrl-section-title" style="margin-bottom:8px">▸ Falla activa (Reg. 0x8000)</div>
+          <div id="faultActiveContent">
+            <div class="text-muted text-sm text-mono" style="padding:8px 0">Presioná "Leer fallas" para consultar el variador.</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="ctrl-section-title" style="margin-bottom:8px">▸ Historial (P9-14, P9-15, P9-16)</div>
+          <div class="fault-list" id="faultList">
+            <div class="text-muted text-sm text-mono" style="padding:8px 0">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── PANEL: PERFILES ─── -->
+      <div class="section-panel" id="panel-profiles">
+        <div class="section-header">
+          <h2>Perfiles de configuración</h2>
+          <button class="btn btn-sm btn-primary" onclick="openSaveModal()">+ Guardar perfil actual</button>
+          <button class="btn btn-sm" onclick="exportProfile()">↑ Exportar JSON</button>
+          <label class="btn btn-sm" style="cursor:pointer">
+            ↓ Importar JSON
+            <input type="file" accept=".json" style="display:none" onchange="importProfileFile(this)">
+          </label>
+        </div>
+
+        <div class="profile-list" id="profileList"></div>
+        <div class="empty-state" id="noProfiles">
+          <div class="empty-state-icon">📋</div>
+          <div>No hay perfiles guardados.</div>
+          <div style="margin-top:4px">Conectá el variador y capturá su configuración completa.</div>
+        </div>
+
+        <div style="border-top:1px solid var(--border-dim); padding-top:14px; margin-top:8px">
+          <div class="ctrl-section-title" style="margin-bottom:10px">▸ Acción: Leer perfil completo del variador</div>
+          <div class="flex gap-8 items-center">
+            <button class="btn btn-sm" onclick="readFullProfile()">
+              <span id="profileReadSpinner"></span> Leer todos los parámetros
+            </button>
+            <span class="text-muted text-sm text-mono" id="profileReadStatus"></span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ─── PANEL: ACERCA DEL DISEÑADOR ─── -->
+      <div class="section-panel" id="panel-about">
+        <div class="about-wrapper">
+
+          <div class="about-avatar">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+              <circle cx="26" cy="26" r="26" fill="var(--bg-elevated)"/>
+              <circle cx="26" cy="20" r="9" fill="var(--border-bright)"/>
+              <ellipse cx="26" cy="42" rx="14" ry="9" fill="var(--border-bright)"/>
+            </svg>
+          </div>
+
+          <div class="about-name">Tu Nombre</div>
+          <div class="about-role">Ingeniero en Automatización &amp; Control</div>
+
+          <div class="about-divider"></div>
+
+          <div class="about-bio">
+            Especialista en sistemas de automatización industrial, comunicaciones Modbus/RTU y configuración de variadores de frecuencia. Este configurador fue desarrollado para facilitar la puesta en marcha y el mantenimiento de variadores SUSWE SU800/SU900 mediante interfaz web.
+          </div>
+
+          <div class="about-divider"></div>
+
+          <div class="about-meta-grid">
+            <div class="about-meta-item">
+              <span class="about-meta-label">Empresa</span>
+              <span class="about-meta-val">—</span>
+            </div>
+            <div class="about-meta-item">
+              <span class="about-meta-label">Ubicación</span>
+              <span class="about-meta-val">—</span>
+            </div>
+            <div class="about-meta-item">
+              <span class="about-meta-label">Email</span>
+              <span class="about-meta-val">—</span>
+            </div>
+            <div class="about-meta-item">
+              <span class="about-meta-label">Versión app</span>
+              <span class="about-meta-val">1.0.0</span>
+            </div>
+          </div>
+
+          <div class="about-divider"></div>
+
+          <div class="about-tech-title">Stack tecnológico</div>
+          <div class="about-tags">
+            <span class="about-tag">Modbus RTU</span>
+            <span class="about-tag">Modbus TCP/IP</span>
+            <span class="about-tag">RS-485</span>
+            <span class="about-tag">HTML / CSS / JS</span>
+            <span class="about-tag">SUSWE SU900</span>
+            <span class="about-tag">Automatización Industrial</span>
+          </div>
+
+          <div class="about-divider"></div>
+
+          <div class="about-footer">
+            Desarrollado con fines de ingeniería. Para soporte técnico o consultas, contactar al diseñador.
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </main>
+</div>
+
+<!-- ─── MODAL: Guardar perfil ─── -->
+<div class="modal-bg" id="saveModal">
+  <div class="modal">
+    <div class="modal-title">💾 Guardar perfil de configuración</div>
+    <div class="field-group mb-12">
+      <div class="field-label">Nombre del perfil</div>
+      <input class="field-input" id="profileName" placeholder="Ej: Motor bomba 30kW — planta 2">
+    </div>
+    <div class="field-group">
+      <div class="field-label">Notas (opcional)</div>
+      <input class="field-input" id="profileNotes" placeholder="Descripción breve">
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveProfile()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
+<script>
+'use strict';
+
+/* ══════════════════════════════════════════════════════════════
+   REGISTER MAP — espejo del módulo register-map.js del backend
+   (usado para renderizar la UI sin necesidad de una petición extra)
+   ══════════════════════════════════════════════════════════════ */
+const GROUPS = {
+  p0: [
+    { code:'P0-00', addr:'0x0000', name:'Tipo G/P',                      range:'1~2',          def:1,    rw:true  },
+    { code:'P0-01', addr:'0x0001', name:'Modo de control',               range:'0~2',          def:2,    rw:true  },
+    { code:'P0-02', addr:'0x0002', name:'Fuente de comando',             range:'0~2',          def:0,    rw:true  },
+    { code:'P0-03', addr:'0x0003', name:'Fuente frecuencia principal X', range:'0~9',          def:0,    rw:true  },
+    { code:'P0-04', addr:'0x0004', name:'Fuente frecuencia auxiliar Y',  range:'0~9',          def:0,    rw:true  },
+    { code:'P0-06', addr:'0x0006', name:'Rango cobertura frec. Y (%)',   range:'0.0~150.0',    def:100,  rw:true  },
+    { code:'P0-07', addr:'0x0007', name:'Dirección de giro',             range:'0~1',          def:0,    rw:true  },
+    { code:'P0-08', addr:'0x0008', name:'Frecuencia predeterminada (Hz)',range:'0.00~320.00',  def:50,   rw:true  },
+    { code:'P0-10', addr:'0x000A', name:'Frecuencia máxima (Hz)',        range:'50.00~320.00', def:50,   rw:true  },
+    { code:'P0-11', addr:'0x000B', name:'Fuente frec. límite superior',  range:'0~5',          def:0,    rw:true  },
+    { code:'P0-12', addr:'0x000C', name:'Frecuencia límite superior (Hz)',range:'0~320.00',    def:50,   rw:true  },
+    { code:'P0-14', addr:'0x000E', name:'Frecuencia límite inferior (Hz)',range:'0~320.00',    def:0,    rw:true  },
+    { code:'P0-15', addr:'0x000F', name:'Frecuencia portadora (kHz)',    range:'0.5~16.0',     def:6.0,  rw:true  },
+    { code:'P0-17', addr:'0x0011', name:'Tiempo de aceleración 1 (s)',   range:'0.0~6500.0',   def:10,   rw:true  },
+    { code:'P0-18', addr:'0x0012', name:'Tiempo de desaceleración 1 (s)',range:'0.0~6500.0',   def:10,   rw:true  },
+    { code:'P0-19', addr:'0x0013', name:'Unidad de tiempo Acl/Dcl',     range:'0~2',          def:1,    rw:true  },
+    { code:'P0-22', addr:'0x0016', name:'Resolución de frecuencia',      range:'0~2',          def:1,    rw:true  },
+    { code:'P0-25', addr:'0x0019', name:'Frec. referencia Acl/Dcl',     range:'0~1',          def:0,    rw:true  },
+    { code:'P0-29', addr:'0x001D', name:'Macro de aplicación',           range:'0~65535',      def:0,    rw:true  },
+  ],
+  p1: [
+    { code:'P1-00', addr:'0x1000', name:'Tipo de motor',                 range:'0~2',          def:0,    rw:false },
+    { code:'P1-01', addr:'0x1001', name:'Potencia nominal (kW)',         range:'0.1~1000.0',   def:30,   rw:true  },
+    { code:'P1-02', addr:'0x1002', name:'Tensión nominal (V)',           range:'1~380',        def:380,  rw:true  },
+    { code:'P1-03', addr:'0x1003', name:'Corriente nominal (A)',         range:'0.01~6553.5',  def:58,   rw:true  },
+    { code:'P1-04', addr:'0x1004', name:'Frecuencia nominal (Hz)',       range:'0.01~320.00',  def:50,   rw:true  },
+    { code:'P1-05', addr:'0x1005', name:'Velocidad nominal (rpm)',       range:'1~65535',      def:1470, rw:true  },
+    { code:'P1-06', addr:'0x1006', name:'Factor de potencia nominal',    range:'0.500~1.000',  def:0.85, rw:true  },
+    { code:'P1-07', addr:'0x1007', name:'Corriente de descarga (A)',     range:'0.01~6553.5',  def:40,   rw:true  },
+    { code:'P1-37', addr:'0x1025', name:'Selección de ajuste motor',     range:'0~3',          def:0,    rw:true  },
+  ],
+  p2: [
+    { code:'P2-00', addr:'0x2000', name:'KP1 anillo velocidad',          range:'1~100',        def:30,   rw:true  },
+    { code:'P2-01', addr:'0x2001', name:'KI1 tiempo integral (s)',       range:'0.01~10.00',   def:0.5,  rw:true  },
+    { code:'P2-02', addr:'0x2002', name:'Frec. cambio ganancia 1 (Hz)',  range:'0~320.00',     def:5,    rw:true  },
+    { code:'P2-03', addr:'0x2003', name:'KP2 anillo velocidad',          range:'1~100',        def:20,   rw:true  },
+    { code:'P2-04', addr:'0x2004', name:'KI2 tiempo integral (s)',       range:'0.01~10.00',   def:1,    rw:true  },
+    { code:'P2-05', addr:'0x2005', name:'Frec. cambio ganancia 2 (Hz)',  range:'0~320.00',     def:10,   rw:true  },
+    { code:'P2-06', addr:'0x2006', name:'Ganancia diferencial veloc. (%)',range:'50~200',      def:100,  rw:true  },
+    { code:'P2-07', addr:'0x2007', name:'Filtro bucle velocidad (s)',    range:'0~0.1',        def:0,    rw:true  },
+    { code:'P2-09', addr:'0x2009', name:'Fuente límite superior de par', range:'0~7',          def:0,    rw:true  },
+    { code:'P2-10', addr:'0x200A', name:'Límite superior de par (%)',    range:'0.0~200.0',    def:150,  rw:true  },
+  ],
+  p3: [
+    { code:'P3-00', addr:'0x3000', name:'Modo curva V/F',               range:'0~1',          def:0,    rw:true  },
+    { code:'P3-01', addr:'0x3001', name:'Boost de par (%)',             range:'0.0~30.0',     def:5,    rw:true  },
+    { code:'P3-02', addr:'0x3002', name:'Frec. boost de par (Hz)',      range:'0~320.00',     def:5,    rw:true  },
+    { code:'P3-03', addr:'0x3003', name:'Voltaje punto V/F 1 (V)',      range:'0.0~380.0',    def:0,    rw:true  },
+    { code:'P3-04', addr:'0x3004', name:'Frec. punto V/F 1 (Hz)',       range:'0~320.00',     def:0,    rw:true  },
+    { code:'P3-05', addr:'0x3005', name:'Voltaje punto V/F 2 (V)',      range:'0.0~380.0',    def:0,    rw:true  },
+    { code:'P3-06', addr:'0x3006', name:'Frec. punto V/F 2 (Hz)',       range:'0~320.00',     def:25,   rw:true  },
+    { code:'P3-07', addr:'0x3007', name:'Voltaje punto V/F 3 máx (V)',  range:'0.0~380.0',    def:380,  rw:true  },
+    { code:'P3-08', addr:'0x3008', name:'Frec. punto V/F 3 máx (Hz)',   range:'0~320.00',     def:50,   rw:true  },
+    { code:'P3-10', addr:'0x300A', name:'Compensación deslizamiento (%)',range:'0.0~200.0',    def:100,  rw:true  },
+  ],
+  p4: [
+    { code:'P4-00', addr:'0x4000', name:'Función terminal X1',          range:'0~50',         def:1,    rw:true  },
+    { code:'P4-01', addr:'0x4001', name:'Función terminal X2',          range:'0~50',         def:2,    rw:true  },
+    { code:'P4-02', addr:'0x4002', name:'Función terminal X3',          range:'0~50',         def:9,    rw:true  },
+    { code:'P4-03', addr:'0x4003', name:'Función terminal X4',          range:'0~50',         def:0,    rw:true  },
+    { code:'P4-04', addr:'0x4004', name:'Función terminal HDI (X5)',    range:'0~50',         def:0,    rw:true  },
+    { code:'P4-09', addr:'0x4009', name:'Tiempo filtro terminales X (s)',range:'0~1.000',     def:0.01, rw:true  },
+    { code:'P4-10', addr:'0x400A', name:'Modo comando terminal',        range:'0~3',          def:0,    rw:true  },
+    { code:'P4-11', addr:'0x400B', name:'Tasa UP/DOWN (Hz/s)',          range:'0.001~65.535', def:1,    rw:true  },
+    { code:'P4-13', addr:'0x400D', name:'Voltaje mín. AI1 (V)',         range:'0.00~10.00',   def:0,    rw:true  },
+    { code:'P4-14', addr:'0x400E', name:'Voltaje máx. AI1 (V)',         range:'0.00~10.00',   def:10,   rw:true  },
+  ],
+  p5: [
+    { code:'P5-00', addr:'0x5000', name:'Función salida DO1',           range:'0~40',         def:0,    rw:true  },
+    { code:'P5-01', addr:'0x5001', name:'Función salida DO2',           range:'0~40',         def:0,    rw:true  },
+    { code:'P5-02', addr:'0x5002', name:'Función salida DO3',           range:'0~40',         def:0,    rw:true  },
+    { code:'P5-03', addr:'0x5003', name:'Función Relé 1 (TA-TC)',       range:'0~40',         def:5,    rw:true  },
+    { code:'P5-04', addr:'0x5004', name:'Función Relé 2 (TB-TC)',       range:'0~40',         def:0,    rw:true  },
+    { code:'P5-07', addr:'0x5007', name:'Función AO1 (0-10V)',          range:'0~15',         def:0,    rw:true  },
+    { code:'P5-08', addr:'0x5008', name:'Función AO2 (0-20mA)',         range:'0~15',         def:1,    rw:true  },
+    { code:'P5-09', addr:'0x5009', name:'Función FMP (pulso)',          range:'0~15',         def:0,    rw:true  },
+    { code:'P5-10', addr:'0x500A', name:'AO1 mín. (%)',                 range:'0.0~100.0',    def:0,    rw:true  },
+    { code:'P5-11', addr:'0x500B', name:'AO1 máx. (%)',                 range:'0.0~100.0',    def:100,  rw:true  },
+    { code:'P5-18', addr:'0x5012', name:'Umbral detección frec. (Hz)',  range:'0~320.00',     def:50,   rw:true  },
+    { code:'P5-19', addr:'0x5013', name:'Histéresis detección frec. (Hz)',range:'0~320.00',   def:1,    rw:true  },
+  ],
+  p6: [
+    { code:'P6-00', addr:'0x6000', name:'Modo de arranque',             range:'0~2',          def:0,    rw:true  },
+    { code:'P6-01', addr:'0x6001', name:'Frecuencia de arranque (Hz)',  range:'0~320.00',     def:0,    rw:true  },
+    { code:'P6-02', addr:'0x6002', name:'Hold frec. arranque (s)',      range:'0~100.00',     def:0,    rw:true  },
+    { code:'P6-03', addr:'0x6003', name:'Freno DC arranque (s)',        range:'0~100.0',      def:0,    rw:true  },
+    { code:'P6-04', addr:'0x6004', name:'Corriente freno DC arr. (%)', range:'0.0~100.0',    def:0,    rw:true  },
+    { code:'P6-05', addr:'0x6005', name:'Modo de parada',               range:'0~1',          def:0,    rw:true  },
+    { code:'P6-07', addr:'0x6007', name:'Frec. inicio freno DC par. (Hz)',range:'0~320.00',   def:0,    rw:true  },
+    { code:'P6-08', addr:'0x6008', name:'Espera freno DC par. (s)',     range:'0~100.0',      def:0,    rw:true  },
+    { code:'P6-09', addr:'0x6009', name:'Corriente freno DC par. (%)', range:'0.0~100.0',    def:0,    rw:true  },
+    { code:'P6-10', addr:'0x600A', name:'Tiempo freno DC par. (s)',     range:'0~100.0',      def:0,    rw:true  },
+    { code:'P6-11', addr:'0x600B', name:'Frec. arranque marcha giro (Hz)',range:'0~320.00',   def:0,    rw:true  },
+    { code:'P6-12', addr:'0x600C', name:'Corriente parada marcha giro (%)',range:'0.0~200.0', def:100,  rw:true  },
+  ],
+  pd: [
+    { code:'Pd-00', addr:'0xD000', name:'Velocidad en baudios',         range:'0~9 (ver tabla)',def:5, rw:true  },
+    { code:'Pd-01', addr:'0xD001', name:'Formato de datos',             range:'0~3',          def:0,    rw:true  },
+    { code:'Pd-02', addr:'0xD002', name:'Dirección esclavo',            range:'0~247',        def:1,    rw:true  },
+    { code:'Pd-03', addr:'0xD003', name:'Retraso de respuesta (ms)',    range:'0~20',         def:2,    rw:true  },
+    { code:'Pd-04', addr:'0xD004', name:'Timeout comunicación (s)',     range:'0.0~60.0',     def:0,    rw:true  },
+    { code:'Pd-05', addr:'0xD005', name:'Protocolo Modbus',             range:'0~1',          def:1,    rw:true  },
+    { code:'Pd-06', addr:'0xD006', name:'Resolución lectura corriente', range:'0~1',          def:0,    rw:true  },
+  ],
+};
+
+const MONITOR_REGS = [
+  { code:'U0-00', addr:'0x1001', label:'Frec. salida',    unit:'Hz',  scale:0.01 },
+  { code:'U0-01', addr:'0x1002', label:'Tensión bus DC',  unit:'V',   scale:1    },
+  { code:'U0-02', addr:'0x1003', label:'Tensión salida',  unit:'V',   scale:1    },
+  { code:'U0-03', addr:'0x1004', label:'Corriente sal.',  unit:'A',   scale:0.1  },
+  { code:'U0-04', addr:'0x1005', label:'Potencia sal.',   unit:'kW',  scale:0.1  },
+  { code:'U0-05', addr:'0x1006', label:'Par de salida',   unit:'%',   scale:0.1  },
+  { code:'U0-06', addr:'0x1007', label:'Veloc. motor',    unit:'rpm', scale:1    },
+  { code:'U0-07', addr:'0x1008', label:'Estado DI',       unit:'',    scale:1    },
+  { code:'U0-08', addr:'0x1009', label:'Estado DO',       unit:'',    scale:1    },
+  { code:'U0-09', addr:'0x100A', label:'Voltaje AI1',     unit:'V',   scale:0.01 },
+  { code:'U0-10', addr:'0x100B', label:'Voltaje AI2',     unit:'V',   scale:0.01 },
+  { code:'U0-11', addr:'0x100C', label:'Voltaje AI3',     unit:'V',   scale:0.01 },
+  { code:'U0-16', addr:'0x1010', label:'Consigna PID',    unit:'%',   scale:0.01 },
+  { code:'U0-17', addr:'0x1011', label:'Retroal. PID',    unit:'%',   scale:0.01 },
+  { code:'U0-19', addr:'0x101B', label:'Veloc. real',     unit:'rpm', scale:1    },
+  { code:'U0-31', addr:'0x1020', label:'Frec. aux. Y',    unit:'Hz',  scale:0.01 },
+];
+
+const FAULT_MAP = {
+  '0x0002':'Sobrecorriente en aceleración','0x0003':'Sobrecorriente en desaceleración',
+  '0x0004':'Sobrecorriente velocidad constante','0x0005':'Sobretensión en aceleración',
+  '0x0006':'Sobretensión en desaceleración','0x0007':'Sobretensión velocidad constante',
+  '0x0008':'Error buffer sobrecarga','0x0009':'Sin tensión (bajo voltaje)',
+  '0x000A':'Sobrecalentamiento inverter','0x000B':'Sobrecarga motor',
+  '0x000C':'Falta de fase entrada','0x000D':'Falta de fase salida',
+  '0x000E':'Sobrecalentamiento módulo','0x000F':'Falla externa',
+  '0x0010':'Anomalía de comunicación','0x0011':'Contactor anormal',
+  '0x0012':'Falla detección corriente','0x0013':'Falla sintonización motor',
+  '0x0015':'Anomalía EEPROM','0x0016':'Falla hardware convertidor',
+  '0x0017':'Cortocircuito motor a tierra',
+};
+
+const FAULT_SEV = {
+  '0x0002':'high','0x0003':'high','0x0004':'high','0x0005':'high','0x0006':'high',
+  '0x0007':'high','0x000A':'high','0x000C':'high','0x000D':'high','0x000E':'high',
+  '0x0012':'high','0x0016':'high','0x0017':'high',
+};
+
+/* ══════════════════════════════════════════════════════
+   OPCIONES DE PARÁMETROS (badge de descripción rápida)
+   Cada entry: { value: número, label: string corto }
+   ══════════════════════════════════════════════════════ */
+const PARAM_OPTIONS = {
+  // P0 — Operativos básicos
+  'P0-00': [ {v:1,l:'G — Carga variable'}, {v:2,l:'P — Par constante'} ],
+  'P0-01': [ {v:0,l:'0 — SVC sin encoder'}, {v:2,l:'2 — Control V/F'} ],
+  'P0-02': [ {v:0,l:'0 — Teclado (panel)'}, {v:1,l:'1 — Terminal DI'}, {v:2,l:'2 — Comunicación'} ],
+  'P0-03': [ {v:0,l:'0 — Frec. digital'}, {v:1,l:'1 — Frec. digital (mem)'}, {v:2,l:'2 — AI1'}, {v:3,l:'3 — AI2'}, {v:4,l:'4 — Potenciómetro'}, {v:5,l:'5 — Pulso HDI'}, {v:6,l:'6 — Multivelocidad'}, {v:7,l:'7 — PLC simple'}, {v:8,l:'8 — PID'}, {v:9,l:'9 — Comunicación'} ],
+  'P0-04': [ {v:0,l:'0 — Frec. digital'}, {v:1,l:'1 — Frec. digital (mem)'}, {v:2,l:'2 — AI1'}, {v:3,l:'3 — AI2'}, {v:4,l:'4 — Potenciómetro'}, {v:5,l:'5 — Pulso HDI'}, {v:6,l:'6 — Multivelocidad'}, {v:7,l:'7 — PLC simple'}, {v:8,l:'8 — PID'}, {v:9,l:'9 — Comunicación'} ],
+  'P0-07': [ {v:0,l:'0 — Adelante (FWD)'}, {v:1,l:'1 — Inversa (REV)'} ],
+  'P0-11': [ {v:0,l:'0 — P0-12 config'}, {v:1,l:'1 — AI1'}, {v:2,l:'2 — AI2'}, {v:3,l:'3 — Potenciómetro'}, {v:4,l:'4 — Pulso HDI'}, {v:5,l:'5 — Comunicación'} ],
+  'P0-19': [ {v:0,l:'0 — Unidad: 1 s'}, {v:1,l:'1 — Unidad: 0.1 s'}, {v:2,l:'2 — Unidad: 0.01 s'} ],
+  'P0-22': [ {v:0,l:'0 — Resolución 0.01 Hz'}, {v:1,l:'1 — Resolución 0.1 Hz'}, {v:2,l:'2 — Resolución 1 Hz'} ],
+  'P0-25': [ {v:0,l:'0 — Ref: frec. máxima'}, {v:1,l:'1 — Ref: frec. consigna'} ],
+
+  // P1 — Motor
+  'P1-00': [ {v:0,l:'0 — Motor asíncrono'}, {v:1,l:'1 — Asíncrono inverter'}, {v:2,l:'2 — Motor PM síncrono'} ],
+  'P1-37': [ {v:0,l:'0 — Sin ajuste'}, {v:1,l:'1 — Ajuste estático'}, {v:2,l:'2 — Ajuste dinámico'}, {v:3,l:'3 — Ajuste estático 2'} ],
+
+  // P2 — Control vectorial
+  'P2-09': [ {v:0,l:'0 — P2-10 config'}, {v:1,l:'1 — AI1'}, {v:2,l:'2 — AI2'}, {v:3,l:'3 — Potenciómetro'}, {v:4,l:'4 — Pulso HDI'}, {v:5,l:'5 — Comunicación'}, {v:6,l:'6 — Min(AI1,AI2)'}, {v:7,l:'7 — Max(AI1,AI2)'} ],
+
+  // P3 — V/F
+  'P3-00': [ {v:0,l:'0 — V/F lineal'}, {v:1,l:'1 — V/F multipunto'} ],
+
+  // P4 — Entradas digitales
+  'P4-00': [ {v:0,l:'0 — Sin función'},{v:1,l:'1 — Marcha FWD'},{v:2,l:'2 — Marcha REV'},{v:3,l:'3 — Impulso 3 hilos'},{v:4,l:'4 — Marcha FWD JOG'},{v:5,l:'5 — Marcha REV JOG'},{v:6,l:'6 — Paro libre'},{v:7,l:'7 — Reset falla'},{v:8,l:'8 — Velocidad alta'},{v:9,l:'9 — Pausa'},{v:10,l:'10 — Externo defecto'},{v:11,l:'11 — Frecuencia Arriba'},{v:12,l:'12 — Frecuencia Abajo'} ],
+  'P4-01': [ {v:0,l:'0 — Sin función'},{v:1,l:'1 — Marcha FWD'},{v:2,l:'2 — Marcha REV'},{v:3,l:'3 — Impulso 3 hilos'},{v:4,l:'4 — Marcha FWD JOG'},{v:5,l:'5 — Marcha REV JOG'},{v:6,l:'6 — Paro libre'},{v:7,l:'7 — Reset falla'},{v:8,l:'8 — Velocidad alta'},{v:9,l:'9 — Pausa'},{v:10,l:'10 — Externo defecto'},{v:11,l:'11 — Frecuencia Arriba'},{v:12,l:'12 — Frecuencia Abajo'} ],
+  'P4-02': [ {v:0,l:'0 — Sin función'},{v:1,l:'1 — Marcha FWD'},{v:2,l:'2 — Marcha REV'},{v:3,l:'3 — Impulso 3 hilos'},{v:4,l:'4 — Marcha FWD JOG'},{v:5,l:'5 — Marcha REV JOG'},{v:6,l:'6 — Paro libre'},{v:7,l:'7 — Reset falla'},{v:8,l:'8 — Velocidad alta'},{v:9,l:'9 — Pausa'},{v:10,l:'10 — Externo defecto'},{v:11,l:'11 — Frecuencia Arriba'},{v:12,l:'12 — Frecuencia Abajo'} ],
+  'P4-03': [ {v:0,l:'0 — Sin función'},{v:1,l:'1 — Marcha FWD'},{v:2,l:'2 — Marcha REV'},{v:3,l:'3 — Impulso 3 hilos'},{v:4,l:'4 — Marcha FWD JOG'},{v:5,l:'5 — Marcha REV JOG'},{v:6,l:'6 — Paro libre'},{v:7,l:'7 — Reset falla'},{v:8,l:'8 — Velocidad alta'},{v:9,l:'9 — Pausa'},{v:10,l:'10 — Externo defecto'},{v:11,l:'11 — Frecuencia Arriba'},{v:12,l:'12 — Frecuencia Abajo'} ],
+  'P4-04': [ {v:0,l:'0 — Sin función'},{v:1,l:'1 — Marcha FWD'},{v:2,l:'2 — Marcha REV'},{v:5,l:'5 — Marcha REV JOG'},{v:6,l:'6 — Paro libre'},{v:9,l:'9 — Pausa'},{v:10,l:'10 — Externo defecto'} ],
+  'P4-10': [ {v:0,l:'0 — Dos hilos N.A.'},{v:1,l:'1 — Dos hilos N.C.'},{v:2,l:'2 — Tres hilos I'},{v:3,l:'3 — Tres hilos II'} ],
+  'P4-38': [ {v:0,l:'0 — Activo en alto'},{v:1,l:'1 — Activo en bajo'} ],
+
+  // P5 — Salidas digitales
+  'P5-00': [ {v:0,l:'0 — Sin función'},{v:1,l:'1 — En marcha'},{v:2,l:'2 — Frec. alcanzada'},{v:3,l:'3 — Frec. detectada (FDT)'},{v:4,l:'4 — Marcha adelante'},{v:5,l:'5 — Falla'},{v:6,l:'6 — Voltaje bajo'},{v:7,l:'7 — Listo para marcha'} ],
+  'P5-01': [ {v:0,l:'0 — Sin función'},{v:1,l:'1 — En marcha'},{v:2,l:'2 — Frec. alcanzada'},{v:3,l:'3 — Frec. detectada (FDT)'},{v:4,l:'4 — Marcha adelante'},{v:5,l:'5 — Falla'},{v:6,l:'6 — Voltaje bajo'},{v:7,l:'7 — Listo para marcha'} ],
+  'P5-02': [ {v:0,l:'0 — Sin función'},{v:1,l:'1 — En marcha'},{v:2,l:'2 — Frec. alcanzada'},{v:3,l:'3 — Frec. detectada (FDT)'},{v:4,l:'4 — Marcha adelante'},{v:5,l:'5 — Falla'} ],
+  'P5-03': [ {v:0,l:'0 — Sin función'},{v:1,l:'1 — En marcha'},{v:2,l:'2 — Frec. alcanzada'},{v:3,l:'3 — FDT'},{v:4,l:'4 — Adelante'},{v:5,l:'5 — Falla'},{v:6,l:'6 — Bajo voltaje'},{v:7,l:'7 — Listo'} ],
+  'P5-04': [ {v:0,l:'0 — Sin función'},{v:1,l:'1 — En marcha'},{v:2,l:'2 — Frec. alcanzada'},{v:5,l:'5 — Falla'} ],
+  'P5-07': [ {v:0,l:'0 — Frec. salida'},{v:1,l:'1 — Corriente sal.'},{v:2,l:'2 — Tensión sal.'},{v:3,l:'3 — Bus DC'},{v:4,l:'4 — Par sal.'},{v:5,l:'5 — Potencia sal.'},{v:6,l:'6 — AI1'},{v:7,l:'7 — AI2'} ],
+  'P5-08': [ {v:0,l:'0 — Frec. salida'},{v:1,l:'1 — Corriente sal.'},{v:2,l:'2 — Tensión sal.'},{v:3,l:'3 — Bus DC'},{v:4,l:'4 — Par sal.'},{v:5,l:'5 — Potencia sal.'},{v:6,l:'6 — AI1'},{v:7,l:'7 — AI2'} ],
+  'P5-09': [ {v:0,l:'0 — Frec. salida'},{v:1,l:'1 — Corriente sal.'},{v:2,l:'2 — Tensión sal.'},{v:3,l:'3 — Bus DC'} ],
+
+  // P6 — Arranque / Parada
+  'P6-00': [ {v:0,l:'0 — Arranque directo'},{v:1,l:'1 — Arranque c/frec.'},{v:2,l:'2 — Arranque en giro'} ],
+  'P6-05': [ {v:0,l:'0 — Paro con rampa'},{v:1,l:'1 — Paro libre (inercia)'} ],
+
+  // PD — Comunicación
+  'Pd-00': [ {v:0,l:'0 — 300 bps'},{v:1,l:'1 — 600 bps'},{v:2,l:'2 — 1200 bps'},{v:3,l:'3 — 2400 bps'},{v:4,l:'4 — 4800 bps'},{v:5,l:'5 — 9600 bps'},{v:6,l:'6 — 19200 bps'},{v:7,l:'7 — 38400 bps'},{v:8,l:'8 — 57600 bps'},{v:9,l:'9 — 115200 bps'} ],
+  'Pd-01': [ {v:0,l:'0 — 8-N-2 (sin paridad)'},{v:1,l:'1 — 8-E-1 (paridad par)'},{v:2,l:'2 — 8-O-1 (paridad impar)'},{v:3,l:'3 — 8-N-1'} ],
+  'Pd-05': [ {v:0,l:'0 — Modbus RTU'},{v:1,l:'1 — Modbus RTU (extendido)'} ],
+  'Pd-06': [ {v:0,l:'0 — Resolución 0.1 A'},{v:1,l:'1 — Resolución 0.01 A'} ],
+};
+
+/* ══════════════════════════════════════════════════════
+   ESTADO DE LA APP
+   ══════════════════════════════════════════════════════ */
+let connected     = false;
+let connType      = 'tcp';  // ESP32 usa HTTP, siempre TCP           // 'rtu' | 'tcp'
+let monitorIntvl  = null;
+let profiles      = JSON.parse(localStorage.getItem('su900_profiles') || '[]');
+const values      = {};              // { 'P0-08': 50, ... }
+const doState     = {};              // { DO1: false, DO2: false, ... }
+
+/* ══════════════════════════════════════════════════════
+   API — comunicación con el servidor Express
+   ══════════════════════════════════════════════════════ */
+// API_BASE apunta al ESP32 — se configura automáticamente desde localStorage
+let ESP32_IP = localStorage.getItem('esp32_ip') || '192.168.1.100';
+let API_BASE  = 'http://' + ESP32_IP + '/api';
+
+async function apiFetch(path, options = {}) {
+  try {
+    const res  = await fetch(API_BASE + path, {
+      headers: { 'Content-Type': 'application/json' },
+      ...options,
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   NAVEGACIÓN
+   ══════════════════════════════════════════════════════ */
+function showPanel(id, el) {
+  document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('panel-' + id)?.classList.add('active');
+  if (el) el.classList.add('active');
+  else document.querySelector(`.nav-item[onclick*="'${id}'"]`)?.classList.add('active');
+  const titles = {
+    dashboard:'⬡ Dashboard', conn:'Configurar conexión', p0:'P0 — Parámetros operativos básicos',
+    p1:'P1 — Parámetros del motor', p2:'P2 — Control vectorial',
+    p3:'P3 — Control V/F', p4:'P4 — Entradas digitales',
+    p5:'P5 — Salidas digitales', p6:'P6 — Arranque y parada',
+    pd:'PD — Comunicación Modbus', control:'Control & Comando',
+    monitor:'Monitor en tiempo real', faults:'Diagnóstico y alarmas',
+    profiles:'Perfiles de configuración',
+  };
+  document.getElementById('panelTitle').textContent = titles[id] || id;
+}
+
+function switchConnTab(tab, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  connType = tab;
+  document.getElementById('tab-rtu').style.display = tab === 'rtu' ? 'block' : 'none';
+  document.getElementById('tab-tcp').style.display = tab === 'tcp' ? 'block' : 'none';
+}
+
+/* ══════════════════════════════════════════════════════
+   LOGGER
+   ══════════════════════════════════════════════════════ */
+function ts() {
+  const d = new Date();
+  return `[${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')}:${d.getSeconds().toString().padStart(2,'0')}]`;
+}
+
+function addLog(msg, type = 'info', boxId = 'logBox') {
+  const box = document.getElementById(boxId);
+  if (!box) return;
+  const col = type === 'ok' ? 'log-ok' : type === 'err' ? 'log-err' : type === 'warn' ? 'log-warn' : '';
+  const line = document.createElement('div');
+  line.className = 'log-line';
+  line.innerHTML = `<span class="log-ts">${ts()}</span> <span class="${col}">${msg}</span>`;
+  box.appendChild(line);
+  box.scrollTop = box.scrollHeight;
+}
+
+function mLog(msg, type = 'info') { addLog(msg, type, 'monLog'); }
+function clearLog() { document.getElementById('logBox').innerHTML = ''; }
+function clearMonLog() { document.getElementById('monLog').innerHTML = ''; }
+
+/* ══════════════════════════════════════════════════════
+   CONEXIÓN
+   ══════════════════════════════════════════════════════ */
+/* ─── Diagnóstico de errores de conexión ─────────────────────────────────── */
+function diagnoseConnectionError(err, cfg) {
+  const msg = (err.message || '').toLowerCase();
+
+  // Error de red al contactar el servidor Express (backend no levantado)
+  if (msg.includes('failed to fetch') || msg.includes('networkerror') || msg.includes('load failed')) {
+    addLog('⚠ No se pudo contactar el servidor Express.', 'err');
+    addLog('   Causa probable: el backend Node.js no está ejecutándose.', 'warn');
+    addLog('   Solución: ejecutá "npm start" en la carpeta del proyecto.', 'warn');
+    addLog(`   URL esperada: http://' + ESP32_IP + '/api`, 'warn');
+    return;
+  }
+
+  if (connType === 'rtu') {
+    // Puerto serial no encontrado
+    if (msg.includes('no such file') || msg.includes('enoent') || msg.includes('cannot open')) {
+      addLog(`✕ Puerto "${cfg.port}" no encontrado en el sistema.`, 'err');
+      addLog('   Verificá que el adaptador RS485/USB esté conectado.', 'warn');
+      addLog('   En Windows: revisá el Administrador de dispositivos → COM ports.', 'warn');
+      addLog('   En Linux: ejecutá "ls /dev/ttyUSB* /dev/ttyACM*" para listar puertos.', 'warn');
+    }
+    // Sin permisos de acceso al puerto
+    else if (msg.includes('permission') || msg.includes('eacces') || msg.includes('access denied')) {
+      addLog(`✕ Sin permiso para acceder a "${cfg.port}".`, 'err');
+      addLog('   En Linux ejecutá: sudo usermod -aG dialout $USER  (luego cerrar sesión)', 'warn');
+      addLog('   O temporalmente: sudo chmod a+rw ' + cfg.port, 'warn');
+    }
+    // Puerto en uso por otro proceso
+    else if (msg.includes('busy') || msg.includes('ebusy') || msg.includes('in use') || msg.includes('access is denied')) {
+      addLog(`✕ Puerto "${cfg.port}" ocupado por otro proceso.`, 'err');
+      addLog('   Cerrá otros programas que usen el puerto (Arduino IDE, PuTTY, CoolTerm, etc.)', 'warn');
+    }
+    // Timeout — el variador no respondió
+    else if (msg.includes('timeout') || msg.includes('timed out')) {
+      addLog(`✕ Timeout: el variador no respondió (ID esclavo=${cfg.slaveId}).`, 'err');
+      addLog('   Verificá: 1) cableado RS485 (A+/B−), 2) resistencia terminadora.', 'warn');
+      addLog(`   Verificá: 3) baudrate=${cfg.baudRate} bps coincida con Pd-00 del variador.`, 'warn');
+      addLog(`   Verificá: 4) formato de datos coincida con Pd-01 (actualmente: ${document.getElementById('rtuParity').value}).`, 'warn');
+      addLog(`   Verificá: 5) ID esclavo=${cfg.slaveId} coincida con Pd-02 del variador.`, 'warn');
+    }
+    // Error CRC / trama incorrecta
+    else if (msg.includes('crc') || msg.includes('exception') || msg.includes('illegal')) {
+      addLog('✕ Error de trama Modbus (CRC o excepción del esclavo).', 'err');
+      addLog('   Verificá que el baudrate y formato de paridad sean correctos.', 'warn');
+      addLog('   Asegurate de que el variador tenga habilitada la comunicación Modbus (Pd-05).', 'warn');
+    }
+    // Error genérico RTU
+    else {
+      addLog(`✕ Error RTU: ${err.message}`, 'err');
+      addLog('   Revisá: cable RS485, ID de esclavo, baudrate y formato de datos.', 'warn');
+    }
+  } else {
+    // TCP — host no alcanzable
+    if (msg.includes('econnrefused') || msg.includes('connection refused')) {
+      addLog(`✕ Conexión rechazada en ${cfg.host}:${cfg.port}.`, 'err');
+      addLog('   La pasarela RS485→TCP no está escuchando o el puerto es incorrecto.', 'warn');
+    }
+    else if (msg.includes('etimedout') || msg.includes('timeout') || msg.includes('timed out')) {
+      addLog(`✕ Timeout TCP al conectar con ${cfg.host}:${cfg.port}.`, 'err');
+      addLog('   Verificá que la pasarela esté encendida y en la misma red.', 'warn');
+      addLog('   Probá hacer ping a ' + cfg.host + ' desde la terminal.', 'warn');
+    }
+    else if (msg.includes('enotfound') || msg.includes('no such host') || msg.includes('getaddrinfo')) {
+      addLog(`✕ Host "${cfg.host}" no encontrado (DNS/red).`, 'err');
+      addLog('   Usá la dirección IP directa en lugar del nombre de host.', 'warn');
+    }
+    else if (msg.includes('enetunreach') || msg.includes('network unreachable')) {
+      addLog(`✕ Red no alcanzable hacia ${cfg.host}.`, 'err');
+      addLog('   Verificá que la PC y la pasarela estén en la misma subred.', 'warn');
+    }
+    else {
+      addLog(`✕ Error TCP: ${err.message}`, 'err');
+      addLog(`   Verificá: IP=${cfg.host}, Puerto=${cfg.port}, Unit ID=${cfg.unitId}.`, 'warn');
+    }
+  }
+  addLog('──────────────────────────────────────────', 'info');
+}
+
+async function connectDev() {
+  const spinner = document.getElementById('connectSpinner');
+  spinner.className = 'spinner';
+
+  let body;
+  if (connType === 'rtu') {
+    body = {
+      type:     'rtu',
+      port:     document.getElementById('rtuPort').value,
+      baudRate: parseInt(document.getElementById('rtuBaud').value),
+      parity:   document.getElementById('rtuParity').value.includes('E') ? 'even'
+                : document.getElementById('rtuParity').value.includes('O') ? 'odd' : 'none',
+      stopBits: document.getElementById('rtuParity').value.includes('2') ? 2 : 1,
+      slaveId:  parseInt(document.getElementById('rtuAddr').value),
+      timeout:  parseInt(document.getElementById('rtuTimeout').value),
+      retries:  parseInt(document.getElementById('rtuRetries').value),
+    };
+  } else {
+    body = {
+      type:    'tcp',
+      host:    document.getElementById('tcpHost').value,
+      port:    parseInt(document.getElementById('tcpPort').value),
+      unitId:  parseInt(document.getElementById('tcpUnit').value),
+      timeout: parseInt(document.getElementById('tcpTimeout').value),
+    };
+  }
+
+  addLog(`Conectando ${connType.toUpperCase()}...`);
+
+  try {
+    const res = await apiFetch('/connect', { method: 'POST', body: JSON.stringify(body) });
+    connected = true;
+    document.getElementById('statusDot').classList.add('connected');
+    document.getElementById('statusText').textContent = 'Conectado';
+    document.getElementById('transportBadge').textContent =
+      connType === 'rtu'
+        ? `RTU · ${body.port} · ${body.baudRate}bps · ID:${body.slaveId}`
+        : `TCP · ${body.host}:${body.port} · ID:${body.unitId}`;
+    addLog(res.message || 'Conexión establecida.', 'ok');
+    addLog(`Protocolo: Modbus-${connType.toUpperCase()} · FC 0x03/0x06`, 'ok');
+  } catch (err) {
+    diagnoseConnectionError(err, body);
+  } finally {
+    spinner.className = '';
+  }
+}
+
+async function disconnectDev() {
+  try {
+    await apiFetch('/disconnect', { method: 'POST' });
+  } catch (_) {}
+  connected = false;
+  if (monitorIntvl) { clearInterval(monitorIntvl); monitorIntvl = null; }
+  document.getElementById('statusDot').classList.remove('connected');
+  document.getElementById('statusText').textContent = 'Desconectado';
+  document.getElementById('transportBadge').textContent = '—';
+  addLog('Desconectado.', 'warn');
+}
+
+/* ══════════════════════════════════════════════════════
+   TABLA DE PARÁMETROS
+   ══════════════════════════════════════════════════════ */
+function renderTable(groupKey) {
+  const tbody = document.getElementById(groupKey + '-tbody');
+  if (!tbody) return;
+  tbody.innerHTML = '';
+  (GROUPS[groupKey] || []).forEach(p => {
+    if (values[p.code] === undefined) values[p.code] = p.def;
+    const tr = document.createElement('tr');
+    const input = p.rw
+      ? `<input type="text" value="${p.def}" ${p.rw ? '' : 'readonly'}
+            onchange="values['${p.code}']=this.value"
+            style="width:100px;padding:3px 7px;font-size:11px;border:1px solid var(--border-mid);border-radius:var(--radius-sm);background:var(--bg-input);color:var(--text-primary);font-family:var(--font-mono);outline:none"
+            onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border-mid)'">`
+      : `<input type="text" value="${p.def}" readonly
+            style="width:100px;padding:3px 7px;font-size:11px;border:1px solid var(--border-dim);border-radius:var(--radius-sm);background:var(--bg-inset);color:var(--text-tertiary);font-family:var(--font-mono);cursor:default">`;
+    const badge = p.rw
+      ? `<span class="badge badge-rw">R/W</span>`
+      : `<span class="badge badge-ro">R</span>`;
+
+    // Badge de opciones
+    const opts = PARAM_OPTIONS[p.code];
+    let optsBadge = '';
+    if (opts && opts.length > 0) {
+      const items = opts.map(o =>
+        `<div class="opt-item"><span class="opt-val">${o.v}</span><span class="opt-lbl">${String(o.l).replace(/^\d+\s*[—\-]\s*/,'')}</span></div>`
+      ).join('');
+      optsBadge = `<span class="opts-badge" tabindex="0" onclick="toggleOptsDropdown(event,this)" onblur="setTimeout(()=>this.classList.remove('open'),150)"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="vertical-align:middle;margin-right:2px;opacity:.8"><circle cx="5" cy="5" r="4.2" stroke="currentColor" stroke-width="1.3"/><path d="M5 2.8v2.8M5 7v.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Opciones<div class="opts-dropdown">${items}</div></span>`;
+    }
+
+    tr.innerHTML = `
+      <td class="param-code">${p.code}</td>
+      <td class="param-addr">${p.addr}</td>
+      <td class="param-name">${p.name}${optsBadge ? '<br>' + optsBadge : ''}</td>
+      <td class="param-range">${p.range}</td>
+      <td>
+        <div class="param-val">
+          ${input}
+          <button class="btn btn-sm" onclick="readSingleParam('${p.code}','${p.addr}','${groupKey}')">Leer</button>
+          ${p.rw ? `<button class="btn btn-sm" onclick="writeSingleParam('${p.code}')">Escribir</button>` : ''}
+        </div>
+      </td>
+      <td>${badge}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function toggleOptsDropdown(e, el) {
+  e.stopPropagation();
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.opts-badge.open').forEach(b => b.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+document.addEventListener('click', () => {
+  document.querySelectorAll('.opts-badge.open').forEach(b => b.classList.remove('open'));
+});
+
+
+async function readSingleParam(code, addr, groupKey) {
+  if (!connected) { addLog(`Error: no conectado`, 'err'); return; }
+  addLog(`FC=0x03 │ ${addr} │ Leyendo ${code}...`);
+  try {
+    const res = await apiFetch(`/param/${encodeURIComponent(code)}`);
+    values[code] = res.realValue;
+    // Actualizar input en la tabla
+    const tbody = document.getElementById(groupKey + '-tbody');
+    if (tbody) {
+      const inputs = tbody.querySelectorAll('input[type=text]');
+      const group  = GROUPS[groupKey] || [];
+      const idx    = group.findIndex(p => p.code === code);
+      if (idx >= 0 && inputs[idx]) inputs[idx].value = res.realValue;
+    }
+    addLog(`FC=0x03 │ ${code} = ${res.realValue} ${res.unit} ✓`, 'ok');
+  } catch (err) {
+    addLog(`Error leyendo ${code}: ${err.message}`, 'err');
+  }
+}
+
+async function writeSingleParam(code) {
+  if (!connected) { addLog(`Error: no conectado`, 'err'); return; }
+  const val = parseFloat(values[code]);
+  if (isNaN(val)) { addLog(`Valor inválido para ${code}`, 'err'); return; }
+  addLog(`FC=0x06 │ Escribiendo ${code} = ${val}...`);
+  try {
+    const res = await apiFetch(`/param/${encodeURIComponent(code)}`, {
+      method: 'PUT', body: JSON.stringify({ value: val }),
+    });
+    addLog(`FC=0x06 │ ${code} = ${val} → raw=${res.rawValue} ✓`, 'ok');
+  } catch (err) {
+    addLog(`Error escribiendo ${code}: ${err.message}`, 'err');
+  }
+}
+
+async function readAll() {
+  if (!connected) { addLog('Error: no conectado', 'err'); return; }
+  addLog('Leyendo todos los parámetros...');
+  for (const gk of Object.keys(GROUPS)) {
+    try {
+      const res = await apiFetch(`/group/${gk}`);
+      res.forEach(p => {
+        if (p.ok) {
+          values[p.code] = p.realValue;
+          refreshTableRow(gk, p.code, p.realValue);
+        }
+      });
+    } catch (err) {
+      addLog(`Error leyendo grupo ${gk.toUpperCase()}: ${err.message}`, 'err');
+    }
+  }
+  addLog('Lectura completa ✓', 'ok');
+}
+
+async function writeAll() {
+  if (!connected) { addLog('Error: no conectado', 'err'); return; }
+  addLog('Escribiendo parámetros modificados...');
+  let ok = 0, errors = 0;
+  for (const [gk, group] of Object.entries(GROUPS)) {
+    for (const p of group) {
+      if (!p.rw) continue;
+      if (values[p.code] === undefined || values[p.code] === p.def) continue;
+      try {
+        await apiFetch(`/param/${encodeURIComponent(p.code)}`, {
+          method: 'PUT', body: JSON.stringify({ value: parseFloat(values[p.code]) }),
+        });
+        ok++;
+      } catch (err) {
+        addLog(`Error ${p.code}: ${err.message}`, 'err');
+        errors++;
+      }
+    }
+  }
+  addLog(`Escritura completa: ${ok} OK, ${errors} errores ✓`, errors > 0 ? 'warn' : 'ok');
+}
+
+function refreshTableRow(groupKey, code, realValue) {
+  const tbody = document.getElementById(groupKey + '-tbody');
+  if (!tbody) return;
+  const group = GROUPS[groupKey] || [];
+  const idx   = group.findIndex(p => p.code === code);
+  if (idx < 0) return;
+  const inputs = tbody.querySelectorAll('input[type=text]');
+  if (inputs[idx]) inputs[idx].value = realValue;
+}
+
+/* ══════════════════════════════════════════════════════
+   CONTROL
+   ══════════════════════════════════════════════════════ */
+async function sendCmd(cmd) {
+  if (!connected) { mLog('Error: no conectado', 'err'); return; }
+  mLog(`FC=0x06 │ Addr:0x2000 │ CMD: ${cmd}...`);
+  try {
+    const res = await apiFetch('/command', {
+      method: 'POST', body: JSON.stringify({ command: cmd }),
+    });
+    mLog(`CMD: ${cmd} → 0x${res.value.toString(16).padStart(4,'0')} ✓`, 'ok');
+    setTimeout(refreshStatus, 600);
+  } catch (err) {
+    mLog(`Error: ${err.message}`, 'err');
+  }
+}
+
+function updateFreqDisplay(val) {
+  const maxF = parseFloat(document.getElementById('maxFreqInput').value) || 50;
+  document.getElementById('freqSlider').max = maxF;
+  document.getElementById('freqValDisplay').textContent = parseFloat(val).toFixed(1) + ' Hz';
+}
+
+async function setFrequency() {
+  if (!connected) { mLog('Error: no conectado', 'err'); return; }
+  const hz   = parseFloat(document.getElementById('freqSlider').value);
+  const maxF = parseFloat(document.getElementById('maxFreqInput').value) || 50;
+  mLog(`FC=0x06 │ Addr:0x1000 │ Consigna ${hz} Hz...`);
+  try {
+    const res = await apiFetch('/frequency', {
+      method: 'POST', body: JSON.stringify({ freqHz: hz, maxFreq: maxF }),
+    });
+    mLog(`Consigna freq: ${hz} Hz → raw=${res.raw} ✓`, 'ok');
+  } catch (err) {
+    mLog(`Error: ${err.message}`, 'err');
+  }
+}
+
+async function refreshStatus() {
+  if (!connected) return;
+  try {
+    const s = await apiFetch('/status');
+    document.getElementById('runStatusVal').textContent =
+      s.running ? (s.direction === 'forward' ? 'Marcha adelante' : 'Marcha inversa') : 'Detenido';
+    document.getElementById('runDirVal').textContent =
+      s.running ? (s.direction === 'forward' ? 'Adelante' : 'Inversa') : '—';
+    const led = document.getElementById('runLed');
+    led.className = 'run-led' + (s.running ? ' running' : '');
+
+    const f = await apiFetch('/fault');
+    document.getElementById('runFaultVal').textContent = f.hasFault ? `${f.name} (${f.code})` : 'Sin falla';
+    if (f.hasFault) led.className = 'run-led fault';
+  } catch (_) {}
+}
+
+/* Salidas digitales DO */
+function buildDOGrid() {
+  const grid = document.getElementById('doGrid');
+  ['DO1','DO2','RELAY1','RELAY2','FMR'].forEach(name => {
+    doState[name] = false;
+    const label = document.createElement('label');
+    label.style.cssText = 'display:flex;align-items:center;gap:5px;font-size:12px;font-family:var(--font-mono);cursor:pointer;color:var(--text-secondary)';
+    label.innerHTML = `<input type="checkbox" onchange="doState['${name}']=this.checked" style="accent-color:var(--accent)">${name}`;
+    grid.appendChild(label);
+  });
+}
+
+async function setDO() {
+  if (!connected) { mLog('Error: no conectado', 'err'); return; }
+  mLog(`FC=0x06 │ Addr:0x2001 │ DO: ${JSON.stringify(doState)}...`);
+  try {
+    const res = await apiFetch('/digital-outputs', {
+      method: 'POST', body: JSON.stringify({ bits: doState }),
+    });
+    mLog(`DO → word=0x${res.word.toString(16).padStart(4,'0')} ✓`, 'ok');
+  } catch (err) {
+    mLog(`Error: ${err.message}`, 'err');
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   MONITOR
+   ══════════════════════════════════════════════════════ */
+function buildMonitorGrid() {
+  const grid = document.getElementById('monGrid');
+  grid.innerHTML = '';
+  MONITOR_REGS.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'monitor-card';
+    card.id = 'mc-' + r.code;
+    card.innerHTML = `
+      <div class="monitor-label">${r.label}</div>
+      <div>
+        <span class="monitor-val" id="mv-${r.code}">—</span>
+        <span class="monitor-unit">${r.unit}</span>
+      </div>
+      <div class="monitor-addr">${r.addr}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+async function startMonitor() {
+  if (!connected) { addLog('Error: no conectado', 'err', 'monPollLog'); return; }
+  document.getElementById('btnMonStart').disabled = true;
+  document.getElementById('btnMonStop').disabled  = false;
+  addLog('Iniciando monitoreo — poll 500ms, FC=0x03 bloque 0x1001~0x1020', 'ok', 'monPollLog');
+
+  const doPoll = async () => {
+    try {
+      const data = await apiFetch('/monitor');
+      for (const [code, val] of Object.entries(data)) {
+        const el   = document.getElementById('mv-' + code);
+        const card = document.getElementById('mc-' + code);
+        if (el) {
+          el.textContent = typeof val.realValue === 'number' ? val.realValue.toFixed(2) : val.realValue;
+          card?.classList.add('active');
+        }
+      }
+      document.getElementById('monPollInfo').textContent = `Último poll: ${new Date().toLocaleTimeString()}`;
+    } catch (err) {
+      addLog(`Poll error: ${err.message}`, 'err', 'monPollLog');
+    }
+  };
+
+  await doPoll();
+  monitorIntvl = setInterval(doPoll, 500);
+}
+
+function stopMonitor() {
+  clearInterval(monitorIntvl); monitorIntvl = null;
+  document.getElementById('btnMonStart').disabled = false;
+  document.getElementById('btnMonStop').disabled  = true;
+  document.querySelectorAll('.monitor-card').forEach(c => c.classList.remove('active'));
+  addLog('Monitoreo detenido.', 'warn', 'monPollLog');
+  document.getElementById('monPollInfo').textContent = '';
+}
+
+/* ══════════════════════════════════════════════════════
+   FALLAS
+   ══════════════════════════════════════════════════════ */
+async function readFaults() {
+  if (!connected) { addLog('Error: no conectado', 'err'); return; }
+
+  // Falla activa
+  try {
+    const f = await apiFetch('/fault');
+    const ac = document.getElementById('faultActiveContent');
+    if (f.hasFault) {
+      const sev = FAULT_SEV[f.code] || 'med';
+      ac.innerHTML = `<div class="fault-item sev-${sev}">
+        <span class="fault-code">${f.code}</span>
+        <span class="fault-name">${f.name}</span>
+        <span class="fault-sev-label">${sev === 'high' ? 'ALTA' : sev === 'med' ? 'MEDIA' : 'BAJA'}</span>
+      </div>`;
+    } else {
+      ac.innerHTML = `<div class="alert alert-success"><span class="alert-icon">✓</span><span>Sin falla activa.</span></div>`;
+    }
+  } catch (err) {
+    document.getElementById('faultActiveContent').innerHTML = `<div class="alert alert-danger"><span class="alert-icon">!</span><span>Error: ${err.message}</span></div>`;
+  }
+
+  // Historial
+  try {
+    const history = await apiFetch('/fault-history');
+    const list    = document.getElementById('faultList');
+    list.innerHTML = '';
+    history.forEach(h => {
+      if (h.error) {
+        list.innerHTML += `<div class="text-muted text-sm text-mono">Error en ${h.addr}: ${h.error}</div>`;
+        return;
+      }
+      if (!h.hasFault) {
+        list.innerHTML += `<div class="fault-item"><span class="fault-code">${h.addr}</span><span class="fault-name text-muted">Sin falla registrada</span></div>`;
+        return;
+      }
+      const sev = FAULT_SEV[`0x${h.raw.toString(16).padStart(4,'0')}`] || 'med';
+      list.innerHTML += `<div class="fault-item sev-${sev}">
+        <span class="fault-code">${h.addr}</span>
+        <span class="fault-name">${h.name}</span>
+        <span class="fault-sev-label">${sev === 'high' ? 'ALTA' : sev === 'med' ? 'MEDIA' : 'BAJA'}</span>
+      </div>`;
+    });
+  } catch (err) {
+    document.getElementById('faultList').innerHTML = `<div class="alert alert-danger"><span>Error: ${err.message}</span></div>`;
+  }
+}
+
+async function resetFaults() {
+  if (!connected) return;
+  try {
+    await sendCmd('FAULT_RESET');
+    addLog('Comando FAULT_RESET enviado. Releer fallas para confirmar.', 'ok');
+  } catch (err) {
+    addLog(`Error: ${err.message}`, 'err');
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   PERFILES
+   ══════════════════════════════════════════════════════ */
+function renderProfiles() {
+  const list  = document.getElementById('profileList');
+  const empty = document.getElementById('noProfiles');
+  list.innerHTML = '';
+  if (profiles.length === 0) { empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  profiles.forEach((p, i) => {
+    const item = document.createElement('div');
+    item.className = 'profile-item';
+    item.innerHTML = `
+      <div class="profile-icon">📋</div>
+      <div style="flex:1">
+        <div class="profile-name">${p.name}</div>
+        ${p.notes ? `<div class="profile-notes">${p.notes}</div>` : ''}
+      </div>
+      <div class="profile-date">${p.date}</div>
+      <div class="profile-actions">
+        <button class="btn btn-sm" onclick="loadProfile(${i})">Cargar</button>
+        <button class="btn btn-sm btn-primary" onclick="writeProfileToDevice(${i})">Enviar</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteProfile(${i})">✕</button>
+      </div>`;
+    list.appendChild(item);
+  });
+}
+
+function openSaveModal() { document.getElementById('saveModal').classList.add('open'); }
+function closeModal()    { document.getElementById('saveModal').classList.remove('open'); }
+
+function saveProfile() {
+  const name  = document.getElementById('profileName').value || 'Perfil ' + Date.now();
+  const notes = document.getElementById('profileNotes').value;
+  profiles.push({ name, notes, date: new Date().toLocaleDateString(), params: { ...values } });
+  localStorage.setItem('su900_profiles', JSON.stringify(profiles));
+  renderProfiles();
+  closeModal();
+  document.getElementById('profileName').value  = '';
+  document.getElementById('profileNotes').value = '';
+}
+
+function loadProfile(i) {
+  Object.assign(values, profiles[i].params);
+  
+/* ══════════════════════════════════════════════════════
+   ESP32 IP CONFIG
+   ══════════════════════════════════════════════════════ */
+function saveESP32IP() {
+  const ip = document.getElementById('esp32IpInput').value.trim();
+  if (!ip) { document.getElementById('esp32IpStatus').textContent = '⚠ Ingresá una IP'; return; }
+  ESP32_IP = ip;
+  API_BASE  = 'http://' + ESP32_IP + '/api';
+  localStorage.setItem('esp32_ip', ip);
+  document.getElementById('esp32IpStatus').textContent = '✓ Guardado — API: ' + API_BASE;
+  addLog('ESP32 IP actualizada: ' + API_BASE, 'ok');
+}
+
+// Inicializar input con IP guardada
+(function initESP32UI() {
+  const saved = localStorage.getItem('esp32_ip') || '192.168.1.100';
+  const inp = document.getElementById('esp32IpInput');
+  if (inp) inp.value = saved;
+  // Mostrar tab TCP por defecto
+  const tcpTab   = document.querySelector('.tab[onclick*="tcp"]');
+  const rtuDiv   = document.getElementById('tab-rtu');
+  const tcpDiv   = document.getElementById('tab-tcp');
+  if (tcpTab && rtuDiv && tcpDiv) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tcpTab.classList.add('active');
+    rtuDiv.style.display = 'none';
+    tcpDiv.style.display = 'block';
+    connType = 'tcp';
+  }
+  // Poner IP del ESP32 en el campo host TCP
+  const tcpHost = document.getElementById('tcpHost');
+  if (tcpHost) tcpHost.value = saved;
+})();
+
+Object.keys(GROUPS).forEach(gk => renderTable(gk));
+  addLog(`Perfil "${profiles[i].name}" cargado en la interfaz.`, 'ok');
+}
+
+async function writeProfileToDevice(i) {
+  if (!connected) { addLog('Error: no conectado', 'err'); return; }
+  addLog(`Enviando perfil "${profiles[i].name}" al variador...`);
+  try {
+    const res = await apiFetch('/profile/write', {
+      method: 'POST',
+      body: JSON.stringify({ profile: { groups: buildProfileGroups(profiles[i].params) } }),
+    });
+    addLog(`Perfil enviado: ${res.ok.length} OK, ${res.errors.length} errores.`,
+           res.errors.length > 0 ? 'warn' : 'ok');
+  } catch (err) {
+    addLog(`Error enviando perfil: ${err.message}`, 'err');
+  }
+}
+
+function buildProfileGroups(params) {
+  const groups = {};
+  for (const [gk, group] of Object.entries(GROUPS)) {
+    groups[gk.toUpperCase()] = group.map(p => ({
+      code: p.code, rw: p.rw, ok: true, realValue: params[p.code] ?? p.def,
+    }));
+  }
+  return groups;
+}
+
+function deleteProfile(i) {
+  profiles.splice(i, 1);
+  localStorage.setItem('su900_profiles', JSON.stringify(profiles));
+  renderProfiles();
+}
+
+async function exportProfile() {
+  const data = JSON.stringify({
+    device: 'SUSWE SU800/900', date: new Date().toISOString(), params: values
+  }, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });
+  const suggestedName = `su900_perfil_${new Date().toISOString().slice(0,10)}.json`;
+
+  if (window.showSaveFilePicker) {
+    try {
+      const fh = await window.showSaveFilePicker({
+        suggestedName,
+        types: [{ description: 'Archivo JSON', accept: { 'application/json': ['.json'] } }]
+      });
+      const writable = await fh.createWritable();
+      await writable.write(blob);
+      await writable.close();
+      addLog(`Perfil exportado: ${fh.name} ✓`, 'ok');
+    } catch (err) {
+      if (err.name !== 'AbortError') addLog(`Error al exportar: ${err.message}`, 'err');
+    }
+  } else {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = suggestedName;
+    a.click();
+  }
+}
+
+function importProfileFile(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const obj = JSON.parse(e.target.result);
+      if (obj.params) {
+        Object.assign(values, obj.params);
+        
+Object.keys(GROUPS).forEach(gk => renderTable(gk));
+        addLog(`Perfil importado: ${file.name}`, 'ok');
+      } else {
+        addLog('Formato JSON no reconocido.', 'err');
+      }
+    } catch (err) {
+      addLog(`Error al importar: ${err.message}`, 'err');
+    }
+  };
+  reader.readAsText(file);
+}
+
+async function readFullProfile() {
+  if (!connected) { addLog('Error: no conectado', 'err'); return; }
+  const spinner = document.getElementById('profileReadSpinner');
+  const status  = document.getElementById('profileReadStatus');
+  spinner.className = 'spinner';
+  status.textContent = 'Leyendo...';
+  try {
+    const profile = await apiFetch('/profile/read');
+    for (const [gk, params] of Object.entries(profile.groups || {})) {
+      params.forEach(p => {
+        if (p.ok) {
+          values[p.code] = p.realValue;
+          refreshTableRow(gk.toLowerCase(), p.code, p.realValue);
+        }
+      });
+    }
+    status.textContent = `✓ ${Object.keys(values).length} parámetros leídos`;
+    addLog('Perfil completo leído ✓', 'ok');
+  } catch (err) {
+    status.textContent = 'Error';
+    addLog(`Error: ${err.message}`, 'err');
+  } finally {
+    spinner.className = '';
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   DASHBOARD
+   ══════════════════════════════════════════════════════ */
+
+// Parámetros clave a mostrar en la tarjeta de parámetros del dashboard
+const DASH_KEY_PARAMS = [
+  { code:'P0-01', name:'Modo control',       unit:'' },
+  { code:'P0-02', name:'Fuente comando',     unit:'' },
+  { code:'P0-03', name:'Fuente frec. X',     unit:'' },
+  { code:'P0-08', name:'Frec. default',      unit:'Hz' },
+  { code:'P0-10', name:'Frec. máxima',       unit:'Hz' },
+  { code:'P0-12', name:'Frec. lím. sup.',    unit:'Hz' },
+  { code:'P0-14', name:'Frec. lím. inf.',    unit:'Hz' },
+  { code:'P0-17', name:'Tiempo acel. 1',     unit:'s' },
+  { code:'P0-18', name:'Tiempo desacel. 1',  unit:'s' },
+  { code:'P1-01', name:'Potencia motor',     unit:'kW' },
+  { code:'P1-02', name:'Tensión motor',      unit:'V' },
+  { code:'P1-03', name:'Corriente motor',    unit:'A' },
+  { code:'P1-05', name:'Velocidad nominal',  unit:'rpm' },
+  { code:'P6-00', name:'Modo arranque',      unit:'' },
+  { code:'P6-05', name:'Modo parada',        unit:'' },
+  { code:'Pd-00', name:'Baudrate',           unit:'' },
+  { code:'Pd-01', name:'Formato datos',      unit:'' },
+  { code:'Pd-02', name:'ID esclavo',         unit:'' },
+];
+
+// Opciones de descripción rápida (valor → texto corto para param cards)
+const DASH_PARAM_DESC = {
+  'P0-01': { 0:'SVC sin enc.', 2:'Control V/F' },
+  'P0-02': { 0:'Teclado', 1:'Terminal DI', 2:'Comunicación' },
+  'P0-03': { 0:'Digital', 1:'Digital(mem)', 2:'AI1', 3:'AI2', 4:'Potencióm.', 5:'Pulso HDI', 6:'Multi-vel.', 7:'PLC simple', 8:'PID', 9:'Comun.' },
+  'P6-00': { 0:'Directo', 1:'Con frec.', 2:'En giro' },
+  'P6-05': { 0:'Rampa', 1:'Libre' },
+  'Pd-00': { 0:'300', 1:'600', 2:'1200', 3:'2400', 4:'4800', 5:'9600', 6:'19200', 7:'38400', 8:'57600', 9:'115200' },
+  'Pd-01': { 0:'8-N-2', 1:'8-E-1', 2:'8-O-1', 3:'8-N-1' },
+};
+
+let dashMonitorIntvl = null;
+
+function dashLog(msg, type = 'info') { addLog(msg, type, 'dashLog'); }
+function dashClearLog() { document.getElementById('dashLog').innerHTML = ''; }
+
+function buildDashMonitorGrid() {
+  const grid = document.getElementById('dashMonGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  MONITOR_REGS.forEach(r => {
+    const c = document.createElement('div');
+    c.className = 'dash-mon-card';
+    c.id = 'dmcard-' + r.code;
+    c.innerHTML = `<div class="dash-mon-label">${r.label}</div>
+      <div><span class="dash-mon-val" id="dmv-${r.code}">—</span> <span class="dash-mon-unit">${r.unit}</span></div>
+      <div class="dash-mon-addr">${r.addr}</div>`;
+    grid.appendChild(c);
+  });
+}
+
+function buildDashParamGrid() {
+  const grid = document.getElementById('dashParamGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  DASH_KEY_PARAMS.forEach(p => {
+    const val  = values[p.code] !== undefined ? values[p.code] : '—';
+    const desc = DASH_PARAM_DESC[p.code];
+    const descTxt = desc && desc[parseInt(val)] !== undefined ? desc[parseInt(val)] : '';
+    const c = document.createElement('div');
+    c.className = 'dash-param-card';
+    c.id = 'dpcard-' + p.code;
+    c.innerHTML = `<div class="dash-param-code">${p.code}</div>
+      <div class="dash-param-name">${p.name}</div>
+      <div><span class="dash-param-val" id="dpv-${p.code}">${val}</span><span class="dash-param-unit">${p.unit ? ' '+p.unit : ''}</span></div>
+      <div class="dash-param-desc" id="dpd-${p.code}">${descTxt}</div>`;
+    grid.appendChild(c);
+  });
+}
+
+function dashRefreshParamGrid() {
+  DASH_KEY_PARAMS.forEach(p => {
+    const val  = values[p.code] !== undefined ? values[p.code] : '—';
+    const desc = DASH_PARAM_DESC[p.code];
+    const descTxt = desc && desc[parseInt(val)] !== undefined ? desc[parseInt(val)] : '';
+    const vEl = document.getElementById('dpv-' + p.code);
+    const dEl = document.getElementById('dpd-' + p.code);
+    if (vEl) vEl.textContent = val;
+    if (dEl) dEl.textContent = descTxt;
+  });
+}
+
+async function dashRefresh() {
+  if (!connected) { dashLog('No conectado.', 'warn'); return; }
+  try {
+    const s = await apiFetch('/status');
+    const running = s.running;
+    document.getElementById('dashRunVal').textContent =
+      running ? (s.direction === 'forward' ? 'MARCHA FWD' : 'MARCHA REV') : 'DETENIDO';
+    document.getElementById('dashDirVal').textContent =
+      running ? (s.direction === 'forward' ? 'Adelante' : 'Inversa') : '—';
+    const led = document.getElementById('dashRunLed');
+    const label = document.getElementById('dashRunLabel');
+    if (running) {
+      led.className = 'dash-run-led running';
+      label.textContent = s.direction === 'forward' ? 'En marcha — Adelante' : 'En marcha — Inversa';
+    } else {
+      led.className = 'dash-run-led';
+      label.textContent = 'Detenido';
+    }
+    const f = await apiFetch('/fault');
+    document.getElementById('dashFaultVal').textContent = f.hasFault ? `⚠ ${f.name}` : 'Sin falla';
+    document.getElementById('dashFaultVal').style.color = f.hasFault ? 'var(--err)' : 'var(--ok)';
+    if (f.hasFault) led.className = 'dash-run-led fault';
+    document.getElementById('dashPollVal').textContent = new Date().toLocaleTimeString();
+  } catch (err) {
+    dashLog(`Error actualizando estado: ${err.message}`, 'err');
+  }
+}
+
+async function dashCmd(cmd) {
+  if (!connected) { dashLog('No conectado.', 'warn'); return; }
+  dashLog(`Enviando comando: ${cmd}...`);
+  try {
+    const res = await apiFetch('/command', { method:'POST', body: JSON.stringify({ command: cmd }) });
+    dashLog(`${cmd} → 0x${res.value.toString(16).padStart(4,'0')} ✓`, 'ok');
+    setTimeout(dashRefresh, 500);
+  } catch (err) {
+    dashLog(`Error: ${err.message}`, 'err');
+  }
+}
+
+function dashUpdateFreq(val) {
+  const maxF = parseFloat(document.getElementById('dashMaxFreq').value) || 50;
+  document.getElementById('dashFreqSlider').max = maxF;
+  document.getElementById('dashFreqDisplay').innerHTML =
+    parseFloat(val).toFixed(1) + ' <span class="dash-freq-unit">Hz</span>';
+}
+
+function dashSetPreset(hz) {
+  const slider = document.getElementById('dashFreqSlider');
+  slider.value = hz;
+  dashUpdateFreq(hz);
+}
+
+async function dashSendFreq() {
+  if (!connected) { dashLog('No conectado.', 'warn'); return; }
+  const hz   = parseFloat(document.getElementById('dashFreqSlider').value);
+  const maxF = parseFloat(document.getElementById('dashMaxFreq').value) || 50;
+  dashLog(`Enviando consigna: ${hz} Hz...`);
+  try {
+    const res = await apiFetch('/frequency', { method:'POST', body: JSON.stringify({ freqHz: hz, maxFreq: maxF }) });
+    dashLog(`Consigna ${hz} Hz → raw=${res.raw} ✓`, 'ok');
+  } catch (err) {
+    dashLog(`Error: ${err.message}`, 'err');
+  }
+}
+
+async function dashReadAll() {
+  if (!connected) { dashLog('No conectado.', 'warn'); return; }
+  dashLog('Leyendo todos los parámetros del variador...');
+  document.getElementById('dashFileStatus').textContent = 'Leyendo...';
+  for (const gk of Object.keys(GROUPS)) {
+    try {
+      const res = await apiFetch(`/group/${gk}`);
+      res.forEach(p => {
+        if (p.ok) { values[p.code] = p.realValue; refreshTableRow(gk, p.code, p.realValue); }
+      });
+    } catch (err) {
+      dashLog(`Error grupo ${gk.toUpperCase()}: ${err.message}`, 'err');
+    }
+  }
+  dashRefreshParamGrid();
+  document.getElementById('dashFileStatus').textContent = '✓ Lectura completa';
+  dashLog('Lectura de parámetros completa ✓', 'ok');
+}
+
+async function dashWriteAll() {
+  if (!connected) { dashLog('No conectado.', 'warn'); return; }
+  dashLog('Escribiendo parámetros al variador...');
+  document.getElementById('dashFileStatus').textContent = 'Escribiendo...';
+  let ok = 0, errors = 0;
+  for (const [gk, group] of Object.entries(GROUPS)) {
+    for (const p of group) {
+      if (!p.rw || values[p.code] === undefined) continue;
+      try {
+        await apiFetch(`/param/${encodeURIComponent(p.code)}`, {
+          method:'PUT', body: JSON.stringify({ value: parseFloat(values[p.code]) }),
+        });
+        ok++;
+      } catch (err) {
+        dashLog(`Error ${p.code}: ${err.message}`, 'err');
+        errors++;
+      }
+    }
+  }
+  document.getElementById('dashFileStatus').textContent = `✓ ${ok} escritos${errors ? ', '+errors+' errores' : ''}`;
+  dashLog(`Escritura completa: ${ok} OK, ${errors} errores`, errors ? 'warn' : 'ok');
+}
+
+async function dashSaveFile() {
+  const data = JSON.stringify({
+    device: 'SUSWE SU800/900',
+    savedAt: new Date().toISOString(),
+    params: { ...values }
+  }, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });
+  const suggestedName = `su900_config_${new Date().toISOString().slice(0,10)}.json`;
+
+  if (window.showSaveFilePicker) {
+    try {
+      const fh = await window.showSaveFilePicker({
+        suggestedName,
+        types: [{ description: 'Archivo JSON', accept: { 'application/json': ['.json'] } }]
+      });
+      const writable = await fh.createWritable();
+      await writable.write(blob);
+      await writable.close();
+      document.getElementById('dashFileStatus').textContent = `✓ Guardado: ${fh.name}`;
+      dashLog(`Configuración guardada: ${fh.name} ✓`, 'ok');
+    } catch (err) {
+      if (err.name !== 'AbortError') dashLog(`Error al guardar: ${err.message}`, 'err');
+    }
+  } else {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = suggestedName;
+    a.click();
+    document.getElementById('dashFileStatus').textContent = '✓ Archivo descargado';
+    dashLog('Configuración exportada como JSON ✓', 'ok');
+  }
+}
+
+function dashLoadFile(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const obj = JSON.parse(e.target.result);
+      const params = obj.params || obj;
+      Object.assign(values, params);
+      
+Object.keys(GROUPS).forEach(gk => renderTable(gk));
+      dashRefreshParamGrid();
+      document.getElementById('dashFileStatus').textContent = `✓ ${file.name} cargado`;
+      dashLog(`Archivo cargado: ${file.name} — ${Object.keys(params).length} parámetros`, 'ok');
+    } catch (err) {
+      dashLog(`Error al abrir archivo: ${err.message}`, 'err');
+    }
+  };
+  reader.readAsText(file);
+  input.value = '';
+}
+
+function dashSaveProfile() {
+  const name = `Perfil ${new Date().toLocaleString()}`;
+  profiles.push({ name, notes:'Guardado desde dashboard', date: new Date().toLocaleDateString(), params: { ...values } });
+  localStorage.setItem('su900_profiles', JSON.stringify(profiles));
+  renderProfiles();
+  document.getElementById('dashFileStatus').textContent = '✓ Perfil guardado en memoria';
+  dashLog(`Perfil guardado: "${name}"`, 'ok');
+}
+
+async function dashReadKeyParams() {
+  if (!connected) { dashLog('No conectado.', 'warn'); return; }
+  dashLog('Leyendo parámetros clave...');
+  for (const p of DASH_KEY_PARAMS) {
+    try {
+      const res = await apiFetch(`/param/${encodeURIComponent(p.code)}`);
+      values[p.code] = res.realValue;
+      const vEl = document.getElementById('dpv-' + p.code);
+      const dEl = document.getElementById('dpd-' + p.code);
+      const desc = DASH_PARAM_DESC[p.code];
+      const descTxt = desc && desc[parseInt(res.realValue)] !== undefined ? desc[parseInt(res.realValue)] : '';
+      if (vEl) vEl.textContent = res.realValue;
+      if (dEl) dEl.textContent = descTxt;
+      refreshTableRow(Object.keys(GROUPS).find(gk => GROUPS[gk].some(gp => gp.code === p.code)) || 'p0', p.code, res.realValue);
+    } catch (err) {
+      dashLog(`Error leyendo ${p.code}: ${err.message}`, 'err');
+    }
+  }
+  dashLog('Parámetros clave leídos ✓', 'ok');
+}
+
+async function dashStartMonitor() {
+  if (!connected) { dashLog('No conectado.', 'warn'); return; }
+  document.getElementById('dashMonStart').disabled = true;
+  document.getElementById('dashMonStop').disabled  = false;
+  dashLog('Monitor iniciado — poll 500ms', 'ok');
+
+  const poll = async () => {
+    try {
+      const data = await apiFetch('/monitor');
+      for (const [code, val] of Object.entries(data)) {
+        const el   = document.getElementById('dmv-' + code);
+        const card = document.getElementById('dmcard-' + code);
+        if (el) { el.textContent = typeof val.realValue === 'number' ? val.realValue.toFixed(2) : val.realValue; }
+        if (card) card.classList.add('live');
+      }
+      document.getElementById('dashPollVal').textContent = new Date().toLocaleTimeString();
+    } catch (err) {
+      dashLog(`Poll error: ${err.message}`, 'err');
+    }
+  };
+  await poll();
+  dashMonitorIntvl = setInterval(poll, 500);
+}
+
+function dashStopMonitor() {
+  clearInterval(dashMonitorIntvl); dashMonitorIntvl = null;
+  document.getElementById('dashMonStart').disabled = false;
+  document.getElementById('dashMonStop').disabled  = true;
+  document.querySelectorAll('.dash-mon-card').forEach(c => c.classList.remove('live'));
+  dashLog('Monitor detenido.', 'warn');
+}
+
+/* ══════════════════════════════════════════════════════
+   INICIALIZACIÓN
+   ══════════════════════════════════════════════════════ */
+
+Object.keys(GROUPS).forEach(gk => renderTable(gk));
+buildMonitorGrid();
+buildDOGrid();
+buildDashMonitorGrid();
+buildDashParamGrid();
+renderProfiles();
+
+// Actualizar max del slider si cambia la frec máxima
+document.getElementById('maxFreqInput').addEventListener('input', function() {
+  document.getElementById('freqSlider').max = this.value;
+});
+document.getElementById('dashMaxFreq').addEventListener('input', function() {
+  document.getElementById('dashFreqSlider').max = this.value;
+});
+</script>
+</body>
+</html>
