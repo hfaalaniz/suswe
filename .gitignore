@@ -1,1 +1,6 @@
 ELECTROCBA*
+node_modules/
+package-lock.json
+logs/
+*.rar
+.~lock.*
