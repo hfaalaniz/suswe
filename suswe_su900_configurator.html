@@ -474,7 +474,7 @@
 
         <div class="alert alert-info" style="margin-bottom:18px">
           <span class="alert-icon">🔀</span>
-          <span>Hasta <strong>8 variadores</strong> pueden operar en el mismo bus RS-485 (Modbus RTU, hasta 247 esclavos) o en distintas pasarelas TCP. El variador activo se selecciona en el desplegable de la barra superior.</span>
+          <span>Hasta <strong>247 variadores</strong> pueden operar en el mismo bus RS-485 (Modbus RTU) o en distintas pasarelas TCP. Al conectar el primero aparece el selector <strong>Variador:</strong> en la barra superior para elegir cuál está activo en cada momento.</span>
         </div>
 
         <!-- Lista de dispositivos conectados -->
@@ -3845,7 +3845,7 @@ function updateDeviceSelector(devs) {
     sel.value = activeDeviceId;
   }
 
-  wrap.style.display = devs.length > 1 ? 'flex' : 'none';
+  wrap.style.display = devs.length >= 1 ? 'flex' : 'none';
 }
 
 // Cambia el variador activo
