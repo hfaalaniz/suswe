@@ -1,0 +1,122 @@
+
+
+
+# ── Diccionario completo de descripciones basado en el manual PDF del SU900
+descriptions = {
+  # ── P0 Operativos básicos ──
+  "P0-00": "Selección del modelo G/P. G: motor de propósito general. P: motor para bomba/ventilador. Afecta los valores predeterminados de fábrica.",
+  "P0-01": "Modo de control del variador. 0: Control vectorial sin sensor de velocidad (SVC). 1: Control V/F (volts/hertz). El modo SVC ofrece mejor torque a baja velocidad.",
+  "P0-02": "Fuente de la orden de marcha/paro. 0: panel de operación (teclado). 1: terminales digitales externos. 2: comunicación Modbus/RS485.",
+  "P0-03": "Fuente de la referencia de frecuencia principal X. 0: ajuste numérico. 1: entrada analógica AI1. 2: entrada analógica AI2. 8: PID. 9: comunicación Modbus.",
+  "P0-04": "Fuente de la referencia de frecuencia auxiliar Y. Mismas opciones que P0-03. Se usa para sumar o combinar con la fuente principal.",
+  "P0-06": "Rango de cobertura de la frecuencia auxiliar Y en porcentaje de la frecuencia máxima. Limita cuánto puede contribuir la fuente Y.",
+  "P0-07": "Dirección de giro del motor. 0: dirección consistente (FWD). 1: dirección opuesta (REV). Útil para invertir giro sin cambiar el cableado.",
+  "P0-08": "Frecuencia predeterminada de operación en Hz. Valor que usa el variador cuando la fuente de frecuencia es ajuste numérico (P0-03=0).",
+  "P0-10": "Frecuencia máxima de salida en Hz. Limita la frecuencia máxima que puede alcanzar el variador. Rango: 50 Hz a 320 Hz.",
+  "P0-11": "Fuente del límite superior de frecuencia. 0: valor fijo de P0-12. Otras opciones permiten control analógico del límite.",
+  "P0-12": "Frecuencia límite superior en Hz. El variador no superará este valor aunque la referencia sea mayor. Máximo = P0-10.",
+  "P0-14": "Frecuencia límite inferior en Hz. El variador no bajará de este valor durante operación. Mínimo = 0 Hz.",
+  "P0-15": "Frecuencia de conmutación de los IGBTs en kHz. Valores más altos reducen ruido audible pero aumentan pérdidas. Rango típico: 1–16 kHz.",
+  "P0-17": "Tiempo de aceleración 1 en segundos. Tiempo que tarda el variador en ir de 0 Hz a la frecuencia de referencia P0-25.",
+  "P0-18": "Tiempo de desaceleración 1 en segundos. Tiempo que tarda el variador en ir de la frecuencia de referencia P0-25 a 0 Hz.",
+  "P0-19": "Unidad de tiempo para aceleración/desaceleración. 0: segundos (0.01s~650.0s). 1: décimas de segundo. 2: centésimas de segundo.",
+  "P0-22": "Resolución de la frecuencia de salida. 0: resolución de 0.01 Hz. 1: resolución de 0.1 Hz. Afecta la precisión del ajuste.",
+  "P0-25": "Frecuencia de referencia para el cálculo de tiempos de aceleración y desaceleración. Por defecto = frecuencia máxima.",
+  "P0-29": "Macro de aplicación predefinida. Carga automáticamente un conjunto de parámetros optimizados para una aplicación específica (bomba, ventilador, compresor, etc.).",
+
+  # ── P1 Motor ──
+  "P1-00": "Tipo de motor. 0: motor asíncrono de inducción (estándar). 1: motor síncrono de imán permanente. Determina el algoritmo de control.",
+  "P1-01": "Potencia nominal del motor en kW. Debe coincidir con la placa del motor. Afecta la protección y el rendimiento del control.",
+  "P1-02": "Tensión nominal del motor en voltios. Debe coincidir con la placa del motor según el conexionado (estrella/triángulo).",
+  "P1-03": "Corriente nominal del motor en amperios. Valor de la placa del motor. Usado para protección de sobrecorriente y ajuste automático.",
+  "P1-04": "Frecuencia nominal del motor en Hz. Generalmente 50 Hz (o 60 Hz). Define el punto base de la curva V/F.",
+  "P1-05": "Velocidad nominal del motor en RPM. Valor de la placa del motor. Usado en modos de control vectorial.",
+  "P1-06": "Factor de potencia nominal del motor (cos φ). Valor de la placa del motor. Mejora la precisión del control vectorial.",
+  "P1-07": "Corriente de vacío (magnetización) del motor en amperios. Se obtiene automáticamente con el ajuste automático P1-37.",
+  "P1-37": "Selección de ajuste automático de parámetros del motor. 0: sin operación. 1: ajuste estático (motor detenido). 2: ajuste dinámico (motor girando). Recomendado para control vectorial.",
+
+  # ── P2 Control vectorial ──
+  "P2-00": "Ganancia proporcional KP1 del anillo de velocidad (rango bajo). Aumentar mejora la respuesta dinámica pero puede causar oscilación.",
+  "P2-01": "Tiempo integral KI1 del anillo de velocidad (rango bajo) en segundos. Reducir acelera la respuesta integral pero puede inestabilizar.",
+  "P2-02": "Frecuencia de cambio de ganancia 1 en Hz. Por debajo de esta frecuencia se usan KP1/KI1; por encima se interpola hacia KP2/KI2.",
+  "P2-03": "Ganancia proporcional KP2 del anillo de velocidad (rango alto). Se aplica cuando la frecuencia supera P2-05.",
+  "P2-04": "Tiempo integral KI2 del anillo de velocidad (rango alto) en segundos.",
+  "P2-05": "Frecuencia de cambio de ganancia 2 en Hz. Por encima de esta frecuencia se usan KP2/KI2.",
+  "P2-06": "Ganancia diferencial del control de velocidad en porcentaje. Ayuda a amortiguar oscilaciones en transitorios.",
+  "P2-07": "Tiempo de filtro del bucle de velocidad en segundos. Filtra el ruido en la realimentación de velocidad. Valores mayores = mayor filtrado.",
+  "P2-09": "Fuente del límite superior de par. 0: valor fijo P2-10. 1: entrada analógica AI1. Otras opciones para control externo del par.",
+  "P2-10": "Límite superior de par en porcentaje del par nominal. Protege el motor y la carga de sobrecargas de torque.",
+
+  # ── P3 Control V/F ──
+  "P3-00": "Modo de la curva V/F. 0: V/F lineal (torque constante). 1: V/F cuadrática (bombas/ventiladores). 2: V/F multipunto personalizado.",
+  "P3-01": "Boost de par en porcentaje. Incremento de voltaje a baja frecuencia para compensar la caída en resistencia del estátor y mejorar el torque de arranque.",
+  "P3-02": "Frecuencia de corte del boost de par en Hz. Por encima de esta frecuencia el boost se reduce progresivamente.",
+  "P3-03": "Voltaje del punto 1 de la curva V/F multipunto en porcentaje del voltaje nominal.",
+  "P3-04": "Frecuencia del punto 1 de la curva V/F multipunto en Hz.",
+  "P3-05": "Voltaje del punto 2 de la curva V/F multipunto en porcentaje del voltaje nominal.",
+  "P3-06": "Frecuencia del punto 2 de la curva V/F multipunto en Hz.",
+  "P3-07": "Voltaje máximo del punto 3 de la curva V/F en porcentaje. Normalmente 100% (voltaje nominal del motor).",
+  "P3-08": "Frecuencia del punto 3 (máxima) de la curva V/F en Hz. Generalmente igual a la frecuencia nominal del motor.",
+  "P3-10": "Compensación de deslizamiento en porcentaje. Compensa la caída de velocidad bajo carga en motores de inducción. 0 = sin compensación.",
+
+  # ── P4 Entradas digitales ──
+  "P4-00": "Función asignada al terminal de entrada digital X1. Cada valor corresponde a una función (marcha adelante, paro, reset de falla, velocidad multietapa, etc.).",
+  "P4-01": "Función asignada al terminal de entrada digital X2. Ver tabla de funciones disponibles en el manual.",
+  "P4-02": "Función asignada al terminal de entrada digital X3.",
+  "P4-03": "Función asignada al terminal de entrada digital X4.",
+  "P4-04": "Función asignada al terminal HDI (X5), entrada de pulso de alta velocidad. Puede usarse como entrada digital o contador de pulsos.",
+  "P4-09": "Tiempo de filtro de las entradas digitales X en segundos. Filtra rebotes y ruido en las señales de entrada. Mayor valor = más inmunidad al ruido.",
+  "P4-10": "Modo de comando por terminal. 0: dos hilos (un terminal para FWD, otro para REV). 1: tres hilos (marcha, paro, dirección). 2: modo alternativo.",
+  "P4-11": "Tasa de cambio de frecuencia para función UP/DOWN en Hz por segundo. Define cuánto cambia la frecuencia por unidad de tiempo.",
+  "P4-13": "Voltaje mínimo de la entrada analógica AI1 en voltios. Define el punto 0% de la escala de la entrada AI1.",
+  "P4-14": "Voltaje máximo de la entrada analógica AI1 en voltios. Define el punto 100% de la escala de la entrada AI1.",
+  "P4-38": "Configuración extendida de entradas analógicas o digitales según la variante del equipo.",
+
+  # ── P5 Salidas digitales ──
+  "P5-00": "Función de la salida digital DO1 (colector abierto). Selecciona qué señal interna se refleja en esta salida (en marcha, falla, frecuencia alcanzada, etc.).",
+  "P5-01": "Función de la salida digital DO2.",
+  "P5-02": "Función de la salida digital DO3.",
+  "P5-03": "Función del relé 1 (contactos TA-TC). Selecciona la señal interna que activa el relé.",
+  "P5-04": "Función del relé 2 (contactos TB-TC).",
+  "P5-07": "Función de la salida analógica AO1 (0–10V). Selecciona la variable interna que se refleja: frecuencia, corriente, voltaje, par, potencia, etc.",
+  "P5-08": "Función de la salida analógica AO2 (0–20mA). Mismas opciones que AO1.",
+  "P5-09": "Función de la salida de pulso FMP (alta frecuencia). Selecciona la variable a transmitir como tren de pulsos.",
+  "P5-10": "Porcentaje mínimo de la salida AO1. Calibra el punto 0 de la salida analógica AO1.",
+  "P5-11": "Porcentaje máximo de la salida AO1. Calibra el punto 100% de la salida analógica AO1.",
+  "P5-18": "Umbral de detección de frecuencia en Hz. Si la frecuencia de salida supera este valor se activa la salida correspondiente.",
+  "P5-19": "Histéresis de la detección de frecuencia en Hz. Banda muerta alrededor del umbral P5-18 para evitar oscilaciones en la salida.",
+
+  # ── P6 Arranque y parada ──
+  "P6-00": "Modo de arranque. 0: arranque directo desde 0 Hz. 1: rastreo de velocidad (arranca sincronizando con motor en giro). 2: con premagnetización.",
+  "P6-01": "Frecuencia de arranque en Hz. Frecuencia inicial desde la que comienza la rampa de aceleración.",
+  "P6-02": "Tiempo de mantenimiento de la frecuencia de arranque en segundos. El variador mantiene la frecuencia de arranque antes de comenzar a acelerar.",
+  "P6-03": "Tiempo de frenado DC al arranque en segundos. Aplica corriente continua antes de arrancar para asegurar que el motor esté detenido.",
+  "P6-04": "Corriente de frenado DC al arranque en porcentaje de la corriente nominal. Determina la fuerza del frenado DC previo al arranque.",
+  "P6-05": "Modo de parada. 0: rampa de desaceleración controlada. 1: rueda libre (el motor se detiene por inercia sin control del variador).",
+  "P6-07": "Frecuencia de inicio del frenado DC en parada en Hz. Cuando la frecuencia baja a este valor durante la desaceleración, se activa el freno DC.",
+  "P6-08": "Tiempo de espera antes del frenado DC en parada en segundos. Pausa entre el fin de la desaceleración y la aplicación del freno DC.",
+  "P6-09": "Corriente de frenado DC en parada en porcentaje. Intensidad de la corriente continua aplicada para frenar el motor al detener.",
+  "P6-10": "Tiempo de frenado DC en parada en segundos. Duración de la corriente de frenado DC aplicada al motor.",
+  "P6-11": "Configuración del modo de arranque con rastreo de velocidad.",
+  "P6-12": "Parámetro de arranque suave o configuración de la curva S de aceleración.",
+
+  # ── PD Comunicación Modbus ──
+  "PD-00": "Velocidad de comunicación Modbus en baudios. 0: 300. 1: 600. 2: 1200. 3: 2400. 4: 4800. 5: 9600. 6: 19200. 7: 38400. 8: 57600 bps.",
+  "PD-01": "Formato de datos Modbus. 0: 8-N-2 (sin paridad, 2 stop bits). 1: 8-E-1 (paridad par). 2: 8-O-1 (paridad impar). 3: 8-N-1.",
+  "PD-02": "Dirección esclavo Modbus del variador. Rango 1–247. Cada variador en el bus debe tener una dirección única.",
+  "PD-03": "Retraso de respuesta Modbus en milisegundos. Tiempo que espera el variador antes de responder al maestro. Rango: 0–20 ms.",
+  "PD-04": "Tiempo de timeout de comunicación Modbus en segundos. Si no hay comunicación en este tiempo se activa una alarma. 0 = deshabilitado.",
+  "PD-05": "Selección del protocolo de comunicación. 0: Modbus estándar. 1: Modbus RTU alternativo. Normalmente dejar en 0.",
+  "PD-06": "Resolución de la comunicación de frecuencia. 0: 0.01 Hz/unidad. 1: 0.1 Hz/unidad. Afecta la precisión del control por Modbus.",
+
+  # ── Pd (alias de PD) ──
+  "Pd-00": "Velocidad de comunicación Modbus en baudios. 5: 9600 bps (predeterminado). Ver PD-00 para opciones completas.",
+  "Pd-01": "Formato de datos Modbus. 3: 8-N-2 predeterminado (compatible con SU900). Ver PD-01 para opciones.",
+  "Pd-02": "Dirección esclavo Modbus. Rango 1–247. Debe ser única en el bus RS485.",
+  "Pd-03": "Retraso de respuesta Modbus en ms. Tiempo antes de responder al maestro.",
+  "Pd-04": "Timeout de comunicación en segundos. 0 = sin timeout.",
+  "Pd-05": "Protocolo de comunicación. 0: Modbus RTU estándar.",
+  "Pd-06": "Resolución de frecuencia por comunicación.",
+}
+
+# ── Guardado en /tmp/param_descriptions.json

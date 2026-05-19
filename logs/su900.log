@@ -1,0 +1,1551 @@
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:46:42.788"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:46:42.790"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:46:42.790"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:46:42.791"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:46:42.791"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 00:51:02.115"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 00:51:02.130"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 00:51:02.140"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 00:51:02.162"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 00:51:02.179"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 00:52:48.260"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 00:52:48.276"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 00:52:48.279"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 00:52:48.286"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 00:52:48.310"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:22:29.669"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 01:22:29.674"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 01:22:29.674"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 01:22:29.675"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:22:29.675"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:34:09.657"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 01:34:09.661"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 01:34:09.661"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 01:34:09.662"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:34:09.662"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:34:20.543"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 01:34:20.546"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 01:34:20.546"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 01:34:20.547"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:34:20.547"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:41:08.544"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 01:41:08.547"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 01:41:08.547"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 01:41:08.548"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:41:08.548"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:50:46.890"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 01:50:46.893"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 01:50:46.894"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 01:50:46.894"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:50:46.894"}
+{"level":"error","message":"[TCP] Error de conexión: connect ECONNREFUSED 192.168.1.41:502","timestamp":"2026-05-03 01:51:19.399"}
+{"level":"error","message":"[API] Error en connect: connect ECONNREFUSED 192.168.1.41:502","timestamp":"2026-05-03 01:51:19.403"}
+{"level":"info","message":"[TCP] Conectado → 192.168.1.41:80, unit ID=1","timestamp":"2026-05-03 01:51:30.050"}
+{"level":"info","message":"[API] Conexión establecida: TCP","timestamp":"2026-05-03 01:51:30.052"}
+{"level":"info","message":"[TCP] Desconectado.","timestamp":"2026-05-03 01:52:56.745"}
+{"level":"error","message":"[TCP] Error de conexión: connect ETIMEDOUT 192.168.1.100:502","timestamp":"2026-05-03 01:53:17.765"}
+{"level":"error","message":"[API] Error en connect: connect ETIMEDOUT 192.168.1.100:502","timestamp":"2026-05-03 01:53:17.797"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:55:19.066"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 01:55:19.069"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 01:55:19.070"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 01:55:19.071"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:55:19.071"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:55:35.815"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 01:55:35.817"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 01:55:35.818"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 01:55:35.818"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 01:55:35.819"}
+{"level":"info","message":"[TCP] Conectado → 192.168.1.41:80, unit ID=1","timestamp":"2026-05-03 01:56:07.824"}
+{"level":"info","message":"[API] Conexión establecida: TCP","timestamp":"2026-05-03 01:56:07.826"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:01:33.333"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:01:33.336"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:01:33.337"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:01:33.337"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:01:33.337"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:05:21.292"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:05:21.295"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:05:21.296"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:05:21.296"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:05:21.296"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:07:31.385"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:07:31.388"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:07:31.388"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:07:31.389"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:07:31.390"}
+{"level":"info","message":"[TCP] Conectado → 192.168.1.41:80, unit ID=1","timestamp":"2026-05-03 02:08:32.205"}
+{"level":"info","message":"[API] Conexión establecida: TCP","timestamp":"2026-05-03 02:08:32.206"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:12.546"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:12.755"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:13.172"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:27.298"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:27.504"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:27.906"}
+{"level":"warn","message":"[API] readParam P0-01: Port Not Open","timestamp":"2026-05-03 02:11:28.521"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:28.532"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:28.738"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:29.155"}
+{"level":"warn","message":"[API] readParam P0-02: Port Not Open","timestamp":"2026-05-03 02:11:29.757"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:29.780"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:29.988"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:30.405"}
+{"level":"warn","message":"[API] readParam P0-03: Port Not Open","timestamp":"2026-05-03 02:11:31.021"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:31.033"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:31.238"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:31.641"}
+{"level":"warn","message":"[API] readParam P0-08: Port Not Open","timestamp":"2026-05-03 02:11:32.254"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:32.280"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:32.488"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:32.890"}
+{"level":"warn","message":"[API] readParam P0-10: Port Not Open","timestamp":"2026-05-03 02:11:33.507"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:33.525"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:33.738"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:34.140"}
+{"level":"warn","message":"[API] readParam P0-12: Port Not Open","timestamp":"2026-05-03 02:11:34.755"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:34.765"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:34.974"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:35.388"}
+{"level":"warn","message":"[API] readParam P0-14: Port Not Open","timestamp":"2026-05-03 02:11:35.990"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:36.008"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:36.222"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:36.638"}
+{"level":"warn","message":"[API] readParam P0-17: Port Not Open","timestamp":"2026-05-03 02:11:37.255"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:37.282"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:37.489"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:37.905"}
+{"level":"warn","message":"[API] readParam P0-18: Port Not Open","timestamp":"2026-05-03 02:11:38.507"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:38.518"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:38.723"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:39.138"}
+{"level":"warn","message":"[API] readParam P1-01: Port Not Open","timestamp":"2026-05-03 02:11:39.740"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:39.751"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:39.955"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:40.357"}
+{"level":"warn","message":"[API] readParam P1-02: Port Not Open","timestamp":"2026-05-03 02:11:40.957"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:40.962"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:41.176"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:41.591"}
+{"level":"warn","message":"[API] readParam P1-03: Port Not Open","timestamp":"2026-05-03 02:11:42.192"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:42.202"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:42.410"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:42.811"}
+{"level":"warn","message":"[API] readParam P1-05: Port Not Open","timestamp":"2026-05-03 02:11:43.425"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:43.432"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:43.645"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:44.055"}
+{"level":"warn","message":"[API] readParam P6-00: Port Not Open","timestamp":"2026-05-03 02:11:44.655"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:44.664"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:44.872"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:45.278"}
+{"level":"warn","message":"[API] readParam P6-05: Port Not Open","timestamp":"2026-05-03 02:11:45.888"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:45.892"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:46.096"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:46.506"}
+{"level":"warn","message":"[API] readParam Pd-00: Port Not Open","timestamp":"2026-05-03 02:11:47.115"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:47.151"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:47.355"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:47.764"}
+{"level":"warn","message":"[API] readParam Pd-01: Port Not Open","timestamp":"2026-05-03 02:11:48.372"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:11:48.384"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:11:48.588"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:11:48.989"}
+{"level":"warn","message":"[API] readParam Pd-02: Port Not Open","timestamp":"2026-05-03 02:11:49.600"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:36.988"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:37.199"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:37.617"}
+{"level":"warn","message":"Error leyendo P0-00: Port Not Open","timestamp":"2026-05-03 02:13:38.234"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:38.239"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:38.452"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:38.868"}
+{"level":"warn","message":"Error leyendo P0-01: Port Not Open","timestamp":"2026-05-03 02:13:39.485"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:39.489"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:39.706"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:40.120"}
+{"level":"warn","message":"Error leyendo P0-02: Port Not Open","timestamp":"2026-05-03 02:13:40.736"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:40.740"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:40.953"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:41.355"}
+{"level":"warn","message":"Error leyendo P0-03: Port Not Open","timestamp":"2026-05-03 02:13:41.971"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:41.974"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:42.192"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:42.610"}
+{"level":"warn","message":"Error leyendo P0-04: Port Not Open","timestamp":"2026-05-03 02:13:43.221"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:43.224"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:43.441"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:43.857"}
+{"level":"warn","message":"Error leyendo P0-06: Port Not Open","timestamp":"2026-05-03 02:13:44.478"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:44.482"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:44.691"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:45.109"}
+{"level":"warn","message":"Error leyendo P0-07: Port Not Open","timestamp":"2026-05-03 02:13:45.725"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:45.728"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:45.941"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:46.342"}
+{"level":"warn","message":"Error leyendo P0-08: Port Not Open","timestamp":"2026-05-03 02:13:46.959"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:46.962"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:47.176"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:47.580"}
+{"level":"warn","message":"Error leyendo P0-10: Port Not Open","timestamp":"2026-05-03 02:13:48.199"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:48.202"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:48.411"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:48.814"}
+{"level":"warn","message":"Error leyendo P0-11: Port Not Open","timestamp":"2026-05-03 02:13:49.429"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:49.433"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:49.647"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:50.065"}
+{"level":"warn","message":"Error leyendo P0-12: Port Not Open","timestamp":"2026-05-03 02:13:50.681"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:50.686"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:50.898"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:51.314"}
+{"level":"warn","message":"Error leyendo P0-14: Port Not Open","timestamp":"2026-05-03 02:13:51.930"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:51.932"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:52.146"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:52.554"}
+{"level":"warn","message":"Error leyendo P0-15: Port Not Open","timestamp":"2026-05-03 02:13:53.165"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:53.170"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:53.381"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:53.783"}
+{"level":"warn","message":"Error leyendo P0-17: Port Not Open","timestamp":"2026-05-03 02:13:54.384"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:54.385"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:54.602"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:55.017"}
+{"level":"warn","message":"Error leyendo P0-18: Port Not Open","timestamp":"2026-05-03 02:13:55.619"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:55.625"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:55.833"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:56.236"}
+{"level":"warn","message":"Error leyendo P0-19: Port Not Open","timestamp":"2026-05-03 02:13:56.852"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:56.856"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:57.070"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:57.486"}
+{"level":"warn","message":"Error leyendo P0-22: Port Not Open","timestamp":"2026-05-03 02:13:58.105"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:58.109"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:58.321"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:58.739"}
+{"level":"warn","message":"Error leyendo P0-25: Port Not Open","timestamp":"2026-05-03 02:13:59.355"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:13:59.358"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:13:59.571"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:13:59.977"}
+{"level":"warn","message":"Error leyendo P0-29: Port Not Open","timestamp":"2026-05-03 02:14:00.578"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:00.597"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:00.809"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:01.225"}
+{"level":"warn","message":"Error leyendo P1-00: Port Not Open","timestamp":"2026-05-03 02:14:01.839"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:01.840"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:02.061"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:02.475"}
+{"level":"warn","message":"Error leyendo P1-01: Port Not Open","timestamp":"2026-05-03 02:14:03.095"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:03.098"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:03.313"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:03.730"}
+{"level":"warn","message":"Error leyendo P1-02: Port Not Open","timestamp":"2026-05-03 02:14:04.343"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:04.347"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:04.561"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:04.978"}
+{"level":"warn","message":"Error leyendo P1-03: Port Not Open","timestamp":"2026-05-03 02:14:05.583"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:05.585"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:05.798"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:06.214"}
+{"level":"warn","message":"Error leyendo P1-04: Port Not Open","timestamp":"2026-05-03 02:14:06.830"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:06.830"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:07.047"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:07.464"}
+{"level":"warn","message":"Error leyendo P1-05: Port Not Open","timestamp":"2026-05-03 02:14:08.068"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:08.070"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:08.282"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:08.700"}
+{"level":"warn","message":"Error leyendo P1-06: Port Not Open","timestamp":"2026-05-03 02:14:09.317"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:09.320"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:09.532"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:09.949"}
+{"level":"warn","message":"Error leyendo P1-07: Port Not Open","timestamp":"2026-05-03 02:14:10.566"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:10.568"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:10.784"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:11.200"}
+{"level":"warn","message":"Error leyendo P1-37: Port Not Open","timestamp":"2026-05-03 02:14:11.818"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:11.855"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:12.068"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:12.485"}
+{"level":"warn","message":"Error leyendo P2-00: Port Not Open","timestamp":"2026-05-03 02:14:13.103"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:13.107"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:13.320"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:13.738"}
+{"level":"warn","message":"Error leyendo P2-01: Port Not Open","timestamp":"2026-05-03 02:14:14.352"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:14.355"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:14.569"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:14.970"}
+{"level":"warn","message":"Error leyendo P2-02: Port Not Open","timestamp":"2026-05-03 02:14:15.574"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:15.577"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:15.789"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:16.205"}
+{"level":"warn","message":"Error leyendo P2-03: Port Not Open","timestamp":"2026-05-03 02:14:16.806"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:16.807"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:17.024"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:17.443"}
+{"level":"warn","message":"Error leyendo P2-04: Port Not Open","timestamp":"2026-05-03 02:14:18.056"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:18.058"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:18.273"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:18.694"}
+{"level":"warn","message":"Error leyendo P2-05: Port Not Open","timestamp":"2026-05-03 02:14:19.313"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:19.316"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:19.524"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:19.925"}
+{"level":"warn","message":"Error leyendo P2-06: Port Not Open","timestamp":"2026-05-03 02:14:20.529"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:20.532"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:20.744"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:21.163"}
+{"level":"warn","message":"Error leyendo P2-07: Port Not Open","timestamp":"2026-05-03 02:14:21.776"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:21.777"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:21.994"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:22.400"}
+{"level":"warn","message":"Error leyendo P2-09: Port Not Open","timestamp":"2026-05-03 02:14:23.013"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:23.014"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:23.230"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:23.632"}
+{"level":"warn","message":"Error leyendo P2-10: Port Not Open","timestamp":"2026-05-03 02:14:24.234"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:24.255"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:24.465"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:24.868"}
+{"level":"warn","message":"Error leyendo P3-00: Port Not Open","timestamp":"2026-05-03 02:14:25.482"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:25.487"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:25.702"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:26.116"}
+{"level":"warn","message":"Error leyendo P3-01: Port Not Open","timestamp":"2026-05-03 02:14:26.732"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:26.738"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:26.949"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:27.367"}
+{"level":"warn","message":"Error leyendo P3-02: Port Not Open","timestamp":"2026-05-03 02:14:27.982"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:27.983"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:28.201"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:28.619"}
+{"level":"warn","message":"Error leyendo P3-03: Port Not Open","timestamp":"2026-05-03 02:14:29.236"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:29.241"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:29.456"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:29.870"}
+{"level":"warn","message":"Error leyendo P3-04: Port Not Open","timestamp":"2026-05-03 02:14:30.486"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:30.489"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:30.704"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:31.123"}
+{"level":"warn","message":"Error leyendo P3-05: Port Not Open","timestamp":"2026-05-03 02:14:31.737"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:31.743"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:31.958"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:32.372"}
+{"level":"warn","message":"Error leyendo P3-06: Port Not Open","timestamp":"2026-05-03 02:14:32.986"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:32.987"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:33.192"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:33.604"}
+{"level":"warn","message":"Error leyendo P3-07: Port Not Open","timestamp":"2026-05-03 02:14:34.224"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:34.229"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:34.441"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:34.859"}
+{"level":"warn","message":"Error leyendo P3-08: Port Not Open","timestamp":"2026-05-03 02:14:35.478"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:35.482"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:35.692"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:36.109"}
+{"level":"warn","message":"Error leyendo P3-10: Port Not Open","timestamp":"2026-05-03 02:14:36.712"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:36.732"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:36.943"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:37.360"}
+{"level":"warn","message":"Error leyendo P4-00: Port Not Open","timestamp":"2026-05-03 02:14:37.982"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:37.985"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:38.195"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:38.610"}
+{"level":"warn","message":"Error leyendo P4-01: Port Not Open","timestamp":"2026-05-03 02:14:39.212"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:39.214"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:39.430"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:39.834"}
+{"level":"warn","message":"Error leyendo P4-02: Port Not Open","timestamp":"2026-05-03 02:14:40.449"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:40.452"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:40.666"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:41.082"}
+{"level":"warn","message":"Error leyendo P4-03: Port Not Open","timestamp":"2026-05-03 02:14:41.685"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:41.687"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:41.901"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:42.314"}
+{"level":"warn","message":"Error leyendo P4-04: Port Not Open","timestamp":"2026-05-03 02:14:42.916"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:42.919"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:43.135"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:43.550"}
+{"level":"warn","message":"Error leyendo P4-09: Port Not Open","timestamp":"2026-05-03 02:14:44.154"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:44.156"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:44.367"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:44.786"}
+{"level":"warn","message":"Error leyendo P4-10: Port Not Open","timestamp":"2026-05-03 02:14:45.404"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:45.408"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:45.619"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:46.035"}
+{"level":"warn","message":"Error leyendo P4-11: Port Not Open","timestamp":"2026-05-03 02:14:46.638"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:46.639"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:46.853"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:47.271"}
+{"level":"warn","message":"Error leyendo P4-13: Port Not Open","timestamp":"2026-05-03 02:14:47.888"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:47.893"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:48.104"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:48.521"}
+{"level":"warn","message":"Error leyendo P4-14: Port Not Open","timestamp":"2026-05-03 02:14:49.136"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:49.137"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:49.357"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:49.773"}
+{"level":"warn","message":"Error leyendo P4-15: Port Not Open","timestamp":"2026-05-03 02:14:50.391"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:50.394"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:50.607"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:51.025"}
+{"level":"warn","message":"Error leyendo P4-16: Port Not Open","timestamp":"2026-05-03 02:14:51.641"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:51.645"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:51.861"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:52.276"}
+{"level":"warn","message":"Error leyendo P4-17: Port Not Open","timestamp":"2026-05-03 02:14:52.892"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:52.896"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:53.113"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:53.528"}
+{"level":"warn","message":"Error leyendo P4-18: Port Not Open","timestamp":"2026-05-03 02:14:54.144"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:54.147"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:54.361"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:54.779"}
+{"level":"warn","message":"Error leyendo P4-19: Port Not Open","timestamp":"2026-05-03 02:14:55.396"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:55.401"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:55.617"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:56.030"}
+{"level":"warn","message":"Error leyendo P4-20: Port Not Open","timestamp":"2026-05-03 02:14:56.631"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:56.636"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:56.847"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:57.249"}
+{"level":"warn","message":"Error leyendo P4-21: Port Not Open","timestamp":"2026-05-03 02:14:57.853"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:57.861"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:58.067"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:58.484"}
+{"level":"warn","message":"Error leyendo P4-33: Port Not Open","timestamp":"2026-05-03 02:14:59.102"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:14:59.104"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:14:59.317"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:14:59.733"}
+{"level":"warn","message":"Error leyendo P4-38: Port Not Open","timestamp":"2026-05-03 02:15:00.350"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:00.362"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:00.569"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:00.984"}
+{"level":"warn","message":"Error leyendo P5-00: Port Not Open","timestamp":"2026-05-03 02:15:01.607"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:01.608"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:01.817"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:02.221"}
+{"level":"warn","message":"Error leyendo P5-01: Port Not Open","timestamp":"2026-05-03 02:15:02.841"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:02.845"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:03.052"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:03.454"}
+{"level":"warn","message":"Error leyendo P5-02: Port Not Open","timestamp":"2026-05-03 02:15:04.058"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:04.060"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:04.271"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:04.677"}
+{"level":"warn","message":"Error leyendo P5-03: Port Not Open","timestamp":"2026-05-03 02:15:05.288"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:05.291"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:05.506"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:05.929"}
+{"level":"warn","message":"Error leyendo P5-04: Port Not Open","timestamp":"2026-05-03 02:15:06.541"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:06.546"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:06.755"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:07.158"}
+{"level":"warn","message":"Error leyendo P5-07: Port Not Open","timestamp":"2026-05-03 02:15:07.773"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:07.774"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:07.991"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:08.408"}
+{"level":"warn","message":"Error leyendo P5-08: Port Not Open","timestamp":"2026-05-03 02:15:09.012"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:09.015"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:09.226"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:09.642"}
+{"level":"warn","message":"Error leyendo P5-09: Port Not Open","timestamp":"2026-05-03 02:15:10.246"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:10.248"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:10.461"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:10.878"}
+{"level":"warn","message":"Error leyendo P5-10: Port Not Open","timestamp":"2026-05-03 02:15:11.495"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:11.499"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:11.712"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:12.128"}
+{"level":"warn","message":"Error leyendo P5-11: Port Not Open","timestamp":"2026-05-03 02:15:12.734"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:12.736"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:12.947"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:13.350"}
+{"level":"warn","message":"Error leyendo P5-18: Port Not Open","timestamp":"2026-05-03 02:15:13.967"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:13.969"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:14.183"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:14.599"}
+{"level":"warn","message":"Error leyendo P5-19: Port Not Open","timestamp":"2026-05-03 02:15:15.202"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:15.216"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:15.432"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:15.852"}
+{"level":"warn","message":"Error leyendo P6-00: Port Not Open","timestamp":"2026-05-03 02:15:16.466"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:16.470"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:16.684"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:17.104"}
+{"level":"warn","message":"Error leyendo P6-01: Port Not Open","timestamp":"2026-05-03 02:15:17.717"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:17.720"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:17.937"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:18.352"}
+{"level":"warn","message":"Error leyendo P6-02: Port Not Open","timestamp":"2026-05-03 02:15:18.955"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:18.959"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:19.172"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:19.586"}
+{"level":"warn","message":"Error leyendo P6-03: Port Not Open","timestamp":"2026-05-03 02:15:20.190"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:20.193"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:20.403"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:20.807"}
+{"level":"warn","message":"Error leyendo P6-04: Port Not Open","timestamp":"2026-05-03 02:15:21.422"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:21.426"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:21.639"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:22.055"}
+{"level":"warn","message":"Error leyendo P6-05: Port Not Open","timestamp":"2026-05-03 02:15:22.673"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:22.677"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:22.888"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:23.294"}
+{"level":"warn","message":"Error leyendo P6-07: Port Not Open","timestamp":"2026-05-03 02:15:23.906"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:23.908"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:24.123"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:24.527"}
+{"level":"warn","message":"Error leyendo P6-08: Port Not Open","timestamp":"2026-05-03 02:15:25.132"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:25.134"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:25.341"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:25.743"}
+{"level":"warn","message":"Error leyendo P6-09: Port Not Open","timestamp":"2026-05-03 02:15:26.359"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:26.361"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:26.575"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:26.977"}
+{"level":"warn","message":"Error leyendo P6-10: Port Not Open","timestamp":"2026-05-03 02:15:27.578"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:27.578"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:27.783"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:28.184"}
+{"level":"warn","message":"Error leyendo P6-11: Port Not Open","timestamp":"2026-05-03 02:15:28.798"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:28.801"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:29.013"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:29.418"}
+{"level":"warn","message":"Error leyendo P6-12: Port Not Open","timestamp":"2026-05-03 02:15:30.032"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:30.053"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:30.264"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:30.667"}
+{"level":"warn","message":"Error leyendo Pd-00: Port Not Open","timestamp":"2026-05-03 02:15:31.283"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:31.288"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:31.499"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:31.917"}
+{"level":"warn","message":"Error leyendo Pd-01: Port Not Open","timestamp":"2026-05-03 02:15:32.534"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:32.537"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:32.751"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:33.167"}
+{"level":"warn","message":"Error leyendo Pd-02: Port Not Open","timestamp":"2026-05-03 02:15:33.773"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:33.775"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:33.983"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:34.400"}
+{"level":"warn","message":"Error leyendo Pd-03: Port Not Open","timestamp":"2026-05-03 02:15:35.001"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:35.006"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:35.221"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:35.626"}
+{"level":"warn","message":"Error leyendo Pd-04: Port Not Open","timestamp":"2026-05-03 02:15:36.235"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:36.236"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:36.451"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:36.852"}
+{"level":"warn","message":"Error leyendo Pd-05: Port Not Open","timestamp":"2026-05-03 02:15:37.465"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:15:37.466"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:15:37.671"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:15:38.083"}
+{"level":"warn","message":"Error leyendo Pd-06: Port Not Open","timestamp":"2026-05-03 02:15:38.684"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:16:23.289"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:16:23.501"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:16:23.911"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:16:24.532"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:16:24.743"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:16:25.165"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:16:25.772"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:16:25.976"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:16:26.381"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 02:16:26.987"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 02:16:27.197"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 02:16:27.599"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:33:10.271"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:33:10.274"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:33:10.275"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:33:10.275"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:33:10.275"}
+{"level":"info","message":"[TCP] Conectado → 192.168.1.41:80, unit ID=1","timestamp":"2026-05-03 02:33:42.106"}
+{"level":"info","message":"[API] Conexión establecida: TCP","timestamp":"2026-05-03 02:33:42.107"}
+{"level":"info","message":"[TCP] Desconectado.","timestamp":"2026-05-03 02:35:15.633"}
+{"level":"info","message":"[TCP] Conectado → 192.168.1.41:80, unit ID=1","timestamp":"2026-05-03 02:35:15.692"}
+{"level":"info","message":"[API] Conexión establecida: TCP","timestamp":"2026-05-03 02:35:15.693"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:05.304"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:59:05.309"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:59:05.310"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:59:05.310"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:05.311"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:07.256"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:59:07.260"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:59:07.260"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:59:07.261"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:07.262"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:19.588"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:59:19.592"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:59:19.592"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:59:19.593"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:19.594"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:27.421"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:59:27.424"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:59:27.425"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:59:27.425"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:27.426"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:32.420"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:59:32.427"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:59:32.428"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:59:32.429"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:32.431"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:37.270"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:59:37.276"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:59:37.280"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:59:37.282"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:37.283"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:39.103"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:59:39.111"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:59:39.112"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:59:39.113"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:39.114"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:49.307"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 02:59:49.314"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 02:59:49.315"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 02:59:49.320"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 02:59:49.321"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:06.259"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:00:06.265"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:00:06.266"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:00:06.269"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:06.270"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:08.643"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:00:08.646"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:00:08.646"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:00:08.647"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:08.649"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:40.819"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:00:40.822"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:00:40.823"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:00:40.823"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:40.824"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:43.236"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:00:43.239"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:00:43.239"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:00:43.240"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:43.241"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:53.752"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:00:53.756"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:00:53.757"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:00:53.757"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:53.758"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:58.489"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:00:58.494"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:00:58.494"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:00:58.495"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:00:58.496"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:02:51.602"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:02:51.605"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:02:51.606"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:02:51.607"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:02:51.608"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:04:19.437"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:04:19.440"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:04:19.441"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:04:19.442"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:04:19.442"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:04:30.146"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:04:30.150"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:04:30.151"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:04:30.152"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:04:30.153"}
+{"level":"info","message":"[TCP] Conectado → 192.168.1.41:80, unit ID=1","timestamp":"2026-05-03 03:38:01.950"}
+{"level":"info","message":"[API] Conexión establecida: TCP","timestamp":"2026-05-03 03:38:01.952"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:53:07.290"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:53:07.307"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:53:07.309"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:53:07.311"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:53:07.317"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:53:12.729"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 03:53:12.737"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 03:53:12.737"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 03:53:12.738"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 03:53:12.740"}
+{"level":"info","message":"[TCP] Conectado → 192.168.1.41:80, unit ID=1","timestamp":"2026-05-03 04:17:41.075"}
+{"level":"info","message":"[API] Conexión establecida: TCP","timestamp":"2026-05-03 04:17:41.076"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:18.135"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:18.353"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:18.768"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:19.377"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:19.906"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:20.121"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:20.533"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:21.150"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:21.162"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:21.377"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:21.784"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:22.397"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:22.403"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:22.612"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:23.025"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:23.631"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:23.644"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:23.861"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:24.265"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:24.874"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:24.883"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:25.094"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:25.503"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:26.107"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:26.117"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:26.328"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:26.730"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:27.332"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:27.340"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:27.548"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:27.955"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:28.565"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:28.577"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:28.779"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:29.196"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:29.804"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:29.815"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:30.028"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:30.433"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:31.044"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:31.059"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:31.265"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:31.690"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:32.301"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:32.305"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:32.512"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:32.920"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:33.525"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:33.536"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:33.757"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:34.165"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:34.770"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:34.783"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:34.995"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:35.397"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:36.004"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:36.015"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:36.229"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:36.639"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:37.242"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:37.257"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:37.460"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:37.866"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:38.479"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:38.486"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:38.696"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:39.106"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:39.709"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:39.723"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:39.929"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:40.338"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:40.944"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:40.958"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:41.172"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:41.588"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:42.189"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:42.194"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:42.396"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:42.807"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:43.422"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:43.435"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:43.645"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:44.055"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:44.666"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:44.679"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:44.886"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:45.318"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:45.920"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:45.923"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:46.130"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:46.532"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:47.135"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:47.142"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:47.345"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:47.752"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:48.369"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:48.379"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:48.594"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:48.998"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:49.613"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:49.620"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:49.828"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:50.229"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:50.832"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:50.835"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:51.045"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:51.447"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:52.062"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:52.065"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:52.277"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:52.685"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:53.300"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:53.304"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:53.510"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:53.899"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:53.916"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:54.109"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:54.392"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:54.521"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:54.521"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:54.525"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:54.599"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:54.728"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:55.003"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:55.127"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:55.129"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:55.391"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:55.600"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:55.616"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:55.733"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:55.737"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:55.945"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:56.020"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:56.347"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:56.394"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:56.603"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:56.634"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:56.892"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:56.954"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:56.957"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:57.030"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:57.099"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:57.162"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:57.502"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:57.568"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:57.630"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:57.894"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:58.104"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:58.104"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:58.182"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:58.187"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:58.395"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:58.516"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:58.797"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:58.891"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:59.101"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:59.132"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:59.392"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:21:59.408"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:21:59.410"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:21:59.517"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:59.607"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:21:59.623"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:00.014"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:00.029"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:00.131"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:00.391"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:00.605"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:00.620"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:00.636"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:00.639"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:00.845"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:01.017"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:01.254"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:01.388"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:01.600"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:01.632"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:01.861"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:01.863"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:02.001"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:02.070"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:02.402"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:02.483"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:02.625"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:02.626"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:02.915"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:03.040"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:03.115"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:03.116"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:03.119"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:03.321"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:03.525"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:03.651"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:03.728"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:03.912"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:04.117"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:04.132"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:04.336"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:04.350"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:04.523"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:04.566"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:04.908"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:04.970"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:05.110"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:05.126"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:05.412"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:05.531"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:05.578"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:05.586"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:05.627"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:05.790"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:06.039"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:06.133"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:06.196"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:06.398"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:06.610"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:06.641"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:06.811"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:06.819"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:07.013"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:07.027"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:07.402"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:07.437"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:07.609"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:07.626"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:07.896"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:08.012"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:08.044"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:08.050"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:08.106"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:08.265"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:08.515"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:08.620"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:08.677"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:08.910"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:09.112"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:09.116"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:09.288"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:09.292"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:09.507"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:09.523"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:09.898"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:09.922"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:10.109"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:10.125"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:10.412"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:10.520"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:10.535"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:10.538"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:10.625"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:10.741"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:11.043"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:11.128"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:11.161"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:11.411"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:11.625"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:11.657"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:11.772"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:11.777"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:11.993"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:12.040"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:12.397"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:12.418"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:12.620"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:12.653"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:12.899"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:13.020"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:13.024"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:13.025"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:13.114"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:13.237"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:13.518"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:13.628"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:13.643"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:13.897"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:14.106"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:14.122"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:14.259"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:14.265"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:14.493"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:14.509"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:14.897"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:14.899"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:15.111"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:15.114"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:15.409"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:15.504"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:15.508"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:15.520"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:15.625"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:15.711"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:16.026"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:16.121"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:16.121"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:16.401"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:16.603"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:16.635"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:16.728"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:16.742"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:16.944"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:17.015"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:17.359"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:17.402"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:17.616"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:17.617"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:17.919"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:17.964"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:17.974"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:18.024"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:18.125"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:18.188"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:18.545"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:18.592"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:18.639"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:18.902"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:19.104"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:19.151"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:19.198"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:19.202"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:19.405"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:19.514"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:19.813"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:19.903"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:20.129"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:20.131"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:20.403"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:20.416"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:20.433"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:20.544"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:20.606"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:20.640"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:21.012"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:21.046"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:21.160"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:21.407"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:21.626"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:21.645"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:21.659"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:21.664"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:21.865"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:22.065"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:22.278"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:22.402"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:22.611"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:22.677"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:22.879"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:22.884"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:23.014"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:23.097"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:23.399"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:23.512"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:23.613"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:23.615"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:23.899"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:24.030"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:24.112"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:24.128"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:24.132"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:24.345"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:24.514"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:24.645"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:24.762"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:24.900"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:25.111"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:25.128"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:25.363"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:25.369"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:25.528"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:25.578"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:25.916"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:25.980"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:26.131"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:26.133"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:26.400"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:26.545"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:26.595"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:26.603"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:26.608"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:26.814"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:27.018"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:27.170"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:27.228"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:27.413"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:27.618"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:27.619"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:27.828"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:27.831"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:28.033"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:28.034"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:28.415"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:28.445"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:28.627"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:28.644"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:28.896"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:29.044"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:29.061"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:29.069"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:29.112"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:29.278"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:29.528"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:29.647"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:29.695"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:29.912"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:30.113"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:30.129"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:30.313"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:30.319"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:30.527"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:30.528"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:30.931"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:30.933"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:31.129"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:31.145"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:31.496"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:31.546"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:31.547"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:31.550"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:31.712"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:31.761"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:32.114"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:32.163"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:32.165"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:32.497"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:32.699"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:32.731"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:32.779"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:32.785"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:32.994"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:33.114"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:33.396"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:33.415"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:33.628"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:33.715"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:33.901"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:34.012"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:34.018"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:34.045"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:34.113"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:34.229"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:34.527"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:34.631"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:34.652"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:34.912"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:35.115"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:35.130"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:35.235"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:35.245"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:35.446"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:35.528"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:35.861"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:35.947"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:36.144"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:36.161"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:36.414"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:36.478"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:36.483"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:36.577"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:36.628"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:36.696"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:37.029"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:37.112"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:37.180"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:37.412"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:37.629"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:37.630"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:37.715"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:37.722"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:37.928"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:38.032"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:38.345"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:38.416"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:38.629"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:38.645"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:38.916"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:38.949"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:38.958"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:39.031"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:39.129"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:39.162"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:39.545"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:39.564"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:39.645"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:39.914"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:40.129"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:40.147"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:40.179"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:40.186"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:40.396"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:40.545"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:40.814"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:40.914"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:41.128"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:41.161"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:41.420"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:41.430"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:41.529"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:41.646"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:42.063"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:42.145"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:42.466"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:42.679"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:42.683"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:42.694"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:42.911"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:43.095"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:43.329"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:43.711"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:43.930"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:43.938"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:44.145"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:44.561"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:45.168"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:45.191"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:45.396"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:45.798"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:46.414"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:46.420"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:46.629"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:47.046"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:47.464"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:47.662"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:47.665"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:47.676"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:47.878"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:48.079"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:48.279"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:48.680"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:48.884"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:48.891"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:49.096"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:49.500"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:50.113"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:50.120"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:50.329"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:50.746"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:51.361"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:51.368"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:51.578"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:51.979"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:52.463"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:52.595"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:52.600"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:52.681"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:52.813"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:53.096"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:53.230"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:53.698"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:53.845"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:53.851"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:54.061"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:54.478"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:55.094"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:55.099"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:55.313"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:55.715"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:56.328"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:56.338"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:56.545"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:56.948"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:57.466"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:57.561"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:57.569"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:57.678"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:57.783"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:58.094"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:58.195"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:58.696"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:22:58.796"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:22:58.800"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:22:59.014"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:22:59.431"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:00.044"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:00.048"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:00.262"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:00.665"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:01.280"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:01.285"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:01.493"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:01.895"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:02.466"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:02.510"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:02.516"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:02.681"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:02.731"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:03.098"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:03.137"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:03.716"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:03.741"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:03.748"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:03.963"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:04.365"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:04.978"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:04.982"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:05.196"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:05.603"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:06.212"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:06.220"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:06.428"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:06.846"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:07.460"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:07.465"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:07.680"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:08.092"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:08.481"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:08.696"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:08.697"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:08.702"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:08.914"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:09.098"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:09.329"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:09.700"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:09.945"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:09.950"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:10.166"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:10.579"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:11.194"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:11.200"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:11.413"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:11.829"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:12.445"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:12.449"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:12.678"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:13.093"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:13.479"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:13.694"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:13.695"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:13.700"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:13.912"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:14.098"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:14.313"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:14.708"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:14.915"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:14.924"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:15.129"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:15.545"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:16.161"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:16.166"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:16.377"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:16.794"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:17.410"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:17.417"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:17.628"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:18.044"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:18.463"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:18.661"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:18.664"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:18.667"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:18.878"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:19.079"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:19.280"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:19.681"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:19.894"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:19.898"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:20.113"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:20.515"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:21.131"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:21.135"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:21.348"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:21.758"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:22.364"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:22.366"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:22.580"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:22.997"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:23.466"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:23.617"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:23.619"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:23.678"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:23.825"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:24.094"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:24.228"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:24.711"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:24.843"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:24.848"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:25.061"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:25.471"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:26.082"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:26.086"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:26.296"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:26.712"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:27.345"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:27.369"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:27.580"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:27.995"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:28.465"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:28.596"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:28.602"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:28.665"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:28.811"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:29.077"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:29.243"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:29.694"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:29.863"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:29.871"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:30.080"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:30.495"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:31.099"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:31.104"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:31.315"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:31.730"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:32.344"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:32.349"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:32.567"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:32.980"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:33.465"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:33.602"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:33.608"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:33.668"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:33.811"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:34.078"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:34.230"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:34.695"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:34.846"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:34.850"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:35.061"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:35.477"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:36.084"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:36.089"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:36.295"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:36.697"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:37.312"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:37.316"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:37.529"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:37.930"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:38.476"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:38.544"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:38.548"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:38.678"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:38.753"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:39.083"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:39.153"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:39.695"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:39.763"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:39.766"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:39.979"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:40.394"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:40.995"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:23:41.000"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:23:41.216"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:23:41.629"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:23:42.231"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:23.465"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:23.668"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:24.079"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:24.688"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:28.809"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:29.025"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:29.437"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:30.053"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:30.059"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:30.259"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:30.665"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:31.277"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:31.286"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:31.496"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:31.903"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:32.513"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:32.515"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:32.720"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:33.136"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:33.751"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:33.760"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:33.968"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:34.386"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:35.002"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:35.007"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:35.217"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:35.634"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:36.236"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:36.245"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:36.451"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:36.853"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:37.455"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:37.459"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:37.671"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:38.084"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:38.687"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:38.696"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:38.902"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:39.318"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:39.920"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:39.930"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:40.134"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:40.551"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:41.167"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:41.171"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:41.384"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:41.800"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:42.402"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:42.408"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:42.617"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:43.021"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:43.635"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:43.645"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:43.851"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:44.267"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:44.884"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:44.888"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:45.100"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:45.502"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:46.118"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:46.124"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:46.332"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:46.737"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:47.339"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:47.345"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:47.552"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:47.968"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:48.575"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:48.579"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:48.782"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:49.201"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:49.819"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:49.823"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:50.034"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:50.439"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:51.052"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:51.057"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:51.267"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:51.669"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:52.284"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:52.293"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:52.501"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:52.902"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:53.507"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:53.510"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:53.717"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:54.119"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:54.730"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:54.745"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:54.952"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:55.367"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:55.971"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:55.974"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:56.183"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:56.591"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:57.202"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:57.206"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:57.419"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:57.834"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:58.452"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:58.459"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:58.675"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:24:59.088"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:24:59.703"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:24:59.706"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:24:59.916"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:25:00.371"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:25:00.996"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:25:01.055"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:25:01.270"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:25:01.703"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:25:02.365"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:25:02.393"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:25:02.599"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:25:03.005"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:25:03.620"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:25:03.627"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:25:03.841"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:25:04.252"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:25:04.862"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:25:04.868"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:25:05.070"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:25:05.480"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:25:06.090"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:25:06.097"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:25:06.310"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:25:06.766"}
+{"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:25:07.368"}
+{"level":"info","message":"[TCP] Desconectado.","timestamp":"2026-05-03 04:25:34.064"}
+{"level":"info","message":"[TCP] Conectado → 192.168.1.41:80, unit ID=1","timestamp":"2026-05-03 04:25:34.153"}
+{"level":"info","message":"[API] Conexión establecida: TCP","timestamp":"2026-05-03 04:25:34.154"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:26:15.531"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:26:15.743"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:26:16.161"}
+{"level":"warn","message":"[TCP] Reintento 1/3: Port Not Open","timestamp":"2026-05-03 04:26:27.381"}
+{"level":"warn","message":"[TCP] Reintento 2/3: Port Not Open","timestamp":"2026-05-03 04:26:27.590"}
+{"level":"warn","message":"[TCP] Reintento 3/3: Port Not Open","timestamp":"2026-05-03 04:26:27.991"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 04:26:43.620"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-03 04:26:43.624"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-03 04:26:43.624"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-03 04:26:43.624"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-03 04:26:43.625"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-19 07:14:52.433"}
+{"level":"info","message":" SUSWE SU800/900 — Servidor Modbus","timestamp":"2026-05-19 07:14:52.435"}
+{"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-19 07:14:52.436"}
+{"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-19 07:14:52.436"}
+{"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-19 07:14:52.436"}
