@@ -286,7 +286,7 @@
       <div id="connStatusBar" style="display:flex;align-items:center;gap:8px;margin-left:auto;margin-right:12px">
         <span id="connLockIcon" style="font-size:13px;display:none" title="Canal ocupado — desconectá primero">🔒</span>
         <!-- Selector de variador activo (multi-dispositivo) -->
-        <div id="deviceSelectorWrap" style="display:none;align-items:center;gap:6px">
+        <div id="deviceSelectorWrap" style="display:flex;align-items:center;gap:6px">
           <span style="font-size:10px;color:var(--fg-secondary);white-space:nowrap">Variador:</span>
           <select id="deviceSelector" class="field-input"
             style="font-size:11px;padding:2px 8px;height:26px;min-width:160px;max-width:260px"
@@ -3825,9 +3825,14 @@ function updateDeviceSelector(devs) {
   const sel  = document.getElementById('deviceSelector');
   if (!sel) return;
 
+  wrap.style.display = 'flex';   // siempre visible
   sel.innerHTML = '';
+
   if (devs.length === 0) {
-    wrap.style.display = 'none';
+    const opt = document.createElement('option');
+    opt.value = '';
+    opt.textContent = '— Sin variadores conectados —';
+    sel.appendChild(opt);
     return;
   }
 
@@ -3839,13 +3844,10 @@ function updateDeviceSelector(devs) {
     sel.appendChild(opt);
   });
 
-  // Si no hay activo seleccionado, usar el primero
   if (!activeDeviceId || !deviceCache[activeDeviceId]) {
     activeDeviceId = devs[0].id;
     sel.value = activeDeviceId;
   }
-
-  wrap.style.display = devs.length >= 1 ? 'flex' : 'none';
 }
 
 // Cambia el variador activo
