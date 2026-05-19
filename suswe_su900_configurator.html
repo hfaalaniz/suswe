@@ -615,21 +615,21 @@
                 <span id="portScanStatus" style="font-size:10px;color:var(--fg-secondary)"></span>
               </div>
 
-              <!-- Select de puertos detectados -->
+              <!-- Selector de puertos del sistema (listados por el servidor Node.js) -->
               <div style="display:flex;gap:6px;align-items:center">
-                <select class="field-input" id="rtuPortSelect" style="flex:1;display:none"
+                <select class="field-input" id="rtuPortSelect" style="flex:1"
                   onchange="onPortSelectChange(this.value)">
-                  <option value="">— Seleccionar puerto —</option>
+                  <option value="">— Detectar puertos →  —</option>
                 </select>
-                <input class="field-input" id="rtuPort" value="COM3" placeholder="COM3 o /dev/ttyUSB0" style="flex:1">
-                <button class="btn btn-sm" id="toggleManualBtn" onclick="toggleManualPort()" style="white-space:nowrap;display:none;font-size:10px">
-                  ✏ Manual
-                </button>
+                <input class="field-input" id="rtuPort" value="" placeholder="COM3 o /dev/ttyUSB0"
+                  style="flex:1;display:none" title="Puerto manual">
+                <button class="btn btn-sm" id="toggleManualBtn" onclick="toggleManualPort()"
+                  style="white-space:nowrap;font-size:10px">✏ Manual</button>
               </div>
-
-              <!-- Badge de soporte Web Serial -->
-              <div id="serialApiNotice" style="margin-top:5px;font-size:10px;color:var(--fg-secondary);display:none">
-                ⚠ Tu navegador no soporta Web Serial API. Ingresá el puerto manualmente (Chrome/Edge recomendado).
+              <div style="margin-top:5px;display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+                <span style="font-size:10px;color:var(--fg-secondary)">Los puertos se detectan via el servidor Node.js — funciona en cualquier navegador.</span>
+                <span id="portDetailBadge" style="display:none;font-size:10px;font-family:var(--font-mono);
+                  padding:1px 6px;border-radius:8px;background:var(--bg-elevated);border:1px solid var(--border-dim);color:var(--fg-secondary)"></span>
               </div>
             </div>
             <div class="field-group">
@@ -1919,9 +1919,13 @@ async function connectDev() {
 
   let body;
   if (connType === 'rtu') {
+    // En modo lista el input rtuPort está oculto; tomar el valor del select si está activo
+    const portVal = !_manualMode
+      ? (document.getElementById('rtuPortSelect').value || document.getElementById('rtuPort').value)
+      : document.getElementById('rtuPort').value;
     body = {
       type:     'rtu',
-      port:     document.getElementById('rtuPort').value,
+      port:     portVal,
       baudRate: parseInt(document.getElementById('rtuBaud').value),
       parity:   document.getElementById('rtuParity').value.includes('E') ? 'even'
                 : document.getElementById('rtuParity').value.includes('O') ? 'odd' : 'none',
@@ -2509,143 +2513,86 @@ function loadProfile(i) {
 }
 
 /* ══════════════════════════════════════════════════════
-   DETECCIÓN DE PUERTOS SERIALES (Web Serial API)
+   DETECCIÓN DE PUERTOS SERIALES (via servidor Node.js)
+   Llama a GET /api/serial-ports — funciona en cualquier
+   navegador sin necesidad de Web Serial API.
    ══════════════════════════════════════════════════════ */
 
-// Estado del modo manual
-let _manualMode = false;
+let _manualMode  = false;
+let _portsCache  = {};   // path → objeto puerto completo (para mostrar detalles)
 
-function initSerialPortUI() {
-  const hasWebSerial = 'serial' in navigator;
-  const notice  = document.getElementById('serialApiNotice');
-  const scanBtn = document.getElementById('scanPortsBtn');
-  const selEl   = document.getElementById('rtuPortSelect');
-  const inpEl   = document.getElementById('rtuPort');
-  const togBtn  = document.getElementById('toggleManualBtn');
-
-  if (!hasWebSerial) {
-    // Navegador sin soporte: sólo input manual
-    if (notice)  notice.style.display = 'block';
-    if (scanBtn) scanBtn.style.display = 'none';
-    return;
-  }
-
-  // Soporte disponible: mostrar select y botón toggle
-  if (selEl) selEl.style.display = 'block';
-  if (inpEl) inpEl.style.display = 'none';   // ocultar input libre por defecto
-  if (togBtn) togBtn.style.display = 'inline-flex';
-
-  // Poblar con puertos ya autorizados (sin pedir permiso)
-  refreshKnownPorts();
-
-  // Escuchar cuando el usuario conecta/desconecta un dispositivo
-  navigator.serial.addEventListener('connect',    () => refreshKnownPorts());
-  navigator.serial.addEventListener('disconnect', () => refreshKnownPorts());
-}
-
-async function refreshKnownPorts() {
-  const selEl  = document.getElementById('rtuPortSelect');
-  const status = document.getElementById('portScanStatus');
-  if (!selEl) return;
-
-  try {
-    const ports = await navigator.serial.getPorts();
-    populatePortSelect(selEl, ports, status);
-  } catch (err) {
-    if (status) status.textContent = '⚠ ' + err.message;
-  }
-}
-
+// Llama al backend para listar los puertos del sistema y puebla el select.
+// Se invoca al cargar la página y al pulsar "Detectar puertos".
 async function scanSerialPorts() {
   const selEl  = document.getElementById('rtuPortSelect');
   const status = document.getElementById('portScanStatus');
   const btn    = document.getElementById('scanPortsBtn');
-  if (!('serial' in navigator)) {
-    alert('Tu navegador no soporta Web Serial API.\nUsá Chrome o Edge y volvé a intentar.');
-    return;
-  }
+  if (!selEl) return;
 
-  // Pedir al usuario que elija un puerto (abre el diálogo del SO)
-  btn.disabled = true;
-  if (status) status.textContent = 'Esperando selección…';
+  if (btn) btn.disabled = true;
+  if (status) status.textContent = 'Buscando…';
+
   try {
-    await navigator.serial.requestPort({});  // abre selector del SO
-    const ports = await navigator.serial.getPorts();
-    populatePortSelect(selEl, ports, status);
+    const data  = await apiFetch('/serial-ports');
+    const ports = data.ports || [];
+    _populatePortSelect(selEl, ports, status);
   } catch (err) {
-    if (err.name === 'NotAllowedError') {
-      if (status) status.textContent = 'Cancelado por el usuario.';
-    } else {
-      if (status) status.textContent = '⚠ ' + err.message;
-    }
+    if (status) status.textContent = '⚠ ' + err.message;
+    addLog(`Error listando puertos seriales: ${err.message}`, 'err');
   } finally {
-    btn.disabled = false;
+    if (btn) btn.disabled = false;
   }
 }
 
-function populatePortSelect(selEl, ports, statusEl) {
+function _populatePortSelect(selEl, ports, statusEl) {
   const prev = selEl.value;
+  _portsCache = {};
   selEl.innerHTML = '<option value="">— Seleccionar puerto —</option>';
 
   if (ports.length === 0) {
     const opt = document.createElement('option');
     opt.value = ''; opt.disabled = true;
-    opt.textContent = '(ningún puerto autorizado)';
+    opt.textContent = '(ningún puerto detectado — conectá el adaptador USB-RS485)';
     selEl.appendChild(opt);
-    if (statusEl) statusEl.textContent = 'Sin puertos autorizados.';
+    if (statusEl) statusEl.textContent = 'Sin puertos seriales.';
     return;
   }
 
-  ports.forEach((port, idx) => {
-    const info = port.getInfo();
-    let label = `Puerto ${idx + 1}`;
-    if (info.usbVendorId)  label += ` — VID:0x${info.usbVendorId.toString(16).toUpperCase().padStart(4,'0')}`;
-    if (info.usbProductId) label += ` PID:0x${info.usbProductId.toString(16).toUpperCase().padStart(4,'0')}`;
-
-    // Intentar nombre amigable según VID/PID conocidos
-    const friendly = getFriendlyPortName(info);
-    if (friendly) label += ` (${friendly})`;
-
+  ports.forEach(p => {
+    _portsCache[p.path] = p;
     const opt = document.createElement('option');
-    opt.value = label;
-    opt._port = port;            // guardar referencia al SerialPort
+    opt.value = p.path;
+    let label = p.path;
+    if (p.friendlyName && p.friendlyName !== p.path) label += ` — ${p.friendlyName}`;
     opt.textContent = label;
     selEl.appendChild(opt);
   });
 
-  // Restaurar selección anterior si sigue existiendo
   if (prev && [...selEl.options].some(o => o.value === prev)) selEl.value = prev;
+  else selEl.value = ports[0].path;
 
   if (statusEl) statusEl.textContent = `${ports.length} puerto(s) detectado(s).`;
-
-  // Sincronizar campo rtuPort con la selección actual
   onPortSelectChange(selEl.value);
 }
 
-function getFriendlyPortName(info) {
-  // Tabla de VID/PID comunes para adaptadores RS485/RS232
-  const known = {
-    '0403:6001': 'FTDI FT232',
-    '0403:6015': 'FTDI FT231X',
-    '10c4:ea60': 'CP210x',
-    '1a86:7523': 'CH340',
-    '1a86:55d4': 'CH9102',
-    '067b:2303': 'PL2303',
-    '0403:6010': 'FTDI FT2232',
-    '0403:6011': 'FTDI FT4232',
-    '2341:0043': 'Arduino Uno',
-    '2341:0001': 'Arduino Mega',
-    '10c4:ea70': 'CP2105',
-  };
-  if (!info.usbVendorId || !info.usbProductId) return null;
-  const key = `${info.usbVendorId.toString(16).padStart(4,'0')}:${info.usbProductId.toString(16).padStart(4,'0')}`;
-  return known[key] || null;
-}
-
 function onPortSelectChange(val) {
-  const inpEl = document.getElementById('rtuPort');
-  if (val && val !== '' && inpEl) {
-    inpEl.value = val;
+  const inpEl  = document.getElementById('rtuPort');
+  const badge  = document.getElementById('portDetailBadge');
+  if (val && inpEl) inpEl.value = val;
+
+  // Mostrar badge con VID:PID y fabricante del adaptador seleccionado
+  const info = val ? _portsCache[val] : null;
+  if (badge) {
+    if (info && (info.vendorId || info.manufacturer)) {
+      let detail = '';
+      if (info.vendorId && info.productId)
+        detail += `VID:${info.vendorId.toUpperCase()} PID:${info.productId.toUpperCase()} `;
+      if (info.manufacturer) detail += `· ${info.manufacturer}`;
+      badge.textContent    = detail.trim();
+      badge.style.display  = 'inline';
+    } else {
+      badge.style.display  = 'none';
+    }
   }
 }
 
@@ -2664,6 +2611,13 @@ function toggleManualPort() {
     if (togBtn) togBtn.textContent = '✏ Manual';
     onPortSelectChange(selEl ? selEl.value : '');
   }
+}
+
+// Al iniciar: consultar puertos del sistema y pre-seleccionar el selector
+function initSerialPortUI() {
+  // El select ya está visible por defecto; el input manual está oculto.
+  // Consultar puertos en background sin bloquear la carga de la página.
+  scanSerialPorts();
 }
 
 /* ══════════════════════════════════════════════════════

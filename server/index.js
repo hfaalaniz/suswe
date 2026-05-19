@@ -684,6 +684,55 @@ app.get('/api/probe-esp32', (req, res) => {
 });
 
 /**
+ * GET /api/serial-ports
+ * Lista los puertos seriales disponibles en el sistema (adaptadores USB-RS485, etc.).
+ * Retorna: { ports: [{ path, manufacturer, vendorId, productId, friendlyName }] }
+ * No requiere conexión activa ni auth — es solo una consulta al SO.
+ */
+app.get('/api/serial-ports', async (req, res) => {
+  try {
+    const { SerialPort } = require('serialport');
+    const raw = await SerialPort.list();
+
+    // Tabla de VID:PID comunes para adaptadores RS-485/RS-232
+    const KNOWN = {
+      '0403:6001': 'FTDI FT232',
+      '0403:6015': 'FTDI FT231X',
+      '0403:6010': 'FTDI FT2232',
+      '0403:6011': 'FTDI FT4232',
+      '10c4:ea60': 'Silicon Labs CP210x',
+      '10c4:ea70': 'Silicon Labs CP2105',
+      '1a86:7523': 'WCH CH340',
+      '1a86:55d4': 'WCH CH9102',
+      '067b:2303': 'Prolific PL2303',
+      '2341:0043': 'Arduino Uno',
+      '2341:0001': 'Arduino Mega',
+    };
+
+    const ports = raw.map(p => {
+      const vid = (p.vendorId  || '').toLowerCase().padStart(4, '0');
+      const pid = (p.productId || '').toLowerCase().padStart(4, '0');
+      const key = `${vid}:${pid}`;
+      const known = KNOWN[key] || null;
+      return {
+        path:         p.path,
+        manufacturer: p.manufacturer || null,
+        vendorId:     p.vendorId     || null,
+        productId:    p.productId    || null,
+        serialNumber: p.serialNumber || null,
+        friendlyName: known || p.friendlyName || p.manufacturer || p.path,
+      };
+    });
+
+    logger.debug(`[SerialPorts] ${ports.length} puerto(s) encontrado(s)`);
+    res.json({ ports });
+  } catch (err) {
+    logger.error(`[SerialPorts] Error listando puertos: ${err.message}`);
+    res.status(500).json({ error: err.message, ports: [] });
+  }
+});
+
+/**
  * GET /favicon.ico — evitar 404 en el log del servidor
  */
 app.get('/favicon.ico', (req, res) => res.status(204).end());
