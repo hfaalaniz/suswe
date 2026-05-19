@@ -1549,3 +1549,5 @@
 {"level":"info","message":" Puerto: http://localhost:3000","timestamp":"2026-05-19 07:14:52.436"}
 {"level":"info","message":" UI:     http://localhost:3000/suswe_su900_configurator.html","timestamp":"2026-05-19 07:14:52.436"}
 {"level":"info","message":"═══════════════════════════════════════════════","timestamp":"2026-05-19 07:14:52.436"}
+{"level":"error","message":"[RTU] Error de conexión: Opening /dev/ttyUSB0: Unknown error code 3","timestamp":"2026-05-19 09:06:40.600"}
+{"level":"error","message":"[API] Error en connect: Opening /dev/ttyUSB0: Unknown error code 3","timestamp":"2026-05-19 09:06:40.603"}

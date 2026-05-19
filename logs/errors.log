@@ -219,3 +219,5 @@
 {"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:25:04.862"}
 {"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:25:06.090"}
 {"level":"error","message":"Error leyendo bloque monitor: Port Not Open","timestamp":"2026-05-03 04:25:07.368"}
+{"level":"error","message":"[RTU] Error de conexión: Opening /dev/ttyUSB0: Unknown error code 3","timestamp":"2026-05-19 09:06:40.600"}
+{"level":"error","message":"[API] Error en connect: Opening /dev/ttyUSB0: Unknown error code 3","timestamp":"2026-05-19 09:06:40.603"}
