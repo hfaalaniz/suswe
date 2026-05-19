@@ -1,0 +1,156 @@
+Análisis: "Asuntos para agregar.txt" vs lo implementado
+1. 📈 Historial / Gráficas — IMPLEMENTADO COMPLETAMENTE
+El archivo decía "sin deps externas, solo frontend" — está hecho y con más de lo previsto:
+
+Panel Tendencias completo con Chart.js (CDN)
+TREND_VARS con 8 variables graficables (frecuencia, corriente, tensión, potencia, par, velocidad, AI1, Bus DC)
+Grabación automática al activar el Monitor en tiempo real
+Chips de selección de variables, ventana de tiempo configurable (1min / 5min / 15min / 1h / todo)
+Estadísticas por variable (mín, máx, promedio, cantidad de puntos)
+Exportación CSV
+Máximo 7200 puntos en memoria (1 hora a 2Hz)
+Estado: ✅ Listo. No requiere acción.
+
+2. 🔐 Autenticación HTTP Basic — MITAD IMPLEMENTADO
+Capa	Estado
+Frontend HTML	✅ Completo — panel "Seguridad/Auth", manejo de 401, modal de login, _authToken en sessionStorage, headers Authorization en todos los apiFetch()
+Backend Node.js (server/index.js)	❌ Ausente — no hay ningún endpoint /api/auth-config, /api/auth-status, ni middleware de autenticación. Las llamadas del panel de Seguridad caen en 404
+Firmware ESP32	✅ Completo — authCfg, authCheck(), authLoad(), authSaveNVS(), endpoint /api/auth-config, /api/auth-status, respuesta 401. Funciona solo cuando se accede directamente al ESP32 (port 80), no cuando se usa el servidor Node.js (port 3000)
+Diagnóstico: El frontend y el firmware del ESP32 están sincronizados entre sí. El servidor Node.js es el eslabón roto — el panel de Seguridad aparece en la UI pero no tiene efecto cuando la app corre en modo Node.js/Express (localhost:3000).
+
+Acción necesaria: Agregar al server/index.js:
+
+Endpoints POST /api/auth-config y GET /api/auth-status
+Middleware Express de HTTP Basic Auth que lea las credenciales guardadas (en .env o un archivo de config local)
+3. 🔄 OTA Firmware por WiFi — UI AUSENTE, FIRMWARE AUSENTE
+El archivo del plan lo contemplaba como "segundo paso — UI lista, firmware aparte".
+
+El firmware del ESP32 no tiene endpoint OTA (/api/ota/upload)
+No hay panel "Firmware" en el HTML (no existe panel-ota ni similar)
+La librería ArduinoOTA o Update.h no está incluida en el .ino
+Estado: ❌ No iniciado en ninguna capa.
+
+4. 📡 Modo AP (Access Point) — UI AUSENTE, FIRMWARE AUSENTE
+El firmware usa WiFi.begin(SSID, PASSWORD) con credenciales hardcodeadas en el .ino (líneas 47-48). No hay WiFi.softAP(), ni lógica de conmutación AP↔STA
+No hay panel de configuración WiFi en el HTML
+Las credenciales WiFi solo se pueden cambiar recompilando el firmware
+Estado: ❌ No iniciado. Credenciales WiFi están literalmente hardcodeadas en el código fuente.
+
+5. 🔀 Multi-variador bus RS-485 — NO INICIADO
+El slaveId está fijo en la conexión (MODBUS_SLAVE_ID = 1 en firmware, configurado una vez al conectar en el servidor Node.js)
+No hay selector de "variador activo" en la UI
+No hay gestión de perfiles por esclavo
+Estado: ❌ No iniciado. Requiere el mayor refactor.
+
+6. 🔌 Compatibilidad con otros variadores — NO INICIADO
+GROUPS y REGISTER_MAP están hardcodeados en el HTML y en register-map.js
+No existe sistema de perfiles JSON dinámicos
+No existe editor de mapas de registros
+Estado: ❌ No iniciado. Es el más complejo.
+
+Tabla resumen
+Funcionalidad	Plan original	Estado actual	Acción
+📈 Historial / Gráficas	Frontend solo	✅ Completo	Ninguna
+🔐 Autenticación HTTP	Backend Node.js	⚠️ Mitad — falta backend Node.js	Agregar middleware + 2 endpoints en server/index.js
+🔄 OTA Firmware	HTML + ESP32	❌ No iniciado	Requiere UI + modificar .ino
+📡 Modo AP WiFi	HTML + ESP32	❌ No iniciado (credenciales hardcodeadas)	Requiere UI + modificar .ino
+🔀 Multi-variador	HTML + Backend	❌ No iniciado	Refactor mayor
+🔌 Compatibilidad genérica	HTML + Backend + schema	❌ No iniciado	Proyecto aparte
+La tarea más urgente y de menor esfuerzo es completar la autenticación en server/index.js — el frontend ya espera esos endpoints y el firmware ESP32 ya los implementa; solo falta el eslabón del servidor Node.js. ¿Querés que arranque por ahí?
+
+espera, primero elabora un plan para ejecutar todo paso a  paso ordenadamente.
+Voy a leer el firmware completo para tener el contexto total antes de planificar.
+
+Read c:\Users\Fabian\suswe\firmware\SU900_ESP32_Gateway\SU900_ESP32_Gateway.ino (lines 200-599)
+Read c:\Users\Fabian\suswe\firmware\SU900_ESP32_Gateway\SU900_ESP32_Gateway.ino (lines 599-698)
+Ahora tengo el panorama completo de todo el proyecto. Aquí el plan:
+
+Plan de implementación — paso a paso
+ETAPA 1 — Completar autenticación en el servidor Node.js
+Archivos afectados: server/index.js, .env
+Por qué primero: es el único bug funcional real que existe hoy — el panel de Seguridad de la UI ya está hecho y espera esos endpoints, pero el servidor Node.js no los tiene. Sin esto, usar la app en modo Node.js (puerto 3000) queda sin protección aunque el usuario configure credenciales.
+
+Pasos:
+
+Agregar estado de auth en memoria (username, password, enabled) cargado desde .env al arrancar
+Implementar GET /api/auth-status → devuelve { authEnabled, username }
+Implementar POST /api/auth-config → activa/desactiva auth y guarda credenciales en .env
+Agregar middleware Express que verifique el header Authorization: Basic ... en todas las rutas protegidas (igual que el firmware ESP32 ya hace)
+Verificar que el frontend maneje el 401 correctamente (ya lo hace con showAuthPrompt())
+ETAPA 2 — Bugs en el firmware ESP32 descubiertos al leer el .ino
+Archivos afectados: firmware/SU900_ESP32_Gateway/SU900_ESP32_Gateway.ino
+Por qué antes que OTA/AP: al revisar el firmware aparecen 4 bugs que afectan la operación básica actual, conviene resolverlos antes de agregar funcionalidades encima.
+
+Bugs encontrados en el .ino:
+
+Registros de monitoreo incorrectos — handleMonitor() lee 16 registros desde REG_STATUS = 0x3000, pero según el manual los registros U0 están en 0x1001~0x1020. El firmware usa un mapa de nombres y escalas hardcodeado que no coincide con los del backend Node.js ni con MONITOR_REGISTERS del frontend.
+
+handleStatus() mezcla registros de estado con U0 — lee 0x3000 (estado) + 3 registros contiguos (0x3001~0x3003) asumiendo que son frecuencia/corriente/tensión de salida. Pero 0x3001~0x3003 son parámetros P3 (boost de par, frecuencia boost, voltaje V/F), no variables de monitoreo. El monitoreo real está en 0x1001~0x1004.
+
+Valores de comandos incorrectos — CMD_RAMP_STOP = 0x0005, CMD_FREE_STOP = 0x0006 están invertidos respecto al manual (que dice: 5=paro libre, 6=desaceleración). Además CMD_JOG_FORWARD = 0x0007 y CMD_FAULT_RESET = 0x0409 no coinciden con el manual (JOG_FWD=3, JOG_REV=4, FREE_STOP=5, RAMP_STOP=6, FAULT_RESET=7).
+
+handleFaultHistory() usa direcciones incorrectas — lee desde REG_FAULT_H1 = 0xA000, pero el manual indica que el historial de fallas está en P9-14=0x900E, P9-15=0x900F, P9-16=0x9010.
+
+rawToReal() en el firmware es incompleta — solo tiene escalas para ~10 parámetros, ignora todo P2, P3, P4, P5, P6, Pd. Los valores escritos y leídos de esos grupos llegan sin conversión.
+
+handleDigitalOutputs() recibe bits como entero en vez de objeto — el backend Node.js y el frontend envían { bits: { DO1: bool, DO2: bool, ... } }, pero el firmware espera { bits: N } (entero directo).
+
+Auth endpoints sin prefijo /api/ — el firmware los registra como /auth-status y /auth-config, pero el frontend llama a /api/auth-status y /api/auth-config.
+
+ETAPA 3 — Modo AP WiFi para configuración inicial
+Archivos afectados: firmware/SU900_ESP32_Gateway/SU900_ESP32_Gateway.ino, suswe_su900_configurator.html
+Por qué antes que OTA: el modo AP es prerequisito para OTA — sin red configurada no hay WiFi y OTA no tiene sentido. Además elimina las credenciales hardcodeadas en el código.
+
+Pasos:
+
+Firmware — Al arrancar sin credenciales WiFi guardadas (o con botón de reset), levantar WiFi.softAP("SUSWE-Config", "suswe1234") con IP fija 192.168.4.1
+Firmware — Nuevo endpoint POST /api/wifi-config que recibe { ssid, password }, los guarda en NVS con Preferences, y reinicia el ESP32 en modo STA
+Firmware — Guardar/leer credenciales WiFi de NVS en vez de hardcodearlas
+HTML — Nuevo panel "⚙ Configuración WiFi" en la sección de Conexión con campos SSID + contraseña + botón Guardar y reiniciar
+HTML — Instrucción en la UI: "Conectate a la red SUSWE-Config y abrí esta página para configurar el WiFi"
+ETAPA 4 — OTA: actualización de firmware por WiFi
+Archivos afectados: firmware/SU900_ESP32_Gateway/SU900_ESP32_Gateway.ino, suswe_su900_configurator.html
+Dependencia: requiere Etapa 3 (modo AP funcional para poder actualizar en campo)
+
+Pasos:
+
+Firmware — Incluir <Update.h> y agregar endpoint POST /api/ota/upload que reciba un binario .bin via multipart/form-data y llame a Update.begin() / Update.write() / Update.end()
+Firmware — Agregar endpoint GET /api/ota/version que devuelva la versión actual hardcodeada como #define FIRMWARE_VERSION
+HTML — Nuevo panel "🔄 Firmware / OTA" con:
+Versión actual del firmware (lectura desde /api/ota/version)
+Selector de archivo .bin
+Barra de progreso durante la subida
+Estado: "Actualizando… / Reiniciando… / Listo"
+HTML — La subida debe ir directo al ESP32 (no pasar por Node.js) usando fetch() con FormData a http://<ESP32_IP>/api/ota/upload
+ETAPA 5 — Multi-variador en el mismo bus RS-485
+Archivos afectados: server/index.js, modules/device-controller.js, modules/modbus-rtu.js, modules/modbus-tcp.js, suswe_su900_configurator.html
+La más compleja — requiere refactor de backend y frontend
+
+Pasos:
+
+Backend — El slaveId / unitId pasa a ser un parámetro por request en vez de fijarse al conectar. DeviceController recibe el ID en cada llamada o se instancia uno por esclavo
+Backend — Nuevo endpoint GET /api/devices → lista de esclavos registrados; POST /api/devices → agregar esclavo; DELETE /api/devices/:id → eliminar
+Backend — Mutex de bus: una cola de requests para evitar colisiones en RS-485 (solo un maestro puede hablar a la vez)
+HTML — Selector de "variador activo" en la topbar (dropdown con los esclavos registrados)
+HTML — Cada esclavo tiene su propio values{} y perfil en memoria
+HTML — El monitor en tiempo real, los comandos y la lectura de parámetros deben incluir el deviceId activo en cada petición
+ETAPA 6 — Compatibilidad con otros variadores Modbus RTU
+La más ambiciosa — se trata como proyecto aparte dentro del mismo repo
+
+Pasos:
+
+Definir un schema JSON de perfil de dispositivo (grupos, parámetros, dirección, escala, rango, unidad, rw, opciones)
+Convertir el register-map.js actual en el primer perfil JSON (suswe-su900.json)
+Backend — device-controller.js carga el perfil dinámicamente en vez de importar register-map.js directamente
+HTML — Panel "Gestión de perfiles de dispositivo" con carga de archivo .json y validación del schema
+HTML — La UI de parámetros (tablas) se genera dinámicamente desde el perfil cargado, no desde GROUPS hardcodeado
+Backend — Soporte opcional para FC04 (input registers) además de FC03/FC06
+Resumen visual
+
+ETAPA 1  Auth Node.js          ░░░ Baja complejidad  — 1 archivo, ~60 líneas
+ETAPA 2  Bugs firmware ESP32   ░░░ Baja complejidad  — 1 archivo, correcciones puntuales
+ETAPA 3  Modo AP WiFi          ░░░ Media complejidad — firmware + pequeño panel HTML
+ETAPA 4  OTA firmware          ░░░ Media complejidad — firmware + panel HTML
+ETAPA 5  Multi-variador        ░░░ Alta complejidad  — refactor backend + frontend
+ETAPA 6  Compatibilidad genérica ░ Muy alta          — proyecto dentro del proyecto
+¿Arrancamos con la Etapa 1 o querés ajustar el orden antes de empezar?

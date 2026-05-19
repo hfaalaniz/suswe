@@ -8,14 +8,29 @@
  *  - Grupos A0~AF → dirección = 0xANmm (lectura RAM: 0x4Nmm)
  *  - Grupo U0     → dirección = 0x70mm (solo lectura)
  *  - Registros especiales fijos:
- *      0x1000~0x101F  Monitor en tiempo real
- *      0x2000         Comando de control (W)
- *      0x2001         Control salidas DO (W)
- *      0x2002~0x2004  Control AO1, AO2, FMP (W)
- *      0x3000         Estado de funcionamiento (R)
+ *      0x1000         Consigna de frecuencia por comunicación (W) — mismo espacio que P1
+ *      0x1001~0x101F  Monitor en tiempo real U0 — mismo espacio que P1
+ *      0x2000         Comando de control (W)    — mismo espacio que P2
+ *      0x2001         Control salidas DO (W)    — mismo espacio que P2
+ *      0x2002~0x2004  Control AO1, AO2, FMP (W)— mismo espacio que P2
+ *      0x3000         Estado de funcionamiento (R) — mismo espacio que P3
  *      0x8000         Código de falla activa (R)
  *      0x1F00         Contraseña usuario (W)
  *      0x1F01         Inicialización parámetros (W)
+ *
+ * ⚠ ADVERTENCIA DE COLISIÓN DE DIRECCIONES (confirmado por manual Cap.5):
+ *  Los grupos P1 (0x10xx), P2 (0x20xx) y P3 (0x30xx) comparten el espacio de
+ *  direcciones con registros de control/monitoreo de uso frecuente:
+ *    - P1-00 (0x1000) = misma dirección que FREQ_SETPOINT (consigna de frecuencia)
+ *    - P1-01..P1-37 (0x1001..0x1025) = mismas direcciones que U0 monitor en tiempo real
+ *    - P2-00 (0x2000) = misma dirección que COMMAND (comando de control)
+ *    - P2-01 (0x2001) = misma dirección que DO_CONTROL (salidas digitales)
+ *    - P3-00 (0x3000) = misma dirección que RUN_STATUS (estado de funcionamiento)
+ *  El manual distingue el contexto por el tipo de operación (FC03 lectura de parámetros
+ *  vs registros de estado/control), pero el hardware interpreta las lecturas/escrituras
+ *  según el contexto del frame Modbus. Por esto, los grupos P1, P2 y P3 SOLO deben
+ *  leerse/escribirse individualmente (parámetro por parámetro), NUNCA en lectura de
+ *  bloque contigua que atraviese los límites de esos grupos.
  *
  * Escalas: el valor crudo se multiplica por `scale` para obtener la magnitud real.
  * rw: true = lectura/escritura,  false = solo lectura

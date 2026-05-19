@@ -1,0 +1,84 @@
+FuncionalidadDónde se implementaComplejidadPrioridad sugerida
+📈 Historial / gráficasHTML (frontend solo)Media⭐ Primero — sin deps externas
+🔐 Autenticación HTTPBackend Node.jsBaja⭐ Fácil, alto valor
+🔄 OTA firmwareHTML + ESP32 firmwareMediaSegundo — UI lista, firmware aparte
+📡 Modo APHTML + ESP32 firmwareMediaJunto con OTA
+🔀 Multi-variador busHTML + BackendAltaRequiere refactor
+🔌 Compatibilidad genéricaHTML + Backend + schemaAltaProyecto aparte
+
+
+
+Análisis de implementación de las 6 funcionalidades
+Arquitectura actual del sistema
+El proyecto tiene dos capas separadas:
+
+Frontend → este .html que analizamos (corre en el navegador)
+Backend → un servidor Node.js/Express en localhost:3000/api + un ESP32 que actúa de pasarela WiFi→RS485
+
+Esto es clave porque todas las funcionalidades que pedís tocan el backend y/o el firmware del ESP32, no solo el HTML. A continuación el análisis por ítem:
+
+1. 🔄 OTA — Actualización de firmware por WiFi
+Complejidad: Media | Trabajo: Backend + Firmware ESP32
+Es perfectamente viable. El ESP32 soporta OTA nativamente con la librería ArduinoOTA o mediante Update.h con HTTP. La idea sería:
+
+El ESP32 expone un endpoint POST /api/ota/upload que acepta un binario .bin
+El frontend agrega un panel "Firmware" con un selector de archivo y una barra de progreso
+El backend Node.js actúa de proxy, o el HTML sube directamente al ESP32 via fetch() con FormData
+
+Lo que se puede hacer en el HTML ahora mismo: el panel de UI completo (selector de archivo, barra de progreso, versión actual). El endpoint OTA real requiere modificar el firmware del ESP32.
+
+2. 📈 Historial con gráfica de tendencia
+Complejidad: Media | Trabajo: Frontend (mayormente en el HTML)
+Esta es la más independiente: puede implementarse casi completamente en el HTML, sin tocar el backend.
+
+El monitor en tiempo real ya hace polling cada 500ms a /api/monitor — esos datos se pueden ir acumulando en un array en memoria (o localStorage para persistencia entre sesiones)
+Se agrega un panel "Tendencias" con gráficas de línea usando Chart.js (disponible en cdnjs, sin instalar nada)
+El usuario puede elegir qué variables graficar (frecuencia, corriente, tensión, par), el rango de tiempo y la resolución del muestreo
+
+Limitación: sin backend persistente los datos se pierden al cerrar el tab. Si se quiere historial largo habría que guardarlos en el servidor Node.js o exportar CSV.
+
+3. 🔀 Múltiples variadores en el mismo bus RS-485
+Complejidad: Alta | Trabajo: Backend + Frontend
+El protocolo Modbus RTU ya soporta hasta 247 esclavos en el mismo bus. Lo que hoy falta es que la app solo maneja un Unit ID fijo. Para implementarlo:
+
+El backend necesita aceptar el slaveId como parámetro en cada request (hoy está hardcodeado en la conexión)
+El frontend agrega un selector de "variador activo" en la topbar o sidebar
+Cada variador tendría su propio perfil de parámetros en memoria/localStorage
+Hay que gestionar el mutex del bus (no enviar a dos esclavos simultáneamente)
+
+La parte más compleja es que el monitor en tiempo real y los comandos de marcha deben saber siempre a qué esclavo apuntar. Requiere refactor del backend y del HTML.
+
+4. 🔐 Autenticación básica para el servidor HTTP
+Complejidad: Baja | Trabajo: Backend (Node.js)
+Es la más sencilla de implementar en el backend. En Express se agrega un middleware de HTTP Basic Auth en 5 líneas. En el HTML:
+
+Si el servidor devuelve 401 Unauthorized, el navegador muestra el diálogo nativo de usuario/contraseña (HTTP Basic Auth estándar)
+O se puede hacer un panel de login propio en el HTML que envíe las credenciales como header Authorization: Basic ... en cada apiFetch()
+
+Las credenciales se pueden configurar desde el mismo panel de Conexión del HTML y guardarse en localStorage (encriptadas o no, según el nivel de seguridad requerido).
+
+5. 📡 Modo Punto de Acceso (AP) para configuración inicial
+Complejidad: Media | Trabajo: Firmware ESP32 + Frontend
+El ESP32 soporta modo AP nativamente (WiFi.softAP()). El flujo sería:
+
+Sin red WiFi configurada, el ESP32 levanta una red SUSWE-Config con IP fija 192.168.4.1
+El usuario conecta su celular/PC a esa red y abre 192.168.4.1 en el navegador
+Un panel de "Configuración inicial" en el HTML permite ingresar SSID + contraseña y guardarlos en la EEPROM del ESP32
+El ESP32 se reinicia en modo STA (cliente) y se conecta a la red configurada
+
+En el HTML se puede agregar el panel de configuración WiFi ya mismo. La lógica de conmutación AP↔STA requiere modificar el firmware.
+
+6. 🔌 Compatibilidad con otros variadores Modbus RTU
+Complejidad: Alta | Trabajo: Backend + Frontend
+Esta es la más ambiciosa. Hoy el GROUPS y el REGISTER_MAP están hardcodeados para el SU900. Para soporte genérico:
+
+Se necesita un sistema de perfiles de dispositivo (archivos JSON con el mapa de registros de cada variador)
+El frontend cargaría un perfil desde un archivo .json que define los grupos, parámetros, rangos y direcciones
+El backend usaría ese mapa dinámico para construir las peticiones Modbus
+Se puede empezar con un editor visual de mapas de registros dentro del HTML
+
+El mayor riesgo es la diversidad de variadores: algunos usan FC03/06, otros FC04/10, con distintos escalados y convenciones. Hay que definir un schema de perfil lo suficientemente flexible.
+
+Resumen de viabilidad
+FuncionalidadDónde se implementaComplejidadPrioridad sugerida📈 Historial / gráficasHTML (frontend solo)Media⭐ Primero — sin deps externas🔐 Autenticación HTTPBackend Node.jsBaja⭐ Fácil, alto valor🔄 OTA firmwareHTML + ESP32 firmwareMediaSegundo — UI lista, firmware aparte📡 Modo APHTML + ESP32 firmwareMediaJunto con OTA🔀 Multi-variador busHTML + BackendAltaRequiere refactor🔌 Compatibilidad genéricaHTML + Backend + schemaAltaProyecto aparte
+Mi recomendación: empezar por el historial con gráficas (se puede hacer hoy, solo en el HTML, con Chart.js) y la autenticación (mínima fricción, máximo valor de seguridad). ¿Querés que arranque con alguno de estos?

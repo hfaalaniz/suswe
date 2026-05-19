@@ -1,0 +1,236 @@
+{
+  "$schema": "suswe-device-profile/v1",
+  "id": "suswe-su900",
+  "name": "SUSWE SU800/SU900",
+  "description": "Variador de frecuencia vectorial SUSWE serie SU800/SU900. Protocolo Modbus RTU/TCP, FC 0x03/0x06.",
+  "manufacturer": "SUSWE",
+  "models": ["SU800", "SU900"],
+  "version": "1.0.0",
+
+  "modbus": {
+    "defaultBaudRate": 9600,
+    "defaultParity": "none",
+    "defaultDataBits": 8,
+    "defaultStopBits": 2,
+    "defaultSlaveId": 1,
+    "readFC": 3,
+    "writeFC": 6,
+    "maxBlockRead": 12
+  },
+
+  "controlRegisters": {
+    "freqSetpoint": { "addr": "0x1000", "note": "Consigna de frecuencia por comunicación. Rango: -10000~10000 = -100.00%~100.00% de frec. máxima." },
+    "command":      { "addr": "0x2000", "note": "Comando de marcha/paro." },
+    "doControl":    { "addr": "0x2001", "note": "Control salidas digitales DO." },
+    "ao1Control":   { "addr": "0x2002", "note": "Control AO1. 0~0x7FFF = 0~100%." },
+    "ao2Control":   { "addr": "0x2003", "note": "Control AO2." },
+    "fmpControl":   { "addr": "0x2004", "note": "Control FMP (pulso)." },
+    "runStatus":    { "addr": "0x3000", "note": "Estado de funcionamiento. bit0=FWD, bit1=REV." },
+    "faultCode":    { "addr": "0x8000", "note": "Código de falla activa. 0=sin falla." }
+  },
+
+  "commandValues": {
+    "RUN_FORWARD": 1,
+    "RUN_REVERSE": 2,
+    "JOG_FORWARD": 3,
+    "JOG_REVERSE": 4,
+    "FREE_STOP":   5,
+    "RAMP_STOP":   6,
+    "FAULT_RESET": 7
+  },
+
+  "monitorBlock": {
+    "startAddr": "0x1001",
+    "count": 32,
+    "registers": [
+      { "code": "U0-00", "offset": 0,  "name": "Frecuencia de salida",         "scale": 0.01, "unit": "Hz"  },
+      { "code": "U0-01", "offset": 1,  "name": "Tensión bus DC",               "scale": 1,    "unit": "V"   },
+      { "code": "U0-02", "offset": 2,  "name": "Tensión de salida",            "scale": 1,    "unit": "V"   },
+      { "code": "U0-03", "offset": 3,  "name": "Corriente de salida",          "scale": 0.1,  "unit": "A"   },
+      { "code": "U0-04", "offset": 4,  "name": "Potencia de salida",           "scale": 0.1,  "unit": "kW"  },
+      { "code": "U0-05", "offset": 5,  "name": "Par de salida",                "scale": 0.1,  "unit": "%"   },
+      { "code": "U0-06", "offset": 6,  "name": "Velocidad de funcionamiento",  "scale": 1,    "unit": "rpm" },
+      { "code": "U0-07", "offset": 7,  "name": "Estado entradas digitales DI", "scale": 1,    "unit": ""    },
+      { "code": "U0-08", "offset": 8,  "name": "Estado salidas digitales DO",  "scale": 1,    "unit": ""    },
+      { "code": "U0-09", "offset": 9,  "name": "Voltaje AI1",                  "scale": 0.01, "unit": "V"   },
+      { "code": "U0-10", "offset": 10, "name": "Voltaje AI2",                  "scale": 0.01, "unit": "V"   },
+      { "code": "U0-11", "offset": 11, "name": "Voltaje AI3",                  "scale": 0.01, "unit": "V"   },
+      { "code": "U0-16", "offset": 15, "name": "Consigna PID",                 "scale": 0.01, "unit": "%"   },
+      { "code": "U0-17", "offset": 16, "name": "Retroalimentación PID",        "scale": 0.01, "unit": "%"   },
+      { "code": "U0-19", "offset": 26, "name": "Velocidad real motor",         "scale": 1,    "unit": "rpm" },
+      { "code": "U0-31", "offset": 31, "name": "Frecuencia auxiliar Y",        "scale": 0.01, "unit": "Hz"  }
+    ]
+  },
+
+  "faultHistoryAddrs": ["0x900E", "0x900F", "0x9010"],
+
+  "faultMap": {
+    "0x0001": { "name": "Reservado",                            "severity": "low"  },
+    "0x0002": { "name": "Sobrecorriente en aceleración",        "severity": "high" },
+    "0x0003": { "name": "Sobrecorriente en desaceleración",     "severity": "high" },
+    "0x0004": { "name": "Sobrecorriente a velocidad constante", "severity": "high" },
+    "0x0005": { "name": "Sobretensión en aceleración",          "severity": "high" },
+    "0x0006": { "name": "Sobretensión en desaceleración",       "severity": "high" },
+    "0x0007": { "name": "Sobretensión a velocidad constante",   "severity": "high" },
+    "0x0008": { "name": "Error sobrecarga buffer",              "severity": "med"  },
+    "0x0009": { "name": "Sin tensión (bajo voltaje)",           "severity": "med"  },
+    "0x000A": { "name": "Sobrecalentamiento inverter",          "severity": "high" },
+    "0x000B": { "name": "Sobrecarga motor",                     "severity": "med"  },
+    "0x000C": { "name": "Falta de fase en entrada",             "severity": "high" },
+    "0x000D": { "name": "Falta de fase en salida",              "severity": "high" },
+    "0x000E": { "name": "Sobrecalentamiento módulo",            "severity": "high" },
+    "0x000F": { "name": "Falla externa",                        "severity": "med"  },
+    "0x0010": { "name": "Anomalía de comunicación",             "severity": "med"  },
+    "0x0011": { "name": "Contactor anormal",                    "severity": "med"  },
+    "0x0012": { "name": "Falla detección de corriente",         "severity": "high" },
+    "0x0013": { "name": "Falla sintonización motor",            "severity": "med"  },
+    "0x0015": { "name": "Anomalía lectura/escritura EEPROM",    "severity": "med"  },
+    "0x0016": { "name": "Falla hardware convertidor",           "severity": "high" },
+    "0x0017": { "name": "Cortocircuito motor a tierra",         "severity": "high" },
+    "0x001A": { "name": "Error en tiempo de ejecución",         "severity": "med"  },
+    "0x001B": { "name": "Error definido por usuario 1",         "severity": "med"  },
+    "0x001C": { "name": "Error definido por usuario 2",         "severity": "med"  },
+    "0x001D": { "name": "Tiempo de encendido alcanzado",        "severity": "low"  },
+    "0x001F": { "name": "PID sin retroalimentación (timeout)",  "severity": "med"  },
+    "0x0028": { "name": "Límite de corriente rápida (timeout)", "severity": "high" },
+    "0x0029": { "name": "Falla motor en conmutación",           "severity": "med"  },
+    "0x002A": { "name": "Desviación de velocidad excesiva",     "severity": "med"  },
+    "0x002B": { "name": "Motor acelerando anormalmente",        "severity": "med"  }
+  },
+
+  "groups": [
+    {
+      "id": "P0", "name": "Operativos básicos",
+      "params": [
+        { "code": "P0-00", "addr": "0x0000", "name": "Tipo G/P",                      "scale": 1,    "unit": "",    "min": 1,    "max": 2,     "def": 1,    "rw": true  },
+        { "code": "P0-01", "addr": "0x0001", "name": "Modo de control",               "scale": 1,    "unit": "",    "min": 0,    "max": 2,     "def": 2,    "rw": true  },
+        { "code": "P0-02", "addr": "0x0002", "name": "Fuente de comando",             "scale": 1,    "unit": "",    "min": 0,    "max": 2,     "def": 0,    "rw": true  },
+        { "code": "P0-03", "addr": "0x0003", "name": "Fuente frecuencia principal X", "scale": 1,    "unit": "",    "min": 0,    "max": 9,     "def": 0,    "rw": true  },
+        { "code": "P0-04", "addr": "0x0004", "name": "Fuente frecuencia auxiliar Y",  "scale": 1,    "unit": "",    "min": 0,    "max": 9,     "def": 0,    "rw": true  },
+        { "code": "P0-06", "addr": "0x0006", "name": "Rango cobertura frec. Y",       "scale": 0.1,  "unit": "%",   "min": 0,    "max": 150,   "def": 100,  "rw": true  },
+        { "code": "P0-07", "addr": "0x0007", "name": "Dirección de giro",             "scale": 1,    "unit": "",    "min": 0,    "max": 1,     "def": 0,    "rw": true  },
+        { "code": "P0-08", "addr": "0x0008", "name": "Frecuencia predeterminada",     "scale": 0.01, "unit": "Hz",  "min": 0,    "max": 32000, "def": 5000, "rw": true  },
+        { "code": "P0-10", "addr": "0x000A", "name": "Frecuencia máxima",             "scale": 0.01, "unit": "Hz",  "min": 5000, "max": 32000, "def": 5000, "rw": true  },
+        { "code": "P0-11", "addr": "0x000B", "name": "Fuente frec. límite superior",  "scale": 1,    "unit": "",    "min": 0,    "max": 5,     "def": 0,    "rw": true  },
+        { "code": "P0-12", "addr": "0x000C", "name": "Frecuencia límite superior",    "scale": 0.01, "unit": "Hz",  "min": 0,    "max": 32000, "def": 5000, "rw": true  },
+        { "code": "P0-14", "addr": "0x000E", "name": "Frecuencia límite inferior",    "scale": 0.01, "unit": "Hz",  "min": 0,    "max": 32000, "def": 0,    "rw": true  },
+        { "code": "P0-15", "addr": "0x000F", "name": "Frecuencia portadora",          "scale": 0.1,  "unit": "kHz", "min": 5,    "max": 160,   "def": 60,   "rw": true  },
+        { "code": "P0-17", "addr": "0x0011", "name": "Tiempo de aceleración 1",       "scale": 0.1,  "unit": "s",   "min": 0,    "max": 65000, "def": 100,  "rw": true  },
+        { "code": "P0-18", "addr": "0x0012", "name": "Tiempo de desaceleración 1",    "scale": 0.1,  "unit": "s",   "min": 0,    "max": 65000, "def": 100,  "rw": true  },
+        { "code": "P0-19", "addr": "0x0013", "name": "Unidad de tiempo Acl/Dcl",      "scale": 1,    "unit": "",    "min": 0,    "max": 2,     "def": 1,    "rw": true  },
+        { "code": "P0-22", "addr": "0x0016", "name": "Resolución de frecuencia",      "scale": 1,    "unit": "",    "min": 0,    "max": 2,     "def": 1,    "rw": true  },
+        { "code": "P0-25", "addr": "0x0019", "name": "Frec. referencia Acl/Dcl",      "scale": 1,    "unit": "",    "min": 0,    "max": 1,     "def": 0,    "rw": true  },
+        { "code": "P0-29", "addr": "0x001D", "name": "Macro de aplicación",           "scale": 1,    "unit": "",    "min": 0,    "max": 65535, "def": 0,    "rw": true  }
+      ]
+    },
+    {
+      "id": "P1", "name": "Parámetros del motor",
+      "params": [
+        { "code": "P1-00", "addr": "0x1000", "name": "Tipo de motor",               "scale": 1,    "unit": "",    "min": 0,    "max": 2,     "def": 0,    "rw": false },
+        { "code": "P1-01", "addr": "0x1001", "name": "Potencia nominal",            "scale": 0.1,  "unit": "kW",  "min": 1,    "max": 10000, "def": 300,  "rw": true  },
+        { "code": "P1-02", "addr": "0x1002", "name": "Tensión nominal",             "scale": 1,    "unit": "V",   "min": 1,    "max": 380,   "def": 380,  "rw": true  },
+        { "code": "P1-03", "addr": "0x1003", "name": "Corriente nominal",           "scale": 0.01, "unit": "A",   "min": 1,    "max": 10000, "def": 5800, "rw": true  },
+        { "code": "P1-04", "addr": "0x1004", "name": "Frecuencia nominal",          "scale": 0.01, "unit": "Hz",  "min": 1,    "max": 32000, "def": 5000, "rw": true  },
+        { "code": "P1-05", "addr": "0x1005", "name": "Velocidad nominal",           "scale": 1,    "unit": "rpm", "min": 1,    "max": 65535, "def": 1470, "rw": true  },
+        { "code": "P1-06", "addr": "0x1006", "name": "Factor de potencia nominal",  "scale": 0.001,"unit": "",    "min": 500,  "max": 1000,  "def": 850,  "rw": true  },
+        { "code": "P1-07", "addr": "0x1007", "name": "Corriente de descarga motor", "scale": 0.01, "unit": "A",   "min": 1,    "max": 10000, "def": 4000, "rw": true  },
+        { "code": "P1-37", "addr": "0x1025", "name": "Selección de ajuste motor",   "scale": 1,    "unit": "",    "min": 0,    "max": 3,     "def": 0,    "rw": true  }
+      ]
+    },
+    {
+      "id": "P2", "name": "Control vectorial",
+      "params": [
+        { "code": "P2-00", "addr": "0x2000", "name": "Ganancia KP1 anillo velocidad", "scale": 1,    "unit": "",   "min": 1,   "max": 100,   "def": 30,   "rw": true },
+        { "code": "P2-01", "addr": "0x2001", "name": "Tiempo integral KI1",           "scale": 0.001,"unit": "s",  "min": 10,  "max": 10000, "def": 500,  "rw": true },
+        { "code": "P2-02", "addr": "0x2002", "name": "Frecuencia cambio ganancia 1",  "scale": 0.01, "unit": "Hz", "min": 0,   "max": 32000, "def": 500,  "rw": true },
+        { "code": "P2-03", "addr": "0x2003", "name": "Ganancia KP2 anillo velocidad", "scale": 1,    "unit": "",   "min": 1,   "max": 100,   "def": 20,   "rw": true },
+        { "code": "P2-04", "addr": "0x2004", "name": "Tiempo integral KI2",           "scale": 0.001,"unit": "s",  "min": 10,  "max": 10000, "def": 1000, "rw": true },
+        { "code": "P2-05", "addr": "0x2005", "name": "Frecuencia cambio ganancia 2",  "scale": 0.01, "unit": "Hz", "min": 0,   "max": 32000, "def": 1000, "rw": true },
+        { "code": "P2-06", "addr": "0x2006", "name": "Ganancia diferencial velocidad","scale": 1,    "unit": "%",  "min": 50,  "max": 200,   "def": 100,  "rw": true },
+        { "code": "P2-07", "addr": "0x2007", "name": "Constante filtro bucle veloc.", "scale": 0.001,"unit": "s",  "min": 0,   "max": 100,   "def": 0,    "rw": true },
+        { "code": "P2-09", "addr": "0x2009", "name": "Fuente límite superior de par", "scale": 1,    "unit": "",   "min": 0,   "max": 7,     "def": 0,    "rw": true },
+        { "code": "P2-10", "addr": "0x200A", "name": "Límite superior de par",        "scale": 0.1,  "unit": "%",  "min": 0,   "max": 2000,  "def": 1500, "rw": true }
+      ]
+    },
+    {
+      "id": "P3", "name": "Control V/F",
+      "params": [
+        { "code": "P3-00", "addr": "0x3000", "name": "Modo curva V/F",               "scale": 1,    "unit": "",    "min": 0, "max": 1,     "def": 0,    "rw": true },
+        { "code": "P3-01", "addr": "0x3001", "name": "Boost de par",                 "scale": 0.1,  "unit": "%",   "min": 0, "max": 300,   "def": 50,   "rw": true },
+        { "code": "P3-02", "addr": "0x3002", "name": "Frecuencia boost de par",      "scale": 0.01, "unit": "Hz",  "min": 0, "max": 32000, "def": 500,  "rw": true },
+        { "code": "P3-03", "addr": "0x3003", "name": "Voltaje punto V/F 1",          "scale": 0.1,  "unit": "V",   "min": 0, "max": 3800,  "def": 0,    "rw": true },
+        { "code": "P3-04", "addr": "0x3004", "name": "Frecuencia punto V/F 1",       "scale": 0.01, "unit": "Hz",  "min": 0, "max": 32000, "def": 0,    "rw": true },
+        { "code": "P3-05", "addr": "0x3005", "name": "Voltaje punto V/F 2",          "scale": 0.1,  "unit": "V",   "min": 0, "max": 3800,  "def": 0,    "rw": true },
+        { "code": "P3-06", "addr": "0x3006", "name": "Frecuencia punto V/F 2",       "scale": 0.01, "unit": "Hz",  "min": 0, "max": 32000, "def": 2500, "rw": true },
+        { "code": "P3-07", "addr": "0x3007", "name": "Voltaje punto V/F 3 (máx)",    "scale": 0.1,  "unit": "V",   "min": 0, "max": 3800,  "def": 3800, "rw": true },
+        { "code": "P3-08", "addr": "0x3008", "name": "Frecuencia punto V/F 3 (máx)", "scale": 0.01, "unit": "Hz",  "min": 0, "max": 32000, "def": 5000, "rw": true },
+        { "code": "P3-10", "addr": "0x300A", "name": "Compensación deslizamiento",   "scale": 0.1,  "unit": "%",   "min": 0, "max": 2000,  "def": 1000, "rw": true }
+      ]
+    },
+    {
+      "id": "P4", "name": "Terminales de entrada",
+      "params": [
+        { "code": "P4-00", "addr": "0x4000", "name": "Función terminal X1",           "scale": 1,    "unit": "", "min": 0,    "max": 50,    "def": 1,    "rw": true },
+        { "code": "P4-01", "addr": "0x4001", "name": "Función terminal X2",           "scale": 1,    "unit": "", "min": 0,    "max": 50,    "def": 2,    "rw": true },
+        { "code": "P4-02", "addr": "0x4002", "name": "Función terminal X3",           "scale": 1,    "unit": "", "min": 0,    "max": 50,    "def": 9,    "rw": true },
+        { "code": "P4-03", "addr": "0x4003", "name": "Función terminal X4",           "scale": 1,    "unit": "", "min": 0,    "max": 50,    "def": 0,    "rw": true },
+        { "code": "P4-04", "addr": "0x4004", "name": "Función terminal HDI (X5)",     "scale": 1,    "unit": "", "min": 0,    "max": 50,    "def": 0,    "rw": true },
+        { "code": "P4-09", "addr": "0x4009", "name": "Tiempo filtro terminales X",    "scale": 0.001,"unit": "s","min": 0,    "max": 1000,  "def": 10,   "rw": true },
+        { "code": "P4-10", "addr": "0x400A", "name": "Modo comando terminal",         "scale": 1,    "unit": "", "min": 0,    "max": 3,     "def": 0,    "rw": true },
+        { "code": "P4-11", "addr": "0x400B", "name": "Tasa cambio UP/DOWN",           "scale": 0.001,"unit": "Hz/s","min": 1, "max": 65535, "def": 1000, "rw": true },
+        { "code": "P4-13", "addr": "0x400D", "name": "Voltaje mín. AI1",              "scale": 0.01, "unit": "V","min": 0,    "max": 1000,  "def": 0,    "rw": true },
+        { "code": "P4-14", "addr": "0x400E", "name": "Config. mín. AI1",              "scale": 0.1,  "unit": "%","min": -1000,"max": 1000,  "def": 0,    "rw": true },
+        { "code": "P4-15", "addr": "0x400F", "name": "Voltaje máx. AI1",              "scale": 0.01, "unit": "V","min": 0,    "max": 1000,  "def": 1000, "rw": true },
+        { "code": "P4-16", "addr": "0x4010", "name": "Config. máx. AI1",              "scale": 0.1,  "unit": "%","min": -1000,"max": 1000,  "def": 1000, "rw": true },
+        { "code": "P4-17", "addr": "0x4011", "name": "Tiempo filtro AI1",             "scale": 0.01, "unit": "s","min": 0,    "max": 1000,  "def": 10,   "rw": true },
+        { "code": "P4-38", "addr": "0x4026", "name": "Modo válido terminales X",      "scale": 1,    "unit": "", "min": 0,    "max": 1,     "def": 0,    "rw": true }
+      ]
+    },
+    {
+      "id": "P5", "name": "Terminales de salida",
+      "params": [
+        { "code": "P5-00", "addr": "0x5000", "name": "Función salida DO1",           "scale": 1,   "unit": "",  "min": 0, "max": 40,    "def": 1,    "rw": true },
+        { "code": "P5-01", "addr": "0x5001", "name": "Función salida DO2",           "scale": 1,   "unit": "",  "min": 0, "max": 40,    "def": 5,    "rw": true },
+        { "code": "P5-02", "addr": "0x5002", "name": "Función salida DO3",           "scale": 1,   "unit": "",  "min": 0, "max": 40,    "def": 0,    "rw": true },
+        { "code": "P5-03", "addr": "0x5003", "name": "Función Relé 1 (TA-TC)",       "scale": 1,   "unit": "",  "min": 0, "max": 40,    "def": 5,    "rw": true },
+        { "code": "P5-04", "addr": "0x5004", "name": "Función Relé 2 (TB-TC)",       "scale": 1,   "unit": "",  "min": 0, "max": 40,    "def": 0,    "rw": true },
+        { "code": "P5-07", "addr": "0x5007", "name": "Función salida AO1 (0-10V)",   "scale": 1,   "unit": "",  "min": 0, "max": 15,    "def": 0,    "rw": true },
+        { "code": "P5-08", "addr": "0x5008", "name": "Función salida AO2 (0-20mA)",  "scale": 1,   "unit": "",  "min": 0, "max": 15,    "def": 1,    "rw": true },
+        { "code": "P5-09", "addr": "0x5009", "name": "Función salida FMP (pulso)",   "scale": 1,   "unit": "",  "min": 0, "max": 15,    "def": 0,    "rw": true },
+        { "code": "P5-10", "addr": "0x500A", "name": "Salida AO1 mín. (%)",          "scale": 0.1, "unit": "%", "min": 0, "max": 1000,  "def": 0,    "rw": true },
+        { "code": "P5-11", "addr": "0x500B", "name": "Salida AO1 máx. (%)",          "scale": 0.1, "unit": "%", "min": 0, "max": 1000,  "def": 1000, "rw": true },
+        { "code": "P5-18", "addr": "0x5012", "name": "Umbral detección frec.",        "scale": 0.01,"unit": "Hz","min": 0, "max": 32000, "def": 5000, "rw": true },
+        { "code": "P5-19", "addr": "0x5013", "name": "Histéresis detección frec.",    "scale": 0.01,"unit": "Hz","min": 0, "max": 32000, "def": 100,  "rw": true }
+      ]
+    },
+    {
+      "id": "P6", "name": "Arranque y parada",
+      "params": [
+        { "code": "P6-00", "addr": "0x6000", "name": "Modo de arranque",              "scale": 1,   "unit": "",   "min": 0, "max": 2,     "def": 0,    "rw": true },
+        { "code": "P6-01", "addr": "0x6001", "name": "Frecuencia de arranque",        "scale": 0.01,"unit": "Hz", "min": 0, "max": 32000, "def": 0,    "rw": true },
+        { "code": "P6-02", "addr": "0x6002", "name": "Tiempo hold frec. arranque",    "scale": 0.01,"unit": "s",  "min": 0, "max": 10000, "def": 0,    "rw": true },
+        { "code": "P6-03", "addr": "0x6003", "name": "Tiempo freno DC al arranque",   "scale": 0.1, "unit": "s",  "min": 0, "max": 1000,  "def": 0,    "rw": true },
+        { "code": "P6-04", "addr": "0x6004", "name": "Corriente freno DC arranque",   "scale": 0.1, "unit": "%",  "min": 0, "max": 1000,  "def": 0,    "rw": true },
+        { "code": "P6-05", "addr": "0x6005", "name": "Modo de parada",                "scale": 1,   "unit": "",   "min": 0, "max": 1,     "def": 0,    "rw": true },
+        { "code": "P6-07", "addr": "0x6007", "name": "Frec. inicio freno DC parada",  "scale": 0.01,"unit": "Hz", "min": 0, "max": 32000, "def": 0,    "rw": true },
+        { "code": "P6-08", "addr": "0x6008", "name": "Tiempo espera freno DC parada", "scale": 0.1, "unit": "s",  "min": 0, "max": 1000,  "def": 0,    "rw": true },
+        { "code": "P6-09", "addr": "0x6009", "name": "Corriente freno DC parada",     "scale": 0.1, "unit": "%",  "min": 0, "max": 1000,  "def": 0,    "rw": true },
+        { "code": "P6-10", "addr": "0x600A", "name": "Tiempo freno DC parada",        "scale": 0.1, "unit": "s",  "min": 0, "max": 1000,  "def": 0,    "rw": true },
+        { "code": "P6-11", "addr": "0x600B", "name": "Frec. arranque marcha en giro", "scale": 0.01,"unit": "Hz", "min": 0, "max": 32000, "def": 0,    "rw": true },
+        { "code": "P6-12", "addr": "0x600C", "name": "Corriente parada marcha giro",  "scale": 0.1, "unit": "%",  "min": 0, "max": 2000,  "def": 1000, "rw": true }
+      ]
+    },
+    {
+      "id": "PD", "name": "Comunicación Modbus",
+      "params": [
+        { "code": "Pd-00", "addr": "0xD000", "name": "Velocidad en baudios",         "scale": 1,   "unit": "",   "min": 0, "max": 9,   "def": 5, "rw": true },
+        { "code": "Pd-01", "addr": "0xD001", "name": "Formato de datos",             "scale": 1,   "unit": "",   "min": 0, "max": 3,   "def": 0, "rw": true },
+        { "code": "Pd-02", "addr": "0xD002", "name": "Dirección esclavo",            "scale": 1,   "unit": "",   "min": 0, "max": 247, "def": 1, "rw": true },
+        { "code": "Pd-03", "addr": "0xD003", "name": "Retraso de respuesta",         "scale": 1,   "unit": "ms", "min": 0, "max": 20,  "def": 2, "rw": true },
+        { "code": "Pd-04", "addr": "0xD004", "name": "Timeout de comunicación",      "scale": 0.1, "unit": "s",  "min": 0, "max": 600, "def": 0, "rw": true },
+        { "code": "Pd-05", "addr": "0xD005", "name": "Selección protocolo Modbus",   "scale": 1,   "unit": "",   "min": 0, "max": 1,   "def": 1, "rw": true },
+        { "code": "Pd-06", "addr": "0xD006", "name": "Resolución lectura corriente", "scale": 1,   "unit": "",   "min": 0, "max": 1,   "def": 0, "rw": true }
+      ]
+    }
+  ]
+}
